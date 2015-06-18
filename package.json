@@ -13,6 +13,7 @@
     "gulp-debug": "^2.0.1",
     "gulp-less": "^3.0.3",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-rimraf": "^0.1.1",
     "gulp-simple-task-loader": "^1.0.38",
     "verb-cli": "^0.7.2"
   },
