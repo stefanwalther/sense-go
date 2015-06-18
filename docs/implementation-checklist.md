@@ -1,4 +1,4 @@
 **Less**
-[x] Implementation
-[x] Test
-[ ] Documentation
+- [x] Implementation
+- [x] Test
+- [ ] Documentation

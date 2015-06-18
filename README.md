@@ -1,6 +1,6 @@
 # sense-go
 
-> Library to easily handle deployment & packaging of Qlik Sense Visualization Extensions.
+> Library to easily handle validation, deployment, packaging and testing of Qlik Sense Visualization Extensions.
 
 **Note: This library is in development and not ready to use, yet**
 
@@ -39,9 +39,9 @@ Transpile Less files to CSS.
 
 **Less**
 
-[x] Implementation
-[x] Test
-[ ] Documentation
++ [x] Implementation
++ [x] Test
++ [ ] Documentation
 
 ## Author
 
