@@ -1,0 +1,40 @@
+{
+  "name": "sense-go",
+  "version": "0.1.0",
+  "description": "Library to easily handle validation, deployment, packaging and testing of Qlik Sense Visualization Extensions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.0.1",
+    "gulp-less": "^3.0.3",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-simple-task-loader": "^1.0.38",
+    "verb-cli": "^0.7.2"
+  },
+  "devDependencies": {
+    "chai-fs": "stefanwalther/chai-fs",
+    "mocha": "*",
+    "should": "*",
+    "verb": "verbose/verb"
+  },
+  "homepage": "https://github.com/stefanwalther/sense-deploy",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stefanwalther/sense-deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stefanwalther/sense-deploy/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": []
+}
