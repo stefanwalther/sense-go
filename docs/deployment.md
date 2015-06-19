@@ -10,6 +10,10 @@ Transpile Less files to CSS.
   - src - source mask
   - dest - destination
   - cwd - Current working directory
+  
+**Example:**
+
+
 
 ### Clean local local deployment directory
 
@@ -33,7 +37,7 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
 Compress files.
 
 **Options:**
-- zip
+- compress
   - src
   - dest
   - format
@@ -43,6 +47,8 @@ Compress files.
 Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
 
 ### Uglify
+(TBC)
 
 ### Minify
+(TBC)
 

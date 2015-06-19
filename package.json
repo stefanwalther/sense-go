@@ -11,15 +11,21 @@
   "dependencies": {
     "gulp": "^3.9.0",
     "gulp-debug": "^2.0.1",
+    "gulp-filelist": "^0.2.0",
     "gulp-less": "^3.0.3",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-replace": "^0.5.3",
     "gulp-rimraf": "^0.1.1",
     "gulp-simple-task-loader": "^1.0.38",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4",
     "verb-cli": "^0.7.2"
   },
   "devDependencies": {
     "chai-fs": "stefanwalther/chai-fs",
     "mocha": "*",
+    "rimraf": "^2.4.0",
     "should": "*",
     "verb": "verbose/verb"
   },
