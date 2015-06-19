@@ -5,6 +5,7 @@ Main purpose of this library is to provide a framework to easily
 * deploy and 
 * test
 
-**Visualization Visualization** for Qlik Sense.
+**Visualization Extensions** created for Qlik Sense.
 
-The implementation is a based on the functionality in the [Yeoman Generator for Visualization Extensions](https://github.com/stefanwalther/generator-qsExtension) and this library will also replace the deployment part of [generator-qsextension](https://github.com/stefanwalther/generator-qsExtension)
+The implementation is a based on the functionality in the [Yeoman Generator for Visualization Extensions](https://github.com/stefanwalther/generator-qsExtension).
+Technically sense-go is using a set of configurable gulp-plugins.
