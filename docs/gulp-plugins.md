@@ -1,30 +1,40 @@
-sense-go is heavily relying on gulp plugins.
-The following plugins are used.
+sense-go is heavily relying on gulp plugins. A big thanky you to the authors of these plugins!!
 
 ### General
 
 {%= related([
-	'gulp-less',
-	'gulp-csslint', 
 	'gulp-concat', 
-	'gulp-debug'	
+	'gulp-csslint', 
+	'gulp-debug',
+	'gulp-load-plugins',
+	'gulp-replace',
+	'gulp-rimraf',
+	'gulp-simple-task-loader',
+	'gulp-watch',
+	'gulp-less'
 ]) %}
 
 ### Validation
 
 {%= related([
+	'gulp-csslint',
 	'gulp-htmllint',
-	'gulp-jsonlint']
-) %}
+	'gulp-jsonlint'
+]) %}
 
 ### Packaging
 
-{%= related(['gulp-zip','gulp-uglify', 'gulp-htmlmin']) %}
+{%= related([
+	'gulp-zip',
+	'gulp-uglify', 
+	'gulp-htmlmin'
+	]) %}
 
 ### Testing
 
-{%= related(['gulp-mocha']) %}
+{%= related([
+	'gulp-mocha'
+]) %}
 
 
 
-Thx to the authors of these plugins.

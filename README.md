@@ -102,18 +102,23 @@ Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
 
 ## Plugins used
 
-sense-go is heavily relying on gulp plugins.
-The following plugins are used.
+sense-go is heavily relying on gulp plugins. A big thanky you to the authors of these plugins!!
 
 ### General
 
-+ [gulp-less](https://github.com/plus3network/gulp-less): Less for Gulp
-+ [gulp-csslint](https://github.com/lazd/gulp-csslint): CSSLint plugin for gulp
 + [gulp-concat](https://github.com/wearefractal/gulp-concat): Concatenates files
++ [gulp-csslint](https://github.com/lazd/gulp-csslint): CSSLint plugin for gulp
 + [gulp-debug](https://github.com/sindresorhus/gulp-debug): Debug vinyl file streams to see what files are run through your gulp pipeline
++ [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins): Automatically load any gulp plugins in your package.json
++ [gulp-replace](https://github.com/lazd/gulp-replace): A string replace plugin for gulp
++ [gulp-rimraf](https://github.com/robrich/gulp-rimraf): rimraf plugin for gulp
++ [gulp-simple-task-loader](https://github.com/reaganthomas/gulp-simple-task-loader): A simple task loader for gulp
++ [gulp-watch](https://github.com/floatdrop/gulp-watch): Watch, that actually is an endless stream
++ [gulp-less](https://github.com/plus3network/gulp-less): Less for Gulp
 
 ### Validation
 
++ [gulp-csslint](https://github.com/lazd/gulp-csslint): CSSLint plugin for gulp
 + [gulp-htmllint](https://github.com/yvanavermaet/gulp-htmllint): Check HTML code style with htmllint
 + [gulp-jsonlint](https://github.com/rogeriopvl/gulp-jsonlint): A jsonlint plugin for Gulp
 
@@ -126,8 +131,6 @@ The following plugins are used.
 ### Testing
 
 [gulp-mocha](https://github.com/sindresorhus/gulp-mocha): Run Mocha tests
-
-Thx to the authors of these plugins.
 
 ## Author
 
