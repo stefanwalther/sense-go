@@ -1,6 +1,6 @@
 {
   "name": "sense-go",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Library to easily handle validation, deployment, packaging and testing of Qlik Sense Visualization Extensions.",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,7 @@
     "chai-fs": "stefanwalther/chai-fs",
     "gulp": "^3.9.0",
     "gulp-bump": "^0.3.1",
+    "gulp-filter": "^2.0.2",
     "gulp-git": "^1.2.4",
     "gulp-tag-version": "^1.2.1",
     "mocha": "*",
