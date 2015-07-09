@@ -1,6 +1,6 @@
 {
   "name": "sense-go",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Library to easily handle validation, deployment, packaging and testing of Qlik Sense Visualization Extensions.",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,7 @@
     "gulp-bump": "^0.3.1",
     "gulp-filter": "^2.0.2",
     "gulp-git": "^1.2.4",
+    "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-tag-version": "^1.2.1",
     "mocha": "*",
     "rimraf": "^2.4.0",
