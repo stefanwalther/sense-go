@@ -8,6 +8,8 @@ web.*.config
 /**/bower_components/
 /test/tmp/
 
+dev-scribble.md
+
 # =========================
 # Visual Studio
 # =========================
