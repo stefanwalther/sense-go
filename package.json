@@ -1,6 +1,6 @@
 {
   "name": "sense-go",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Library to easily handle validation, deployment, packaging and testing of Qlik Sense Visualization Extensions.",
   "main": "index.js",
   "scripts": {
