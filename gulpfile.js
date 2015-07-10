@@ -1,26 +1,15 @@
 'use strict';
+// core deps
+var fs = require( 'fs' );
+
+// packages
 var gulp = require( 'gulp' );
-var tag_version = require( 'gulp-tag-version' );
-var bump = require( 'gulp-bump' );
-var git = require( 'gulp-git' );
-var filter = require('gulp-filter');
+var senseGo = require( './lib' );
+var yaml = require( 'js-yaml' );
 
-gulp.task( 'bump', function () {
+var config = yaml.safeLoad( fs.readFileSync( './.sense-go.yml', 'utf8' ) );
 
-} );
+senseGo.init( gulp, config);
 
-//https://www.npmjs.com/package/gulp-tag-version
-function inc ( importance ) {
-	// get all the files to bump version in
-	return gulp.src( ['./package.json'] )
-		.pipe( bump( {type: importance} ) )
-		.pipe( gulp.dest( './' ) )
-		.pipe( git.commit( 'bumps package version' ) )
-		.pipe( filter( 'package.json' ) )
-		.pipe( tag_version() );
-}
+console.log('params task', gulp.tasks['param']);
 
-gulp.task( 'patch', function () { return inc( 'patch' ); } );
-gulp.task( 'feature', function () { return inc( 'minor' ); } );
-gulp.task( 'release', function () { return inc( 'major' ); } );
-gulp.task( 'default', [] );
