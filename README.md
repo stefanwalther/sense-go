@@ -8,10 +8,6 @@
 
 + [Purpose](#purpose)
 + [Deployment by convention](#deployment-by-convention)
-+ [Deployment](#deployment)
-+ [Validation](#validation)
-+ [Roadmap](#roadmap)
-+ [Plugins used](#plugins-used)
 + [Author](#author)
 + [License](#license)
 
@@ -38,133 +34,27 @@ Technically speaking sense-go is just a collection of configurable gulp tasks wh
 
 ## Deployment by convention
 
-The entire concept follows some conventions I am using when setting up a project. According to this convention the structure of a typical project is as follows:
+The entire concept follows **conventions** I am using when setting up a project:
 
 ```
 | PROJECT-ROOT
-|-- build           
-    |-- dev               <= target for the development build
-    |-- release         <= target for the release build
-|-- docs                      <= documentation files, then used by verb
-|-- src                     <= all source files
+|-- build           <= all builds, including source code or zipped files
+    |-- dev         <= target for the development build
+    |-- release     <= target for the release build
+|-- docs            <= documentation files, then used by verb
+|-- src             <= all source files
     |-- lib
-        |-- less      <= less files
-| gulpfile.js               <= gulp file using sense-go
+        |-- css     <= see below *
+        |-- less    <= less files
+| .sense-go.yml     <= sense-go configuration file
+| .verb.md          <= verbs readme template
+| gulpfile.js       <= gulp file using sense-go
 | package.json
-| .sense-go.yml           <= sense-go configuration file
-| .verb.md                  <= verbs readme template
 ```
 
-## Deployment
+* If using less files is preferred for a project I keep this folder empty, otherwise all the .css files will be place here
 
-> ### Less Transpiling
-
-Transpile Less files to CSS.
-
-**Tasks:**
-
-+ **less-each** - Transpiles every .less file into a .css file
-+ **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
-
-**Options:**
-
-+ less-each
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-* less-reduce
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-
-**Example:**
-
-### Clean local local deployment directory
-
-**Options:**
-
-+ clean
-  - src
-  - cwd
-
-### Upload to Qlik Sense server
-
-Upload the zipped visualization extension to a Qlik Sense server (using the Repository API in behind).
-
-**Options:**
-
-+ upload
-  - src
-  - cert
-  - serverUrl
-
-### Compress
-
-Compress files.
-
-**Options:**
-
-+ compress
-  - src
-  - dest
-  - format
-  - password Set a password to protect the .zip file.
-
-### Replace
-
-Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
-
-### Uglify
-
-(TBC)
-
-### Minify
-
-(TBC)
-
-## Validation
-
-(TBC)
-
-## Roadmap
-
-**Less**
-
-+ [x] Implementation
-+ [x] Test
-+ [ ] Documentation
-
-## Plugins used
-
-sense-go is heavily relying on gulp plugins. A big thanky you to the authors of these plugins!!
-
-### General
-
-+ [gulp-concat](https://github.com/wearefractal/gulp-concat#readme): Concatenates files
-+ [gulp-csslint](https://github.com/lazd/gulp-csslint): CSSLint plugin for gulp
-+ [gulp-debug](https://github.com/sindresorhus/gulp-debug): Debug vinyl file streams to see what files are run through your gulp pipeline
-+ [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins): Automatically load any gulp plugins in your package.json
-+ [gulp-replace](https://github.com/lazd/gulp-replace): A string replace plugin for gulp
-+ [gulp-rimraf](https://github.com/robrich/gulp-rimraf): rimraf plugin for gulp
-+ [gulp-simple-task-loader](https://github.com/reaganthomas/gulp-simple-task-loader#readme): A simple task loader for gulp
-+ [gulp-watch](https://github.com/floatdrop/gulp-watch): Watch, that actually is an endless stream
-+ [gulp-less](https://github.com/plus3network/gulp-less): Less for Gulp
-
-### Validation
-
-+ [gulp-csslint](https://github.com/lazd/gulp-csslint): CSSLint plugin for gulp
-+ [gulp-htmllint](https://github.com/yvanavermaet/gulp-htmllint): Check HTML code style with htmllint
-+ [gulp-jsonlint](https://github.com/rogeriopvl/gulp-jsonlint): A jsonlint plugin for Gulp
-
-### Packaging
-
-+ [gulp-zip](https://github.com/sindresorhus/gulp-zip): ZIP compress files
-+ [gulp-uglify](https://github.com/terinjokes/gulp-uglify/): Minify files with UglifyJS.
-+ [gulp-htmlmin](https://github.com/jonschlinkert/gulp-htmlmin#readme): gulp plugin to minify HTML.
-
-### Testing
-
-[gulp-mocha](https://github.com/sindresorhus/gulp-mocha#readme): Run Mocha tests
+**_sense-go_** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get sense-go running immediately.
 
 ## Author
 

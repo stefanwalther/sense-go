@@ -9,6 +9,8 @@
   * .qext
   * .json
   * .html
+  * .yml
+  * .txt
  
 ### Using data from package.json
 All keys from your package.json file are available out of the box if you use the prefix `pkg`
