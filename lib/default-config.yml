@@ -1,15 +1,27 @@
 # -------------------------------------------------------------------
 # General mandatory settings
 # -------------------------------------------------------------------
-packageName: 'My-Extension'
+packageName: null
+
+# -------------------------------------------------------------------
+# Runtime options
+# -------------------------------------------------------------------
+debugOutput: true
+
+# -------------------------------------------------------------------
+# Replacement patterns
+# -------------------------------------------------------------------
+
 
 # -------------------------------------------------------------------
 # Optional settings
 # -------------------------------------------------------------------
-localExtensionDir: ''         # defaults to the local extension directory
-srcDir: './src'               # defaults to './src'
-buildDir: './build'           # defaults to './build'
-tmpDir: './.tmp'               # defaults to './.tmp'
+localExtensionDir: null             # defaults to the local extension directory
+srcDir: './src'                     # defaults to './src'
+tmpDir: './.tmp'                    # defaults to './.tmp'
+buildDir: './build'                 # defaults to './build'
+buildDevDir: './build/dev'          # defaults to './build/dev'
+buildReleaseDir: './build/release'  # defaults to './build/release'
 
 # -------------------------------------------------------------------
 # Task specific settings
@@ -17,3 +29,5 @@ tmpDir: './.tmp'               # defaults to './.tmp'
 transpile:
   src: './'
   dest: './'
+
+

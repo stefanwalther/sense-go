@@ -2,7 +2,6 @@
 var path = require('path');
 var gulp = require('gulp');
 var pluginLoader = require('gulp-load-plugins');
-var taskLoader = require('gulp-simple-task-loader');
 
 var tasksCfg = {
 	less: {
@@ -23,27 +22,21 @@ var pluginLoaderCfg = {
 	rename: {} // a mapping of plugins to rename
 };
 
-var plugins = pluginLoader( pluginLoaderCfg);
+var $$ = pluginLoader( pluginLoaderCfg);
 
-var taskLoaderCfg = {
-	taskDirectory: './tasks', // the directory your tasks are stored in
-	plugins: plugins,                 // the plugins to expose to your tasks
-	filenameDelimiter: '',       // a character or string of characters to replace in task filenames
-	taskDelimiter: '',           // a character or string of characters to insert in place of removed filenameDelimiter
-	config: tasksCfg                   // an object to store configuration for use in tasks
-};
 
-//require('./tasks/less')(gulp, plugins, cfg);
 
-taskLoader(taskLoaderCfg );
 
-gulp.task('default', ['less']);
 
-gulp.on('task_start', function ( e ) {
-	console.log('task_start');
-});
-gulp.on('task_stop', function ( e ) {
-	console.log('task_stop', e);
-});
+//gulp.task('default', ['less']);
+//
+//gulp.on('task_start', function ( e ) {
+//	console.log('task_start');
+//});
+//gulp.on('task_stop', function ( e ) {
+//	console.log('task_stop', e);
+//});
+//
+//gulp.start.apply( gulp, ['default']);
 
-gulp.start.apply( gulp, ['default']);
+module.exports = gulp;

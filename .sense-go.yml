@@ -6,10 +6,10 @@ packageName: 'My-Extension'
 # -------------------------------------------------------------------
 # Optional settings
 # -------------------------------------------------------------------
-localExtensionDir: ''         # defaults to the local extension directory
-srcDir: './src'               # defaults to './src'
-buildDir: './build'           # defaults to './build'
-tmpDir: './.tmp'               # defaults to './.tmp'
+localExtensionDir: null         # defaults to the local extension directory
+srcDir: './src'                 # defaults to './src'
+buildDir: './build'             # defaults to './build'
+tmpDir: './.tmp'                # defaults to './.tmp'
 
 # -------------------------------------------------------------------
 # Task specific settings

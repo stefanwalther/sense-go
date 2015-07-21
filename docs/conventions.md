@@ -3,16 +3,16 @@ The entire concept follows some conventions I am using when setting up a project
 ```
 | PROJECT-ROOT
 |-- build			
-    |-- dev			    <= target for the development build
+    |-- dev			      <= target for the development build
     |-- release		    <= target for the release build
-|-- docs				<= documentation files, then used by verb
-|-- src				    <= all source files
+|-- docs				      <= documentation files, then used by verb
+|-- src				        <= all source files
     |-- lib
-        |-- less        <= less files
-| gulpfile.js			<= gulp file using sense-go
+        |-- less      <= less files
+| gulpfile.js			    <= gulp file using sense-go
 | package.json
-| .sense-go.yml			<= sense-go configuration file
-| .verb.md				<= verbs readme template
+| .sense-go.yml			  <= sense-go configuration file
+| .verb.md				    <= verbs readme template
 
 ```
 
