@@ -70,15 +70,26 @@ The entire concept follows **conventions** I am using when setting up a project:
 
 > Bumps the version in your package.json file
 
-**`gulp bump:patch`** or `gulp b` or `gulp b:p` - Changes the version in package.json from `0.2.1` to `0.2.2`
+**`gulp bump:patch`**
 
-**`gulp bump:minor`** or `gulp b:min` - Changes the version in package.json from `0.2.1` to `0.3.1`
++ Changes the version in package.json from `  0.2.1` to `  0.2.2`
++ Shortcuts: `gulp b` or `gulp b:p`
 
-**`gulp bump:major`** or `gulp b:maj` - Changes the version in package.json from `0.2.1` to `1.0.0`
+**`gulp bump:minor`**
 
-**`gulp bump:version`** or `gulp b:v` - Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
++ Changes the version in package.json from `  0.2.1` to `  0.3.1`
++ Shortcut: `gulp b:min`
 
-Examples:
+**`gulp bump:major`**
+
++ Changes the version in package.json from `  0.2.1` to `  1.0.0`
++ Shortcut: `gulp b:maj`
+
+**`gulp bump:version`**
+
++ Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
++ Shortcut: `gulp b:v`
++ Example:
 
 ```
 gulp bump:version --newversion=0.1.0
