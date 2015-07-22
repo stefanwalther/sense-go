@@ -1,6 +1,6 @@
 # sense-go
 
-> Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense or Qlik Sense Visualization Extensions).
+> Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense, Qlik Sense Visualization Extensions or basically any other project ...).
 
 **Note: This library is in development and not ready to use, yet**
 
@@ -16,6 +16,7 @@
   - [Copy](#copy)
   - [Replace](#replace)
 * [Task Chains](#task-chains)
++ [Contributing](#contributing)
 + [Author](#author)
 + [License](#license)
 
@@ -221,6 +222,17 @@ senseGo.init( gulp, userConfig,  function (  ) {
   
 });
 ```
+
+## Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/stefanwalther/sense-go/issues).
+The process for contributing is outlined below:
+
+1. Create a fork of the project
+2. Work on whatever bug or feature you wish
+3. Create a pull request (PR)
+
+I cannot guarantee that I will merge all PRs but I will evaluate them all.
 
 ## Author
 
