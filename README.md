@@ -96,29 +96,23 @@ Commits all files with the given commit message, if no commit message is defined
 
 > Copy files to a specific directory on your system
 
-**`gulp copy:toTmp`**
+**`gulp copy:toTmp`** - Copies all files from the `src` folder to the `.tmp` folder
 
-Copies all files from the `src` folder to the `.tmp` folder
-
-_Settings used:_
+Settings used:
 
 + srcDir
 + tmpDir
 
-**`copy:tmpToDev`**
+**`copy:tmpToDev`** - Copies all files from the `.tmp` folder to `.\build\dev` folder
 
-Copies all files from the `.tmp` folder to `.\build\dev` folder
-
-_Settings used:_
+Settings used:
 
 + tmpDir
 + buildDevDir
 
-**`copy:tmpToLocal`**
+**`copy:tmpToLocal`** - Copies all files from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
 
-Copies all files from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
-
-_Settings used:_
+Settings used:
 
 + tmpDir
 + localExtensionDir
