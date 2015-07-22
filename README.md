@@ -13,6 +13,7 @@
 + [Tasks](#tasks)
   - [Bump](#bump)
   - [Copy](#copy)
+  - [Replace](#replace)
 * [Task Chains](#task-chains)
 + [Author](#author)
 + [License](#license)
@@ -106,8 +107,6 @@ gulp b:v --nv=0.1.0
 
 + Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
 
-***
-
 ### Copy
 
 > Copy files to a specific directory on your system
@@ -132,6 +131,44 @@ Settings used:
 
 + tmpDir
 + localExtensionDir
+
+### Replace
+
+> Replaces strings in text files across your project
+
+### Usage
+
++ Use @@ to prefix the key to be replaced with a given value
++ Replacements will only be performed in the following file types:
+  - .html
+  - .js
+  - .json
+  - .qext
+  - .txt
+  - .xml
+  - .yml
+
+### Using data from package.json
+
+All keys from your package.json file are available out of the box if you use the prefix `pkg`
+
++ To get the version, use `@@pkg.version`
++ To the get name, use `@@pkg.name`
++ etc.
+
+## Builtin patterns
+
+The following patterns are available out of the box:
+
+`@@timestamp` - Defaults to new Date().getTime()
+
+### Adding replacement patterns
+
+Add new replacements patterns in your .sense-go.yml file:
+
+(TBC)
+
+(All replace tasks use the plugin gulp-replace-task)
 
 ## Task Chains
 
