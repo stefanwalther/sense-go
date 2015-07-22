@@ -1,28 +1,11 @@
+### Bump
+{%= docs('tasks-bump') %}
 
-## Settings
+### Clean
+{%= docs('tasks-clean') %}
 
-- sourceDir
-- distDirDev
-- distDirRelease
-- tmpDirDev
-- tmpDirRelease
+### Copy
+{%= docs('tasks-copy') %}
 
-## Tasks
-
-### Less
-- less
-	- sourceMask
-
-### Cleanup tasks
-- cleanupDev
-- cleanupRelease
-- cleanupDesktop
-- cleanupTmpDev
-- cleanupTmpRelease
-
-### Create .zip files
-- zipSource
-- zipDev
-- zipRelease
-
-
+### Replace
+{%= docs('tasks-replace') %}

@@ -1,4 +1,4 @@
-> Replaces strings in text files across your project
+> Replaces string patterns in text files across your project.
 
 **Usage**
 

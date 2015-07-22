@@ -11,10 +11,7 @@
 + [Purpose](#purpose)
 + [Deployment by convention](#deployment-by-convention)
 + [Tasks](#tasks)
-  - [Bump](#bump)
-  - [Copy](#copy)
-  - [Replace](#replace)
-* [Task Chains](#task-chains)
++ [Task Chains](#task-chains)
 + [Author](#author)
 + [License](#license)
 
@@ -107,6 +104,22 @@ gulp b:v --nv=0.1.0
 
 + Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
 
+### Clean
+
+> Cleaning and deleting folders.
+
+**`gulp clean:tmp`**
+
++ Deletes all files in the `.tmp` directory
+
+**`gulp clean:buildDev`**
+
++ Deletes all files in the `./build/dev` directory
+
+**`clean:localExtensionDir`**
+
++ Deletes all files in the project's local extension folder
+
 ### Copy
 
 > Copy files to a specific directory on your system
@@ -134,7 +147,7 @@ Settings used:
 
 ### Replace
 
-> Replaces strings in text files across your project
+> Replaces string patterns in text files across your project.
 
 **Usage**
 
