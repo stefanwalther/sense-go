@@ -100,11 +100,13 @@ gulp b:v --nv=0.1.0
 
 **`--tag`**
 
-Tags the current version of your commit with the newly created version created by any of the bump-tasks.
++ Tags the current version of your commit with the newly created version created by any of the bump-tasks.
 
 **`--commit="Your commit message"`**
 
-Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
++ Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
+
+***
 
 ### Copy
 
