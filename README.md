@@ -73,7 +73,7 @@ Changes the version from 0.2.1 to 0.3.1
 `gulp bump:major`
 Changes the version from 0.2.1 to 1.0.0
 
-### Possible command line parameters:
+#### Possible command line parameters:
 
 **Tag**
 
