@@ -11,7 +11,11 @@
 + [Purpose](#purpose)
 + [Deployment by convention](#deployment-by-convention)
 + [Tasks](#tasks)
-+ [Task Chains](#task-chains)
+  - [Bump](#bump)
+  - [Clean](#clean)
+  - [Copy](#copy)
+  - [Replace](#replace)
+* [Task Chains](#task-chains)
 + [Author](#author)
 + [License](#license)
 
