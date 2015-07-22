@@ -79,7 +79,7 @@ Changes the version in package.json from `0.2.1` to `0.3.1`
 **`gulp bump:major`** or `gulp b:maj`
 Changes the version in package.json from `0.2.1` to `1.0.0`
 
-**`gulp bump:version` or `gulp b:v`
+**`gulp bump:version`** or `gulp b:v`
 Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
 
 Examples:
