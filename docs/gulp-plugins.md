@@ -36,5 +36,10 @@ sense-go is heavily relying on gulp plugins. A big thanky you to the authors of 
 	'gulp-mocha'
 ]) %}
 
+### Transpilation
+{%= related([
+	'babel'
+]) %}
+
 
 
