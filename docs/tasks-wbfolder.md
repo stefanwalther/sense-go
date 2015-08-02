@@ -4,5 +4,6 @@
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
 
 Settings used:
-* wbfolder.src
-* wbfolder.dest
+* `wbfolder.cwd` - Working directory
+* `wbfolder.src` - Source mask
+* `wbfolder.dest` - Wbfolder.wbl file destination
