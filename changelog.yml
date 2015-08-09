@@ -1,3 +1,9 @@
+v0.5.1:
+  date: "2015-08-09"
+  new:
+    - "Less tasks"
+  enhancements:
+    - "Exclude *.less files from copy tasks"
 v0.5.0:
   date: "2015-08-02"
   enhancements:
