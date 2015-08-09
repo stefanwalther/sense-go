@@ -40,7 +40,6 @@
     "gulp-zip": "^3.0.2",
     "js-yaml": "^3.3.1",
     "lodash": "^3.10.0",
-    "qlikloc": "^0.1.7",
     "sanitize-filename": "^1.3.0",
     "sense-loc": "git://github.com/stefanwalther/sense-loc",
     "verb-cli": "^0.7.2"
