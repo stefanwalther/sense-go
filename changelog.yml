@@ -2,6 +2,8 @@ v0.5.1:
   date: "2015-08-09"
   new:
     - "Less tasks (solves #3)"
+    - "Task less:each"
+    - "Task less:reduce"
   enhancements:
     - "Exclude *.less files from copy tasks"
 v0.5.0:
