@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "chai-fs": "stefanwalther/chai-fs",
+    "gulp-verb": "git://github.com/verbose/gulp-verb",
     "minimist": "^1.1.1",
     "mocha": "*",
     "rimraf": "^2.4.0",
