@@ -33,5 +33,9 @@ wbfolder:
   cwd: './.tmp'
   src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
   dest: './.tmp/wbfolder.wbl'
+uglify:
+  mangle: true
+  compress: true
+  preserveComments: 'some'
 
 
