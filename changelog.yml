@@ -1,3 +1,11 @@
+v0.5.2:
+  date: "2015-08-11"
+  new:
+    - Uglify
+    - Zip
+    - Release task chain
+  enhancements:
+    - Clean unused dependencies
 v0.5.1:
   date: "2015-08-09"
   new:
