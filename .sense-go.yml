@@ -15,3 +15,8 @@ tmpDir: './.tmp'                # defaults to './.tmp'
 # Task specific settings
 # -------------------------------------------------------------------
 
+wbfolder:
+  enabled: false
+  cwd: './.tmp'
+  src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
+  dest: './.tmp/wbfolder.wbl'
