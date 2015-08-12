@@ -1,3 +1,7 @@
+v0.5.3:
+  date: "2015-08-12"
+  new:
+    - Added stripping of comments to the uglify tasks
 v0.5.2:
   date: "2015-08-11"
   new:
