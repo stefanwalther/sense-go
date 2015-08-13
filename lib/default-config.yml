@@ -35,8 +35,8 @@ wbfolder:
   src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
   dest: './.tmp/wbfolder.wbl'
 uglify:
-  mangle: true
-  compress: true
+  mangle: true                  # Do not mangle, otherwise angularJS will be broken
+  beautify: false
   preserveComments: 'some'
 
 
