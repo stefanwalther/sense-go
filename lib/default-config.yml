@@ -39,6 +39,6 @@ uglify:
   beautify: false
   preserveComments: 'some'
 npm:
-  publish: false                # If set to false, task npm:publish will do nothing
+  publish: true                # If set to false, task npm:publish will do nothing
 
 
