@@ -38,5 +38,7 @@ uglify:
   mangle: true                  # Do not mangle, otherwise angularJS will be broken
   beautify: false
   preserveComments: 'some'
+npm:
+  publish: false                # If set to false, task npm:publish will do nothing
 
 
