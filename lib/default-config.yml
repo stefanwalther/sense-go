@@ -41,4 +41,11 @@ uglify:
 npm:
   publish: true                # If set to false, task npm:publish will do nothing
 
+# -------------------------------------------------------------------
+# Import settings
+# -------------------------------------------------------------------
+import:
+  files:
+    # - ["src/glob", "dest/glob/"]
+
 
