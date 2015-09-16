@@ -16,6 +16,8 @@
   - [Clean](#clean)
   - [Copy](#copy)
   - [Import](#import)
+* [JsonLint](#jsonlint)
+* [JsonMinify](#jsonminify)
   - [Less](#less)
   - [Replace](#replace)
   - [Wbfolder](#wbfolder)
@@ -228,6 +230,26 @@ import:
     - ["./node_modules/sense-angular-directives/dist/eui-tooltip/eui-tooltip.js", "./.tmp/lib/components/eui-tooltip"]
     - ["./node_modules/sense-angular-directives/dist/eui-tooltip/eui-tooltip.css", "./.tmp/lib/components/eui-tooltip"]
 ```
+
+## JsonLint
+
+(to be documented)
+
+## JsonMinify
+
+> Minify JSON & QEXT files
+
+All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
+
+**`gulp jsonminify:tmp`**
+
+Settings used:
+
+* tmpDir
+
+Uses the following gulp plugins:
+
+[gulp-jsonminify](https://www.npmjs.com/package/gulp-jsonminify): Minifies blocks of JSON-like content into valid JSON by removing all whitespace and comments. | [homepage](https://github.com/tcarlsen/gulp-jsonminify)
 
 ### Less
 
