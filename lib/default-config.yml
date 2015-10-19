@@ -33,7 +33,7 @@ wbfolder:
   enabled: true
   cwd: './.tmp'
   src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './.tmp/wbfolder.wbl'
+  dest: './wbfolder.wbl'
 uglify:
   mangle: true                  # Do not mangle, otherwise angularJS will be broken
   beautify: false
