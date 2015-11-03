@@ -22,6 +22,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-csslint": "^0.2.0",
     "gulp-debug": "^2.0.1",
+    "gulp-expect-file": "0.0.7",
     "gulp-filelist": "^0.2.0",
     "gulp-filter": "^3.0.1",
     "gulp-git": "^1.2.4",
@@ -41,6 +42,7 @@
     "gulp-tag-version": "^1.2.1",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
+    "gulp-verb": "^0.3.0",
     "gulp-watch": "^4.2.4",
     "gulp-zip": "^3.0.2",
     "js-yaml": "^3.3.1",
@@ -52,13 +54,10 @@
   },
   "devDependencies": {
     "chai-fs": "stefanwalther/chai-fs",
-    "gulp-verb": "git://github.com/verbose/gulp-verb",
     "minimist": "^1.1.1",
     "mocha": "*",
     "rimraf": "^2.4.0",
-    "should": "*",
-    "verb": "verbose/verb",
-    "verb-cli": "^0.7.2"
+    "should": "*"
   },
   "homepage": "https://github.com/stefanwalther/sense-go",
   "repository": {
