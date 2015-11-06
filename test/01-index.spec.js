@@ -44,7 +44,7 @@ function delTemp ( done ) {
 
 }
 
-xdescribe( 'gulp', function () {
+describe( 'gulp', function () {
 
 	beforeEach( function ( done ) {
 
