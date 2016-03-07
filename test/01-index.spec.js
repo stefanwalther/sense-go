@@ -33,9 +33,9 @@ var tasksCfg = {
 };
 
 function delTemp ( done ) {
-	if (!DEBUG) {
+	if ( !DEBUG ) {
 		rimraf( path.join( __dirname, './tmp' ), function ( e ) {
-			console.info('Deleted tmp');
+			console.info( 'Deleted tmp' );
 			return done();
 		} )
 	} else {
@@ -48,8 +48,16 @@ describe( 'gulp', function () {
 
 	beforeEach( function ( done ) {
 
+		var taskLoaderCfg = {
+			taskDirectory: './lib/tasks', 	// the directory your tasks are stored in
+			plugins: plugins,           	// the plugins to expose to your tasks
+			filenameDelimiter: '',      	// a character or string of characters to replace in task filenames
+			taskDelimiter: '',          	// a character or string of characters to insert in place of removed filenameDelimiter
+			config: tasksCfg            	// an object to store configuration for use in tasks
+		};
+
 		rimraf( './tmp', function () {
-			var taskLoaderCfg = require( './taskLoaderConfig' )( plugins, tasksCfg );
+			//var taskLoaderCfg = require( './taskLoaderConfig' )( plugins, tasksCfg );
 			taskLoader( taskLoaderCfg );
 			done();
 		} );
@@ -58,7 +66,7 @@ describe( 'gulp', function () {
 
 	//Todo: doesn't seem to work
 	afterEach( function ( done ) {
-		delTemp(done);
+		delTemp( done );
 	} );
 
 	it( 'taskLoader returns tasks', function ( done ) {
@@ -72,7 +80,7 @@ describe( 'gulp', function () {
 	describe( 'lessEach', function () {
 
 		afterEach( function ( done ) {
-			delTemp(done);
+			delTemp( done );
 		} );
 
 		it( 'lessEach: converts less for each less file', function ( done ) {
@@ -91,21 +99,21 @@ describe( 'gulp', function () {
 
 	describe( 'lessReduce', function () {
 
-		afterEach( function (done ) {
-			delTemp(done);
+		afterEach( function ( done ) {
+			delTemp( done );
 		} );
 
 		it( 'reduces all .less files to a single .css file', function ( done ) {
 			gulp.start.apply( gulp, ['lessReduce'] );
-			gulp.on('task_stop', function ( e ) {
+			gulp.on( 'task_stop', function ( e ) {
 				expect( path.join( __dirname, './tmp/lessReduce/root.css' ) ).to.be.a.file().and.not.empty;
-				expect( path.join( __dirname, './tmp/lessReduce/root.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessReduce/root.css'), 'utf8'));
+				expect( path.join( __dirname, './tmp/lessReduce/root.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessReduce/root.css' ), 'utf8' ) );
 
 				// Todo: doesn't work
 				//expect( path.join( __dirname, './tmp/lessReduce/variables.css' ) ).to.not.be.a.file();
 				//expect( path.join( __dirname, './tmp/lessReduce/whatever.css' ) ).to.not.be.a.file();
 				done();
-			});
+			} );
 		} );
 
 	} );
