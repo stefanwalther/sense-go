@@ -21,7 +21,6 @@ describe( 'sense-go', function () {
 			expect( err ).to.be.empty;
 			expect( gulp._registry._tasks ).not.to.be.null;
 			expect( gulp._registry._tasks ).to.have.deep.property( 'all' );
-			expect( gulp._registry._tasks ).to.have.deep.property( 'init' );
 			done();
 		} );
 	} );
