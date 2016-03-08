@@ -16,7 +16,7 @@ debugOutput: true
 # Deployment
 # -------------------------------------------------------------------
 deployment:
-  local:
+  toLocal:
     enabled: true
     extensionBaseDir: null
   qrs:

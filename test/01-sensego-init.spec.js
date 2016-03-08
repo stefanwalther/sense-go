@@ -8,9 +8,10 @@ var expect = chai.expect;
 
 describe( 'sense-go', function () {
 
-	it('should require the packageName', function ( done ) {
+	it('should take packageName from package.json by default', function ( done ) {
 		senseGo.init( gulp, {}, function ( err ) {
-			expect( err ).not.to.be.empty;
+			expect( err ).to.be.empty;
+			expect( senseGo.getConfig().packageName ).to.be.equal('sense-go');
 			done();
 		})
 	});
@@ -24,6 +25,7 @@ describe( 'sense-go', function () {
 			done();
 		} );
 	} );
+
 
 	it('should contain default configuration', function ( done ) {
 		senseGo.init( gulp, {packageName: 'whatever'}, function ( err ) {
