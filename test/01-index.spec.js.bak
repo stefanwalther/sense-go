@@ -57,8 +57,7 @@ describe( 'gulp', function () {
 		};
 
 		rimraf( './tmp', function () {
-			//var taskLoaderCfg = require( './taskLoaderConfig' )( plugins, tasksCfg );
-			taskLoader( taskLoaderCfg );
+			taskLoader( taskLoaderCfg, gulp );
 			done();
 		} );
 
@@ -69,7 +68,7 @@ describe( 'gulp', function () {
 		delTemp( done );
 	} );
 
-	it( 'taskLoader returns tasks', function ( done ) {
+	it.only( 'taskLoader returns tasks', function ( done ) {
 		console.log( 'gulp.tasks', gulp.tasks );
 		expect( gulp.tasks ).not.to.be.undefined;
 		expect( gulp.tasks ).to.have.property( 'lessEach' );

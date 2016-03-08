@@ -24,3 +24,25 @@ Uses the following gulp plugins:
   'gulp-sourcemaps'
   ], {"silent": true}
 ) %}  
+
+### Less Transpiling
+
+Transpile Less files to CSS. 
+
+**Tasks:**
+
+- **less-each** - Transpiles every .less file into a .css file
+- **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
+
+
+**Options:**
+- less-each
+  - src - Source mask
+  - dest - Destination
+  - cwd - Current working directory, defaults to __dirname
+- less-reduce
+  - src - Source mask
+  - dest - Destination
+  - cwd - Current working directory, defaults to __dirname
+  
+**Example:**

@@ -1,28 +1,18 @@
 
-> 
+> Deploy to either the Extension folder on your local computer (using Qlik Sense Desktop), upload to a server via ssh or upload to a Qlik Sense Repository using the Qlik Sense Repository (QRS) API.
 
-### Less Transpiling
 
-Transpile Less files to CSS. 
-
-**Tasks:**
-
-- **less-each** - Transpiles every .less file into a .css file
-- **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
-
+`gulp deploy:toLocal`
 
 **Options:**
-- less-each
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-- less-reduce
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-  
-**Example:**
 
+- deployment
+  - local
+    - enabled {boolean} - Whether to enable deployment to local Qlik Sense folder or not, default to `true`
+    - localExtensionDir {string} - Path to the local extension directory, defaults to `null`
+    
+Note: The path for the local deployment will be fetched automatically (using sense-loc), if you want to override the path, use `localExtensionDir`.
+    
 
 
 ### Clean local local deployment directory

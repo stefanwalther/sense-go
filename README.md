@@ -15,12 +15,13 @@
 * [Deployment by convention](#deployment-by-convention)
 * [Basic workflow](#basic-workflow)
 * [Tasks](#tasks)
+  - [Deployment](#deployment)
   - [Bump](#bump)
   - [Clean](#clean)
   - [Copy](#copy)
   - [Import](#import)
-* [JsonLint](#jsonlint)
-* [JsonMinify](#jsonminify)
+  - [JsonLint](#jsonlint)
+  - [JsonMinify](#jsonminify)
   - [Less](#less)
   - [Replace](#replace)
   - [Wbfolder](#wbfolder)
@@ -126,6 +127,63 @@ Get a list of all tasks by running
 ```
 gulp --tasks
 ```
+
+### Deployment
+
+> Deploy to either the Extension folder on your local computer (using Qlik Sense Desktop), upload to a server via ssh or upload to a Qlik Sense Repository using the Qlik Sense Repository (QRS) API.
+
+`gulp deploy:toLocal`
+
+**Options:**
+
+* deployment
+  - local
+    + enabled {boolean} - Whether to enable deployment to local Qlik Sense folder or not, default to `true`
+    + localExtensionDir {string} - Path to the local extension directory, defaults to `null`
+
+Note: The path for the local deployment will be fetched automatically (using sense-loc), if you want to override the path, use `localExtensionDir`.
+
+### Clean local local deployment directory
+
+**Options:**
+
+* clean
+  - src
+  - cwd
+
+### Upload to Qlik Sense server
+
+Upload the zipped visualization extension to a Qlik Sense server (using the Repository API in behind).
+
+**Options:**
+
+* upload
+  - src
+  - cert
+  - serverUrl
+
+### Compress
+
+Compress files.
+
+**Options:**
+* compress
+  - src
+  - dest
+  - format
+  - password Set a password to protect the .zip file.
+
+### Replace
+
+Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
+
+### Uglify
+
+(TBC)
+
+### Minify
+
+(TBC)
 
 ### Bump
 
@@ -245,11 +303,11 @@ import:
     - ["./node_modules/sense-angular-directives/dist/eui-tooltip/eui-tooltip.css", "./.tmp/lib/components/eui-tooltip"]
 ```
 
-## JsonLint
+### JsonLint
 
 (to be documented)
 
-## JsonMinify
+### JsonMinify
 
 > Minify JSON & QEXT files
 
@@ -294,6 +352,29 @@ Uses the following gulp plugins:
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer): Prefix CSS | [homepage](https://github.com/sindresorhus/gulp-autoprefixer)
 * [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Source map support for Gulp.js | [homepage](http://github.com/floridoo/gulp-sourcemaps)
+
+### Less Transpiling
+
+Transpile Less files to CSS.
+
+**Tasks:**
+
+* **less-each** - Transpiles every .less file into a .css file
+* **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
+
+**Options:**
+
+* less-each
+  - src - Source mask
+  - dest - Destination
+  - cwd - Current working directory, defaults to __dirname
+
+* less-reduce
+  - src - Source mask
+  - dest - Destination
+  - cwd - Current working directory, defaults to __dirname
+
+**Example:**
 
 ### Replace
 

@@ -12,6 +12,20 @@ debugOutput: true
 # Replacement patterns
 # -------------------------------------------------------------------
 
+# -------------------------------------------------------------------
+# Deployment
+# -------------------------------------------------------------------
+deployment:
+  local:
+    enabled: true
+    extensionBaseDir: null
+  qrs:
+    enabled: false
+    url: null
+  ssh:
+    enabled: false
+
+
 
 # -------------------------------------------------------------------
 # Optional settings
@@ -32,14 +46,14 @@ transpile:
 wbfolder:
   enabled: true
   cwd: './.tmp'
-  src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
+  src: './**/*.*'                   # Ideally we should use variables here, but not supported by js-yaml right now
   dest: './wbfolder.wbl'
 uglify:
-  mangle: true                  # Do not mangle, otherwise angularJS will be broken
+  mangle: true                      # Do not mangle, otherwise angularJS will be broken
   beautify: false
   preserveComments: 'some'
 npm:
-  publish: true                # If set to false, task npm:publish will do nothing
+  publish: true                     # If set to false, task npm:publish will do nothing
 
 # -------------------------------------------------------------------
 # Import settings
