@@ -305,9 +305,6 @@ gulp b:v --nv=0.1.0
 * Options used:
   - `tmpDir`
 
-Reference:
-[gulp-jsonminify](https://www.npmjs.com/package/gulp-jsonminify): Minifies blocks of JSON-like content into valid JSON by removing all whitespace and comments. | [homepage](https://github.com/tcarlsen/gulp-jsonminify)
-
 ### Import
 
 > Import files to the deployment.
@@ -339,11 +336,6 @@ All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://
   - srcDir
   - tmpDir
 
-Uses the following gulp plugins:
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer): Prefix CSS | [homepage](https://github.com/sindresorhus/gulp-autoprefixer)
-* [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
-* [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Source map support for Gulp.js | [homepage](http://github.com/floridoo/gulp-sourcemaps)
-
 **`gulp less:each`**
 
 * Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
@@ -351,17 +343,11 @@ Uses the following gulp plugins:
   - srcDir
   - tmpDir
 
-Uses the following gulp plugins:
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer): Prefix CSS | [homepage](https://github.com/sindresorhus/gulp-autoprefixer)
-* [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
-* [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Source map support for Gulp.js | [homepage](http://github.com/floridoo/gulp-sourcemaps)
-
 ### Replace
 
 > Replaces string patterns in text files across your project.
 
 **Usage**
-
 * Use @@ to prefix the key to be replaced with a given value in the source code
 * Replacements will only be performed in the following file types:
   - .html
@@ -416,10 +402,6 @@ The following patterns are available out of the box:
 Add new replacements patterns in your .sense-go.yml file:
 
 (tbd)
-
-Reference:
-
-[gulp-replace-task](https://www.npmjs.com/package/gulp-replace-task): Replace text patterns with applause. | [homepage](https://github.com/outatime/gulp-replace-task)
 
 ### Wbfolder
 
