@@ -22,7 +22,6 @@
   - [Copy](#copy)
   - [Minification/Optimization](#minification-optimization)
   - [Import](#import)
-  - [JsonLint](#jsonlint)
   - [Less](#less)
   - [Replace](#replace)
   - [Wbfolder](#wbfolder)
@@ -237,7 +236,7 @@ gulp b:v --nv=0.1.0
 
 **`gulp clean:buildDev`**
 
-* Deletes all files in the `./build/dev` directory
+* Deletes all files in the `./build/dev` directory.
 * Options used:
   - `buildDevDir`
 
@@ -256,16 +255,16 @@ gulp b:v --nv=0.1.0
 
 **`clean:tmpIllegal`**
 
-* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory
+* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory.
 * These are all files, except files with the following file extension:
   - `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
 
 ### Copy
 
-> Copy files to a specific directory on your system
+> Copy files to a specific directory on your system.
 
 **`gulp copy:toTmp`**
-* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
+* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder.
 * Options used:
   - `srcDir`
   - `tmpDir`
@@ -274,7 +273,7 @@ gulp b:v --nv=0.1.0
   - `*.less`
 
 **`copy:tmpToDev`**
-* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder.
 * Options used:
   - `tmpDir`
   - `buildDevDir`
@@ -283,7 +282,7 @@ gulp b:v --nv=0.1.0
   - `*.less`
 
 **`copy:tmpToRelease`**
-* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder.
 * Options used:
   - `tmpDir`
   - `buildReleaseDir`
@@ -306,17 +305,15 @@ gulp b:v --nv=0.1.0
 * Options used:
   - `tmpDir`
 
-Uses the following gulp plugins:
-
+Reference:
 [gulp-jsonminify](https://www.npmjs.com/package/gulp-jsonminify): Minifies blocks of JSON-like content into valid JSON by removing all whitespace and comments. | [homepage](https://github.com/tcarlsen/gulp-jsonminify)
 
 ### Import
 
-> Import files to the deployment
-
-The main use-case behind this task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
+> Import files to the deployment.
 
 `gulp import`
+The main use-case behind this task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
 
 Define the file you want to import in your `sense-go.yml` file as follows:
 
@@ -325,72 +322,39 @@ Example:
 ```
 import:
   files:
-    - ["./node_modules/sense-angular-directives/dist/eui-collapse/eui-collapse.js", "./.tmp/lib/components/eui-collapse"]
-    - ["./node_modules/sense-angular-directives/dist/eui-note/eui-note.js", "./.tmp/lib/components/eui-note"]
-    - ["./node_modules/sense-angular-directives/dist/eui-note/eui-note.css", "./.tmp/lib/components/eui-note"]
-    - ["./node_modules/sense-angular-directives/dist/eui-note/eui-note.ng.html", "./.tmp/lib/components/eui-note"]
-    - ["./node_modules/sense-angular-directives/dist/eui-tablesort/eui-tablesort.js", "./.tmp/lib/components/eui-tablesort"]
-    - ["./node_modules/sense-angular-directives/dist/eui-tablesort/eui-tablesort.css", "./.tmp/lib/components/eui-tablesort"]
-    - ["./node_modules/sense-angular-directives/dist/eui-tooltip/eui-tooltip.js", "./.tmp/lib/components/eui-tooltip"]
-    - ["./node_modules/sense-angular-directives/dist/eui-tooltip/eui-tooltip.css", "./.tmp/lib/components/eui-tooltip"]
+    - ["./node_modules/d3/d3.min.js", "./.tmp/lib/external/d3/d3.min.js"]
+    - ["./node_modules/moment/min/moment.min.js", "./.tmp/lib/external/moment/moment.min.js"]
 ```
-
-### JsonLint
-
-(to be documented)
 
 ### Less
 
-> Converts .less files to .css files
+> Converts .less files to .css files.
 
 All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 
 **`gulp less:reduce`**
 
-Uses /src/less/main.less, resolves all its dependencies and creates /.tmp/css/main.css
-
-Settings used:
-
-* srcDir
-* tmpDir
-
-**`gulp less:reduce`**
-
-Converts every .less file from the source directory to a corresponding .css file in the .tmp directory
-
-Settings used:
-
-* srcDir
-* tmpDir
+* Uses `/src/less/main.less`, resolves all its dependencies and creates `/.tmp/css/main.css`
+* Options used:
+  - srcDir
+  - tmpDir
 
 Uses the following gulp plugins:
-
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer): Prefix CSS | [homepage](https://github.com/sindresorhus/gulp-autoprefixer)
 * [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Source map support for Gulp.js | [homepage](http://github.com/floridoo/gulp-sourcemaps)
 
-### Less Transpiling
+**`gulp less:each`**
 
-Transpile Less files to CSS.
+* Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
+* Options used:
+  - srcDir
+  - tmpDir
 
-**Tasks:**
-
-* **less-each** - Transpiles every .less file into a .css file
-* **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
-
-**Options:**
-
-* less-each
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-
-* less-reduce
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-
-**Example:**
+Uses the following gulp plugins:
+* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer): Prefix CSS | [homepage](https://github.com/sindresorhus/gulp-autoprefixer)
+* [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
+* [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Source map support for Gulp.js | [homepage](http://github.com/floridoo/gulp-sourcemaps)
 
 ### Replace
 
@@ -398,7 +362,7 @@ Transpile Less files to CSS.
 
 **Usage**
 
-* Use @@ to prefix the key to be replaced with a given value
+* Use @@ to prefix the key to be replaced with a given value in the source code
 * Replacements will only be performed in the following file types:
   - .html
   - .js
@@ -408,9 +372,35 @@ Transpile Less files to CSS.
   - .xml
   - .yml
 
+**Example:**
+
+```js
+console.log('Extension @@pkg.name, version @@pkg.version');
+```
+
+given the following package.json
+
+```js
+{
+  "name": "my-extension",
+  "version": "0.1.2"
+}
+```
+
+will return
+
+```js
+Extension my-extension, version 0.1.2
+```
+
+```js
+
+```
+
 **Using data from package.json**
 
 All keys from your package.json file are available out of the box if you use the prefix `pkg`
+
 * To get the version, use `@@pkg.version`
 * To the get name, use `@@pkg.name`
 * etc.
@@ -425,9 +415,11 @@ The following patterns are available out of the box:
 
 Add new replacements patterns in your .sense-go.yml file:
 
-(TBC)
+(tbd)
 
-(All replace tasks use the plugin gulp-replace-task)
+Reference:
+
+[gulp-replace-task](https://www.npmjs.com/package/gulp-replace-task): Replace text patterns with applause. | [homepage](https://github.com/outatime/gulp-replace-task)
 
 ### Wbfolder
 
@@ -443,12 +435,26 @@ Add new replacements patterns in your .sense-go.yml file:
 
 ## Task Chains
 
-Based on gulp tasks provided by sense-go you can then create your task chains.
+Based on gulp tasks provided by **_sense-go_** you can then create your task chains.
 Some are already predefined:
 
 **`gulp build`**
 
-`gulp.task( 'build', gulp.series( 'init', 'clean:tmp', 'copy:toTmp', 'replace:tmp', 'clean:buildDev', 'copy:tmpToDev', 'clean:localExtensionDir', 'copy:tmpToLocal' ) );`
+```js
+  gulp.task( 
+    'build', 
+    gulp.series( 
+      'init', 
+      'clean:tmp', 
+      'copy:toTmp', 
+      'replace:tmp', 
+      'clean:buildDev', 
+      'copy:tmpToDev', 
+      'clean:localExtensionDir', 
+      'copy:tmpToLocal' 
+      )
+  );`
+```
 
 ## Create your own task-chains
 
@@ -471,8 +477,14 @@ var userConfig = {
 senseGo.init( gulp, userConfig,  function (  ) {
   
   // Create your own task chain, and overwrite the current 'build' task
-  `gulp.task( 'build', gulp.series( 'init', 'clean:tmp', 'copy:toTmp', 'myTask1', 'myTask2' ) );`
-  
+  gulp.task( 'build', gulp.series( 
+    'init', 
+    'clean:tmp', 
+    'copy:toTmp', 
+    'myTask1', 
+    'myTask2' 
+  ) );
+    
 });
 ```
 

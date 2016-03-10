@@ -1,9 +1,23 @@
-Based on gulp tasks provided by sense-go you can then create your task chains.
+Based on gulp tasks provided by ***sense-go*** you can then create your task chains.
 Some are already predefined:
 
 **`gulp build`**
 
-`gulp.task( 'build', gulp.series( 'init', 'clean:tmp', 'copy:toTmp', 'replace:tmp', 'clean:buildDev', 'copy:tmpToDev', 'clean:localExtensionDir', 'copy:tmpToLocal' ) );`
+```js
+  gulp.task( 
+    'build', 
+    gulp.series( 
+      'init', 
+      'clean:tmp', 
+      'copy:toTmp', 
+      'replace:tmp', 
+      'clean:buildDev', 
+      'copy:tmpToDev', 
+      'clean:localExtensionDir', 
+      'copy:tmpToLocal' 
+      )
+  );`
+```
 
 ## Create your own task-chains
 You can add additional tasks on top of sense-go, mixing your very own tasks with sense-go tasks, etc.
@@ -24,8 +38,14 @@ var userConfig = {
 senseGo.init( gulp, userConfig,  function (  ) {
   
   // Create your own task chain, and overwrite the current 'build' task
-  `gulp.task( 'build', gulp.series( 'init', 'clean:tmp', 'copy:toTmp', 'myTask1', 'myTask2' ) );`
-  
+  gulp.task( 'build', gulp.series( 
+    'init', 
+    'clean:tmp', 
+    'copy:toTmp', 
+    'myTask1', 
+    'myTask2' 
+  ) );
+    
 });
 ```
 

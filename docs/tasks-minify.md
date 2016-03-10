@@ -10,8 +10,7 @@
 * Options used:
   * `tmpDir`
 
-Uses the following gulp plugins:
-
+Reference: 
 {%= related([
   'gulp-jsonminify'
   ], {"silent": true}
