@@ -2,10 +2,10 @@
 
 **`gulp copy:toTmp`** 
 * Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
-* Options used:
+* Options used:  
   * `srcDir`
   * `tmpDir`
-* Excluded files:
+* Excluded files:  
   * `*.less`
 
 **`copy:tmpToDev`** 
