@@ -16,15 +16,15 @@
 * Excluded files:
   * `*.less`
 
-
-**`copy:tmpToLocal`** 
-* Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
-
-Options used:
+**`copy:tmpToRelease`** 
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder
+* Options used:
   * `tmpDir`
-  * `localExtensionDir
+  * `buildReleaseDir`
 * Excluded files:
   * `*.less`
+
+
 
 
 
