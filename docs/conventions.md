@@ -1,4 +1,4 @@
-The entire concept follows **conventions** I am using when setting up a project:
+The entire concept follows **conventions** I am using when setting up a project (working on Qlik Sense visualization extensions or mashups):
 
 ```
 | PROJECT-ROOT
@@ -19,4 +19,4 @@ The entire concept follows **conventions** I am using when setting up a project:
 
 \* If using less files is preferred for a project I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get sense-go running immediately.
+***sense-go*** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
