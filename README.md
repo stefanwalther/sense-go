@@ -24,6 +24,7 @@
   - [Import](#import)
   - [Less](#less)
   - [Replace](#replace)
+  - [Uglify](#uglify)
   - [Wbfolder](#wbfolder)
 * [Task Chains](#task-chains)
 * [Contributing](#contributing)
@@ -163,7 +164,7 @@ The following typical deployment tasks are available
 
 ### Qlik Sense Desktop
 
-**`copy:tmpToLocal`**
+**`deploy:tmpToLocal`**
 
 * Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
 * Options used:
@@ -182,7 +183,18 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
 
 ### Upload via SSH
 
-(tbd)
+**`deploy:toSSH`**
+
+* Deploy the final output via SSH
+* Options used:
+  - `deployment:enabled`
+  - `deployment:host`
+  - `deployment:port`
+  - `deployment:username`
+  - `deployment:password`
+  - `deployment:dest`
+
+Note: `deploy:toSSH` has mainly be tested with mobaSSH, using certificates is not tested, yet.
 
 ### Bump
 
@@ -403,12 +415,28 @@ Add new replacements patterns in your .sense-go.yml file:
 
 (tbd)
 
+### Uglify
+
+> Uglify & minifies JavaScript files
+
+**`uglify:tmp`**
+
+* Uglify all JavaScript files.
+* Options:
+  - `tmpDir`
+  - `uglify*` - All options directly passed to `gulp-uglify`, e.g.
+    + `uglify.mangle`
+    + `uglify.beautify`
+    + `uglify.preserveComments`
+
+* Excluded:
+  - All files matching the pattern `*.min.js`
+
 ### Wbfolder
 
 > Create a wbfolder.wbl file to be used in Workbench/Qlik Dev Hub
 
 **`gulp wbfolder`**
-
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
 * Options used:
   - `wbfolder.cwd` - Working directory
@@ -433,7 +461,7 @@ Some are already predefined:
       'clean:buildDev', 
       'copy:tmpToDev', 
       'clean:localExtensionDir', 
-      'copy:tmpToLocal' 
+      'deploy:tmpToLocal' 
       )
   );`
 ```
