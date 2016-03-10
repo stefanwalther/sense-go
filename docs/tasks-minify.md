@@ -9,9 +9,3 @@
 * Minify .json & .qext files
 * Options used:
   * `tmpDir`
-
-Reference: 
-{%= related([
-  'gulp-jsonminify'
-  ], {"silent": true}
-) %}  

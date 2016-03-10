@@ -59,9 +59,3 @@ The following patterns are available out of the box:
 Add new replacements patterns in your .sense-go.yml file:
 
 (tbd)
-
-Reference:  
-{%= related([
-  'gulp-replace-task'
-  ], {"silent": true}
-) %}  

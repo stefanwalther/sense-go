@@ -8,25 +8,8 @@ All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://
   * srcDir
   * tmpDir
 
-Uses the following gulp plugins:
-{%= related([
-  'gulp-autoprefixer', 
-  'gulp-less', 
-  'gulp-sourcemaps'
-  ], {"silent": true}
-) %}  
-
-
 **`gulp less:each`**
 * Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
 * Options used:
   * srcDir
   * tmpDir
-
-Uses the following gulp plugins:
-{%= related([
-  'gulp-autoprefixer', 
-  'gulp-less', 
-  'gulp-sourcemaps'
-  ], {"silent": true}
-) %}  
