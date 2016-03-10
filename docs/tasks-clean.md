@@ -28,3 +28,8 @@ Options used:
 
 - `deployment.toLocal.enabled`
 - `deployment.toLocal.extensionBaseDir`
+
+**`clean:tmpIllegal`**
+* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory
+* These are all files, except files with the following file extension: 
+  * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
