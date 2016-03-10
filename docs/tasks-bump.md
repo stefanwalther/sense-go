@@ -16,15 +16,15 @@
 * Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
 * Shortcut: `gulp b:v`
 * Example: 
-```
+```sh
 gulp bump:version --newversion=0.1.0
 gulp b:v --nv=0.1.0
 ```
 
 **Possible command line parameters** 
 
-**`--tag`**
+**`--tag`**  
 * Tags the current version of your commit with the newly created version created by any of the bump-tasks.
 
-**`--commit="Your commit message"`**
+**`--commit="Your commit message"`**  
 * Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
