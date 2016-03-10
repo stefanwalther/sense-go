@@ -15,7 +15,8 @@
 **`gulp bump:version`** 
 * Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
 * Shortcut: `gulp b:v`
-* Example: 
+
+Example: 
 ```
 gulp bump:version --newversion=0.1.0
 gulp b:v --nv=0.1.0
