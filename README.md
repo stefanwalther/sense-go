@@ -20,9 +20,9 @@
   - [Bump](#bump)
   - [Clean](#clean)
   - [Copy](#copy)
+  - [Minification/Optimization](#minification-optimization)
   - [Import](#import)
   - [JsonLint](#jsonlint)
-  - [JsonMinify](#jsonminify)
   - [Less](#less)
   - [Replace](#replace)
   - [Wbfolder](#wbfolder)
@@ -160,58 +160,30 @@ gulp --tasks
 
 > Deploy to either the Extension folder on your local computer (using Qlik Sense Desktop), upload to a server via ssh or upload to a Qlik Sense Repository using the Qlik Sense Repository (QRS) API.
 
-`gulp deploy:toLocal`
+The following typical deployment tasks are available
 
-**Options:**
+### Qlik Sense Desktop
 
-* deployment
-  - local
-    + enabled {boolean} - Whether to enable deployment to local Qlik Sense folder or not, default to `true`
-    + localExtensionDir {string} - Path to the local extension directory, defaults to `null`
+**`copy:tmpToLocal`**
 
-Note: The path for the local deployment will be fetched automatically (using sense-loc), if you want to override the path, use `localExtensionDir`.
+* Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+* Options used:
+  - `tmpDir`
+  - `localExtensionDir
+* Excluded files:
+  - `*.less`
 
-### Clean local local deployment directory
-
-**Options:**
-
-* clean
-  - src
-  - cwd
+Note: The path for the local deployment will be fetched automatically (using [sense-loc](https://github.com/stefanwalther/sense-loc)), if you want to override the path, use `localExtensionDir`.
 
 ### Upload to Qlik Sense server
 
 Upload the zipped visualization extension to a Qlik Sense server (using the Repository API in behind).
 
-**Options:**
+(tbd)
 
-* upload
-  - src
-  - cert
-  - serverUrl
+### Upload via SSH
 
-### Compress
-
-Compress files.
-
-**Options:**
-* compress
-  - src
-  - dest
-  - format
-  - password Set a password to protect the .zip file.
-
-### Replace
-
-Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
-
-### Uglify
-
-(TBC)
-
-### Minify
-
-(TBC)
+(tbd)
 
 ### Bump
 
@@ -278,9 +250,9 @@ gulp b:v --nv=0.1.0
 **`clean:localExtensionDir`**
 
 * Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
-  - Options used:
-    + `deployment.toLocal.enabled`
-    + `deployment.toLocal.extensionBaseDir`
+* Options used:
+  - `deployment.toLocal.enabled`
+  - `deployment.toLocal.extensionBaseDir`
 
 **`clean:tmpIllegal`**
 
@@ -294,41 +266,49 @@ gulp b:v --nv=0.1.0
 
 **`gulp copy:toTmp`**
 * Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
+* Options used:
+  - `srcDir`
+  - `tmpDir`
 
-Options used:
-
-* `srcDir`
-* `tmpDir`
-
-Excluded files:
-
-* `*.less`
+* Excluded files:
+  - `*.less`
 
 **`copy:tmpToDev`**
-
 * Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
+* Options used:
+  - `tmpDir`
+  - `buildDevDir`
 
-Options used:
+* Excluded files:
+  - `*.less`
 
-* `tmpDir`
-* `buildDevDir`
+**`copy:tmpToRelease`**
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder
+* Options used:
+  - `tmpDir`
+  - `buildReleaseDir`
 
-Excluded files:
+* Excluded files:
+  - `*.less`
 
-* `*.less`
+### Minification/Optimization
 
-**`copy:tmpToLocal`**
+> Several minification tasks
 
-* Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+**`minify:html:tmp`**
 
-Settings used:
+* Minifies all htm/html files in the `tmp` folder
+* Options used:
+  - `tmpDir`
 
-* `tmpDir`
-* `localExtensionDir
+**`minify:json:tmp`**
+* Minify .json & .qext files
+* Options used:
+  - `tmpDir`
 
-Excluded files:
+Uses the following gulp plugins:
 
-* `*.less`
+[gulp-jsonminify](https://www.npmjs.com/package/gulp-jsonminify): Minifies blocks of JSON-like content into valid JSON by removing all whitespace and comments. | [homepage](https://github.com/tcarlsen/gulp-jsonminify)
 
 ### Import
 
@@ -358,22 +338,6 @@ import:
 ### JsonLint
 
 (to be documented)
-
-### JsonMinify
-
-> Minify JSON & QEXT files
-
-All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
-
-**`gulp jsonminify:tmp`**
-
-Settings used:
-
-* tmpDir
-
-Uses the following gulp plugins:
-
-[gulp-jsonminify](https://www.npmjs.com/package/gulp-jsonminify): Minifies blocks of JSON-like content into valid JSON by removing all whitespace and comments. | [homepage](https://github.com/tcarlsen/gulp-jsonminify)
 
 ### Less
 
