@@ -6,7 +6,7 @@
   * `tmpDir`
 
 **`gulp clean:buildDev`**
-* Deletes all files in the `./build/dev` directory
+* Deletes all files in the `./build/dev` directory.
 * Options used:
   * `buildDevDir`
 
@@ -22,6 +22,6 @@
   * `deployment.toLocal.extensionBaseDir`
 
 **`clean:tmpIllegal`**
-* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory
+* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory.
 * These are all files, except files with the following file extension: 
   * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
