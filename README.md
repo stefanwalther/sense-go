@@ -14,6 +14,7 @@
 * [Purpose](#purpose)
 * [Deployment by convention](#deployment-by-convention)
 * [Basic workflow](#basic-workflow)
+* [Configuration](#configuration)
 * [Tasks](#tasks)
   - [Deployment](#deployment)
   - [Bump](#bump)
@@ -99,7 +100,7 @@ Technically speaking sense-go is just a collection of configurable gulp tasks wh
 
 ## Deployment by convention
 
-The entire concept follows **conventions** I am using when setting up a project:
+The entire concept follows **conventions** I am using when setting up a project (working on Qlik Sense visualization extensions or mashups):
 
 ```
 | PROJECT-ROOT
@@ -119,7 +120,7 @@ The entire concept follows **conventions** I am using when setting up a project:
 
 * If using less files is preferred for a project I keep this folder empty, otherwise all the .css files will be place here
 
-**_sense-go_** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get sense-go running immediately.
+**_sense-go_** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get **_sense-go_** running immediately, but that's definitely NOT the idea behind this project.
 
 ## Basic workflow
 
@@ -131,6 +132,21 @@ The workflow of the preconfigured tasks can be summarized as follows:
 * Finally the temporary folder `.tmp` will be deleted again
 
 It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. So choose custom configurations wisely.
+
+## Configuration
+
+Considering the conventions mentioned above ***sense-go** comes with a default configuration based on these.
+
+### Inline configuration
+
+(TBD)
+
+### Project configuration
+
+When running in CLI define all configurations in the `sense-go.yml` file, located in the root of your project.
+
+The easiest way to start with your custom configuration is to copy the [default configuration file](src/default-config.yml) and start modifying it.
+But keep in mind, following the conventions, you should only need to adapt a few of the default configurations.
 
 ## Tasks
 
@@ -243,52 +259,84 @@ gulp b:v --nv=0.1.0
 
 **`gulp clean:tmp`**
 
-* Deletes all files in the `.tmp` directory
+* Delete the entire `.tmp` directory.
+
+Options used:
+
+* `tmpDir`
 
 **`gulp clean:buildDev`**
 
 * Deletes all files in the `./build/dev` directory
 
+Options used:
+
+* `buildDevDir`
+
+**`gulp clean:buildRelease`
+
+* Deletes all files in the `./build/release` directory.
+
+Options used:
+
+* `buildReleaseDir`
+
 **`clean:localExtensionDir`**
 
-* Deletes all files in the project's local extension folder
+* Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
+
+Options used:
+
+* `deployment.toLocal.enabled`
+* `deployment.toLocal.extensionBaseDir`
+
+**`clean:tmpIllegal`**
+
+* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory
+* These are all files, except files with the following file extension:
+  - `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
 
 ### Copy
 
 > Copy files to a specific directory on your system
 
-**`gulp copy:toTmp`** - Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
+**`gulp copy:toTmp`**
+* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
 
-Settings used:
+Options used:
 
-* srcDir
-* tmpDir
-
-Excluded files:
-
-* *.less
-
-**`copy:tmpToDev`** - Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
-
-Settings used:
-
-* tmpDir
-* buildDevDir
+* `srcDir`
+* `tmpDir`
 
 Excluded files:
 
-* *.less
+* `*.less`
 
-**`copy:tmpToLocal`** - Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+**`copy:tmpToDev`**
 
-Settings used:
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
 
-* tmpDir
-* localExtensionDir
+Options used:
+
+* `tmpDir`
+* `buildDevDir`
 
 Excluded files:
 
-* *.less
+* `*.less`
+
+**`copy:tmpToLocal`**
+
+* Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+
+Settings used:
+
+* `tmpDir`
+* `localExtensionDir
+
+Excluded files:
+
+* `*.less`
 
 ### Import
 

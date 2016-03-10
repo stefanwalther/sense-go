@@ -1,32 +1,35 @@
 > Copy files to a specific directory on your system
 
-**`gulp copy:toTmp`** - Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
+**`gulp copy:toTmp`** 
+* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder
 
-Settings used:
-* srcDir
-* tmpDir
-
-Excluded files:
-* *.less
-
-**`copy:tmpToDev`** - Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
-
-Settings used:
-* tmpDir
-* buildDevDir
+Options used:
+* `srcDir`
+* `tmpDir`
 
 Excluded files:
-* *.less
+* `*.less`
 
+**`copy:tmpToDev`** 
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
 
-**`copy:tmpToLocal`** - Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
-
-Settings used:
-* tmpDir
-* localExtensionDir
+Options used:
+* `tmpDir`
+* `buildDevDir`
 
 Excluded files:
-* *.less
+* `*.less`
+
+
+**`copy:tmpToLocal`** 
+* Copies all files (except the excluded ones) from the `.tmp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+
+Settings used:
+* `tmpDir`
+* `localExtensionDir
+
+Excluded files:
+* `*.less`
 
 
 
