@@ -9,12 +9,12 @@
   * `*.less`
 
 **`copy:tmpToDev`** 
-* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
-* Options used:
-  * `tmpDir`
-  * `buildDevDir`
-* Excluded files:
-  * `*.less`
+- Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder
+- Options used:
+  - `tmpDir`
+  - `buildDevDir`
+- Excluded files:
+  - `*.less`
 
 **`copy:tmpToRelease`** 
 * Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder
