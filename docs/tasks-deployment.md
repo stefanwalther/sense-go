@@ -4,7 +4,7 @@ The following typical deployment tasks are available
 
 ### Qlik Sense Desktop
 
-**`copy:tmpToLocal`** 
+**`deploy:tmpToLocal`** 
 * Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
 * Options used:
   * `tmpDir`
@@ -23,4 +23,14 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
   
 ### Upload via SSH
 
-(tbd)
+**`deploy:toSSH`**
+* Deploy the final output via SSH
+* Options used:
+  * `deployment:enabled`
+  * `deployment:host`
+  * `deployment:port`
+  * `deployment:username`
+  * `deployment:password`
+  * `deployment:dest`
+
+Note: `deploy:toSSH` has mainly be tested with mobaSSH, using certificates is not tested, yet.

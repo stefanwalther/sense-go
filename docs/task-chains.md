@@ -14,7 +14,7 @@ Some are already predefined:
       'clean:buildDev', 
       'copy:tmpToDev', 
       'clean:localExtensionDir', 
-      'copy:tmpToLocal' 
+      'deploy:tmpToLocal' 
       )
   );`
 ```
