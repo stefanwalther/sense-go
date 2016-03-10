@@ -17,9 +17,9 @@
 
 **`clean:localExtensionDir`**
 * Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
-  * Options used:
-    * `deployment.toLocal.enabled`
-    * `deployment.toLocal.extensionBaseDir`
+* Options used:
+  * `deployment.toLocal.enabled`
+  * `deployment.toLocal.extensionBaseDir`
 
 **`clean:tmpIllegal`**
 * Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory
