@@ -260,35 +260,27 @@ gulp b:v --nv=0.1.0
 **`gulp clean:tmp`**
 
 * Delete the entire `.tmp` directory.
-
-Options used:
-
-* `tmpDir`
+* Options used:
+  - `tmpDir`
 
 **`gulp clean:buildDev`**
 
 * Deletes all files in the `./build/dev` directory
+* Options used:
+  - `buildDevDir`
 
-Options used:
-
-* `buildDevDir`
-
-**`gulp clean:buildRelease`
+**`gulp clean:buildRelease`**
 
 * Deletes all files in the `./build/release` directory.
-
-Options used:
-
-* `buildReleaseDir`
+* Options used:
+  - `buildReleaseDir`
 
 **`clean:localExtensionDir`**
 
 * Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
-
-Options used:
-
-* `deployment.toLocal.enabled`
-* `deployment.toLocal.extensionBaseDir`
+  - Options used:
+    + `deployment.toLocal.enabled`
+    + `deployment.toLocal.extensionBaseDir`
 
 **`clean:tmpIllegal`**
 
