@@ -436,12 +436,10 @@ Add new replacements patterns in your .sense-go.yml file:
 **`gulp wbfolder`**
 
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
-
-Settings used:
-
-* `wbfolder.cwd` - Working directory
-* `wbfolder.src` - Source mask
-* `wbfolder.dest` - Wbfolder.wbl file destination
+* Options used:
+  - `wbfolder.cwd` - Working directory
+  - `wbfolder.src` - Source mask
+  - `wbfolder.dest` - Wbfolder.wbl file destination
 
 ## Task Chains
 
