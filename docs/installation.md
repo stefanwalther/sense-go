@@ -5,7 +5,7 @@ npm install sense-go --save-dev
 ```
 
 *Note:* 
-*Currently you have to save sense-go locally as a devDependency in your project. It is planned to get sense-go working as a global dependency, since sense-go is quite heavy because of the many gulp packages being installed. As an alternative install sense-go globally and do an `npm link` in your project as for now.*
+*Currently you have to save ***sense-go*** locally as a devDependency in your project. It is planned to get ***sense-go*** working as a global dependency, since ***sense-go*** is quite heavy because of the many gulp packages being installed. As an alternative install ***sense-go*** globally and do an `npm link` in your project as for now.*
 
 
 **Step 2:** Install Gulp4, to run your local gulpfile.js
@@ -33,4 +33,8 @@ senseGo.init( gulp, userConfig,  function (  ) {
 });
 ```
 
-Run any of the below described gulp commands or create your own task-chains.
+Then run ***sense-go*** by:
+
+- Running any of the single gulp commands,
+- Run a predefined task chain or
+- Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
