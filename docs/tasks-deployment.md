@@ -8,7 +8,7 @@ The following typical deployment tasks are available
 * Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
 * Options used:
   * `tmpDir`
-  * `localExtensionDir
+  * `localExtensionDir`
 * Excluded files:
   * `*.less`
 
@@ -24,13 +24,13 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
 ### Upload via SSH
 
 **`deploy:toSSH`**
-* Deploy the final output via SSH
+* Deploy the final output via SSH to another computer
 * Options used:
-  * `deployment:enabled`
-  * `deployment:host`
-  * `deployment:port`
-  * `deployment:username`
-  * `deployment:password`
-  * `deployment:dest`
+  * `deployment.toSSH.enabled`
+  * `deployment.toSSH.host`
+  * `deployment.toSSH.port`
+  * `deployment.toSSH.username`
+  * `deployment.toSSH.password`
+  * `deployment.toSSH.dest`
 
 Note: `deploy:toSSH` has mainly be tested with mobaSSH, using certificates is not tested, yet.
