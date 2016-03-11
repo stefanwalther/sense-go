@@ -21,7 +21,7 @@ describe.only( 'wbfolder task', function () {
 	};
 
 	afterEach( function ( done ) {
-		rimraf( './tmp', function () {
+		rimraf( outputDir, function () {
 			done();
 		} );
 	} );
