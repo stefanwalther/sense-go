@@ -4,35 +4,39 @@ var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
+var rimraf = require( 'rimraf' );
+chai.use( require( 'chai-fs' ) );
 var expect = chai.expect;
 
-describe.only('wbfolder task', function (  ) {
+describe.only( 'wbfolder task', function () {
 
-	var outputDir = path.join(__dirname, '.tmp');
-		var config = {
-			"wbfolder": {
-				"enabled": true,
-				"cwd": path.join(__dirname, './fixtures/wbfolder'),
-				"src": "./**/*.*",
-				"dest": path.join(outputDir, './wbfolder.wbl')
-			}
-		};
+	var outputDir = path.join( __dirname, '.tmp' );
+	var config = {
+		"wbfolder": {
+			"enabled": true,
+			"cwd": path.join( __dirname, './fixtures/wbfolder' ),
+			"src": "./**/*.*",
+			"dest": path.join( outputDir, './wbfolder.wbl' )
+		}
+	};
 
-		afterEach( function ( done ) {
-			//rimraf( './tmp', function () {
-			//	done();
-			//} );
+	afterEach( function ( done ) {
+		rimraf( './tmp', function () {
 			done();
-		});
+		} );
+	} );
 
-		it('creates wbfolder', function ( done ) {
-			console.log(config);
-			senseGo.init( gulp, config, function ( err ) {
-				expect( err ).to.be.undefined;
+	it( 'creates wbfolder', function ( done ) {
+		senseGo.init( gulp, config, function ( err ) {
+			expect( err ).to.be.undefined;
 
-				gulp.series('wbfolder')();
+			gulp.series( 'wbfolder' )( function () {
+				console.log( 'test' );
+				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.be.a.file();
+				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.have.content( 'script1.js;\r\nscript1.qext' );
 				done();
-			} )
-		});
+			} );
+		} )
+	} );
 
-});
+} );
