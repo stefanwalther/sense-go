@@ -8,7 +8,7 @@ var rimraf = require( 'rimraf' );
 chai.use( require( 'chai-fs' ) );
 var expect = chai.expect;
 
-describe.only( 'wbfolder task', function () {
+describe( 'wbfolder task', function () {
 
 	var outputDir = path.join( __dirname, '.tmp' );
 	var config = {
