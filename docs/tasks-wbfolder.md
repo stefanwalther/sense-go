@@ -1,4 +1,4 @@
-> Create a wbfolder.wbl file to be used in Workbench/Qlik Dev Hub
+> Create a wbfolder.wbl file to be used in Dev Hub - Extension Editor.
 
 **`gulp wbfolder`**
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
