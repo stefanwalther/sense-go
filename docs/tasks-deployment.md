@@ -23,14 +23,14 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
   
 ### Upload via SSH
 
-**`deploy:toSSH`**
+**`deploy:toSsh`**
 * Deploy the final output via SSH to another computer
 * Options used:
-  * `deployment.toSSH.enabled`
-  * `deployment.toSSH.host`
-  * `deployment.toSSH.port`
-  * `deployment.toSSH.username`
-  * `deployment.toSSH.password`
-  * `deployment.toSSH.dest`
+  * `deployment.toSsh.enabled`
+  * `deployment.toSsh.host`
+  * `deployment.toSsh.port`
+  * `deployment.toSsh.username`
+  * `deployment.toSsh.password`
+  * `deployment.toSsh.dest`
 
-Note: `deploy:toSSH` has mainly be tested with mobaSSH, using certificates is not tested, yet.
+Note: `deploy:toSsh` has mainly be tested with mobaSSH, using certificates is not tested, yet.
