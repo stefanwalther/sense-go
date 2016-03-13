@@ -7,3 +7,5 @@
   * `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
   * `wbfolder.src` - Source mask, defaults to `./**/*.*`.
   * `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
+
+Note: The wbfolder.wbl is only necessary if you want to allow users to open your visualization extension in Dev Hub. wbfolder.wbl is NOT required and necessary to let your visualization extension being used within Qlik Sense.
