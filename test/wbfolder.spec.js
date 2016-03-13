@@ -16,7 +16,7 @@ describe.only( 'wbfolder task', function () {
 			"enabled": true,
 			"cwd": path.join( __dirname, './fixtures/wbfolder' ),
 			"src": "./**/*.*",
-			"dest": path.join(__dirname, './.tmp/wbfolder.wbl')
+			"dest": path.join(outputDir, './wbfolder.wbl')
 		}
 	};
 

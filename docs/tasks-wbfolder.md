@@ -3,8 +3,7 @@
 **`gulp wbfolder`**
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
 * Options used:
-  * `wbfolder.cwd` - Working directory
-  * `wbfolder.src` - Source mask
-  * `wbfolder.dest` - Wbfolder.wbl file destination
-  * `wbfolder.fileName` - Defauls to `wbfolder.wbl`
-  
+  * `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
+  * `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
+  * `wbfolder.src` - Source mask, defaults to `./**/*.*`.
+  * `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
