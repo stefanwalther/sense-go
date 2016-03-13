@@ -14,7 +14,6 @@
     "deep-extend": "^0.4.1",
     "del": "^2.0.2",
     "expand-tilde": "^1.2.0",
-    "extend-shallow": "^2.0.0",
     "fs-extra": "^0.26.2",
     "glob": "^7.0.3",
     "graceful-fs": "^4.1.3",
