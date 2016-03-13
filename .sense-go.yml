@@ -19,4 +19,4 @@ wbfolder:
   enabled: false
   cwd: './.tmp'
   src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './.tmp/wbfolder.wbl'
+  dest: './wbfolder.wbl'

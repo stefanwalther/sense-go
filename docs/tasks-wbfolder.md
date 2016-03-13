@@ -6,3 +6,5 @@
   * `wbfolder.cwd` - Working directory
   * `wbfolder.src` - Source mask
   * `wbfolder.dest` - Wbfolder.wbl file destination
+  * `wbfolder.fileName` - Defauls to `wbfolder.wbl`
+  
