@@ -1,4 +1,4 @@
-sense-go is heavily relying on gulp plugins. A big thanky you to the authors of these plugins!!
+sense-go is heavily relying on gulp plugins. A big thank you to the authors of these plugins!!
 
 ### General
 
