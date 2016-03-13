@@ -69,19 +69,22 @@
   "bugs": {
     "url": "https://github.com/stefanwalther/sense-go/issues"
   },
-  "files": [
-    "index.js"
-  ],
   "engines": {
     "node": ">=0.10.0"
   },
   "keywords": [
     "deployment",
     "grunt",
+    "gulp",
     "web-projects",
     "qlik",
     "qlik-sense",
-    "visualzation-extesions",
+    "visualization-extensions",
+    "qlik-sense-desktop",
+    "packaging",
+    "zip",
+    "wbfolder.wbl",
+    "qrs",
     "extensions",
     "mashups"
   ]
