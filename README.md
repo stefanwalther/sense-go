@@ -566,6 +566,7 @@ I cannot guarantee that I will merge all PRs but I will evaluate them all.
 ## License
 
 Copyright © 2016 Stefan Walther
+
 Released under the MIT license.
 
 ***
