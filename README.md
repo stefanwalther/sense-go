@@ -6,7 +6,10 @@
 
 **Note: This library is in development and not ready to use, yet**
 
-Look at branch 0.6 to follow the current development state.
+Look at [development branch 0.6](https://github.com/stefanwalther/sense-go/tree/0.6) to follow the progress of ***sense-go***.
+
+
+---
 
 ## Contributing
 
