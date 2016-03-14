@@ -86,12 +86,7 @@ describe( 'gulp', function () {
 
 			gulp.start.apply( gulp, ['lessEach'] );
 			gulp.on( 'task_stop', function ( e ) {
-				expect( path.join( __dirname, './tmp/lessEach/root.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './tmp/lessEach/variables.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './tmp/lessEach/whatever.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './tmp/lessEach/root.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessEach/root.css' ), 'utf8' ) );
-				expect( path.join( __dirname, './tmp/lessEach/whatever.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessEach/whatever.css' ), 'utf8' ) );
-				done();
+
 			} );
 		} );
 	} );
