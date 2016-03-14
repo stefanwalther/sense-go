@@ -11,8 +11,9 @@ var chai = require( 'chai' );
 var rimraf = require( 'rimraf' );
 chai.use( require( 'chai-fs' ) );
 var expect = chai.expect;
+var testUtils = require('./lib/test-utils');
 
-describe.only( 'less tasks', function () {
+describe( 'less tasks', function () {
 
 	it( 'should run lessEach', function ( done ) {
 
@@ -22,10 +23,10 @@ describe.only( 'less tasks', function () {
 		};
 
 		beforeEach( function ( done ) {
-			rimraf( config.tmpDir, done);
+			testUtils.delDir( config.tmpDir, done);
 		});
 		afterEach( function ( done ) {
-			rimraf( config.tmpDir, done);
+			testUtils.delDir( config.tmpDir, done);
 		});
 
 		senseGo.init( gulp, config, function ( err ) {

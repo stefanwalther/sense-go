@@ -7,27 +7,25 @@ var chai = require( 'chai' );
 var rimraf = require( 'rimraf' );
 chai.use( require( 'chai-fs' ) );
 var expect = chai.expect;
+var testUtils = require('./lib/test-utils');
 
-describe( 'wbfolder task', function () {
+describe( 'wbfolder', function () {
 
-	var outputDir = path.join( __dirname, '.tmp' );
 	var config = {
+		"tmpDir": path.join( __dirname, '.tmp'),
 		"wbfolder": {
 			"enabled": true,
 			"cwd": path.join( __dirname, './fixtures/wbfolder' ),
 			"src": "./**/*.*",
-			"dest": path.join(outputDir, './wbfolder.wbl')
+			"dest": path.join( path.join(__dirname, '.tmp'), './wbfolder.wbl')
 		}
 	};
 
 	afterEach( function ( done ) {
-		rimraf( outputDir, function () {
-			done();
-		} );
-		//done();
+		testUtils.delDir( config.tmpDir, done);
 	} );
 
-	it( 'creates wbfolder', function ( done ) {
+	it( 'should create a wbfolder.wbl using the `wbl` task', function ( done ) {
 		senseGo.init( gulp, config, function ( err ) {
 			expect( err ).to.be.undefined;
 
