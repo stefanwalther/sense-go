@@ -33,4 +33,4 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
   * `deployment.toSsh.password`
   * `deployment.toSsh.dest`
 
-Note: `deploy:toSsh` has mainly be tested with mobaSSH, using certificates is not tested, yet.
+Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.net/), using certificates is not tested, yet.

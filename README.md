@@ -26,6 +26,7 @@
   - [Uglify](#uglify)
   - [Wbfolder](#wbfolder)
 * [Task Chains](#task-chains)
+* [Used Gulp plugins](#used-gulp-plugins)
 * [Contributing](#contributing)
 * [Author](#author)
 * [License](#license)
@@ -189,18 +190,18 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
 
 ### Upload via SSH
 
-**`deploy:toSSH`**
+**`deploy:toSsh`**
 
 * Deploy the final output via SSH to another computer
 * Options used:
-  - `deployment.toSSH.enabled`
-  - `deployment.toSSH.host`
-  - `deployment.toSSH.port`
-  - `deployment.toSSH.username`
-  - `deployment.toSSH.password`
-  - `deployment.toSSH.dest`
+  - `deployment.toSsh.enabled`
+  - `deployment.toSsh.host`
+  - `deployment.toSsh.port`
+  - `deployment.toSsh.username`
+  - `deployment.toSsh.password`
+  - `deployment.toSsh.dest`
 
-Note: `deploy:toSSH` has mainly be tested with mobaSSH, using certificates is not tested, yet.
+Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.net/), using certificates is not tested, yet.
 
 ### Bump
 
@@ -445,9 +446,12 @@ Add new replacements patterns in your .sense-go.yml file:
 **`gulp wbfolder`**
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
 * Options used:
-  - `wbfolder.cwd` - Working directory
-  - `wbfolder.src` - Source mask
-  - `wbfolder.dest` - Wbfolder.wbl file destination
+  - `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
+  - `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
+  - `wbfolder.src` - Source mask, defaults to `./**/*.*`.
+  - `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
+
+Note: The wbfolder.wbl is only necessary if you want to allow users to open your visualization extension in Dev Hub. wbfolder.wbl is NOT required and necessary to let your visualization extension being used within Qlik Sense.
 
 ## Task Chains
 
@@ -504,6 +508,42 @@ senseGo.init( gulp, userConfig,  function (  ) {
 });
 ```
 
+## Used Gulp plugins
+
+sense-go is heavily relying on existing gulp plugins. A big thank you to the authors of these plugins!!
+
+### General
+
+* [gulp-concat](https://www.npmjs.com/package/gulp-concat): Concatenates files | [homepage](https://github.com/wearefractal/gulp-concat)
+* [gulp-csslint](https://www.npmjs.com/package/gulp-csslint): CSSLint plugin for gulp | [homepage](https://github.com/lazd/gulp-csslint)
+* [gulp-debug](https://www.npmjs.com/package/gulp-debug): Debug vinyl file streams to see what files are run through your gulp pipeline | [homepage](https://github.com/sindresorhus/gulp-debug)
+* [gulp-less](https://www.npmjs.com/package/gulp-less): Less for Gulp | [homepage](https://github.com/plus3network/gulp-less)
+* [gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins): Automatically load any gulp plugins in your package.json | [homepage](https://github.com/jackfranklin/gulp-load-plugins)
+* [gulp-replace](https://www.npmjs.com/package/gulp-replace): A string replace plugin for gulp | [homepage](https://github.com/lazd/gulp-replace)
+* [gulp-rimraf](https://www.npmjs.com/package/gulp-rimraf): rimraf plugin for gulp | [homepage](https://github.com/robrich/gulp-rimraf)
+* [gulp-simple-task-loader](https://www.npmjs.com/package/gulp-simple-task-loader): A simple task loader for gulp | [homepage](https://github.com/reaganthomas/gulp-simple-task-loader)
+* [gulp-watch](https://www.npmjs.com/package/gulp-watch): Watch, that actually is an endless stream | [homepage](https://github.com/floatdrop/gulp-watch)
+
+### Validation
+
+* [gulp-csslint](https://www.npmjs.com/package/gulp-csslint): CSSLint plugin for gulp | [homepage](https://github.com/lazd/gulp-csslint)
+* [gulp-htmllint](https://www.npmjs.com/package/gulp-htmllint): Check HTML code style with htmllint | [homepage](https://github.com/yvanavermaet/gulp-htmllint)
+* [gulp-jsonlint](https://www.npmjs.com/package/gulp-jsonlint): A jsonlint plugin for Gulp | [homepage](https://github.com/rogeriopvl/gulp-jsonlint)
+
+### Packaging
+
+* [gulp-htmlmin](https://www.npmjs.com/package/gulp-htmlmin): gulp plugin to minify HTML. | [homepage](https://github.com/jonschlinkert/gulp-htmlmin)
+* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify): Minify files with UglifyJS. | [homepage](https://github.com/terinjokes/gulp-uglify/)
+* [gulp-zip](https://www.npmjs.com/package/gulp-zip): ZIP compress files | [homepage](https://github.com/sindresorhus/gulp-zip)
+
+### Testing
+
+[gulp-mocha](https://www.npmjs.com/package/gulp-mocha): Run Mocha tests | [homepage](https://github.com/sindresorhus/gulp-mocha)
+
+### Transpilation
+
+[babel](https://www.npmjs.com/package/babel): Turn ES6 code into readable vanilla ES5 with source maps | [homepage](https://babeljs.io/)
+
 ## Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/stefanwalther/sense-go/issues).
@@ -530,4 +570,4 @@ Released under the MIT license.
 
 ***
 
-_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on March 12, 2016._
+_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on March 14, 2016._
