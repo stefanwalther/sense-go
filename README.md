@@ -4,7 +4,7 @@
 
 > Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense, Qlik Sense Visualization Extensions or basically any other project ...).
 
-**Note: This library is in development and not ready to use, yet**
+**Note: This library is in development and not fully ready to use, yet.**
 
 Look at [development branch 0.6](https://github.com/stefanwalther/sense-go/tree/0.6) to follow the progress of ***sense-go***.
 
