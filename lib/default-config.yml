@@ -23,7 +23,7 @@ deployment:
   qrs:                              # Not implemented, yet
     enabled: false
     url: null
-  toSSH:                            # Upload via SSH
+  toSsh:                            # Upload via SSH
     enabled: false
     host: "192.168.56.11"
     port: 22
