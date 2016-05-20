@@ -3,7 +3,7 @@ v0.6.0:
   changes:
     - "Added documentation for the most important and common tasks"
     - "Added test coverage for the most important tasks"
-    - "Recognizing a .sense-go.yml file in each project
+    - "Recognizing a .sense-go.yml file in each project"
 v0.5.3:
   date: "2015-08-12"
   new:
