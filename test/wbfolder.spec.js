@@ -23,6 +23,7 @@ describe( 'wbfolder', function () {
 
 	afterEach( function ( done ) {
 		testUtils.delDir( config.tmpDir, done);
+		//done();
 	} );
 
 	it( 'should create a wbfolder.wbl using the `wbl` task', function ( done ) {
@@ -36,5 +37,19 @@ describe( 'wbfolder', function () {
 			} );
 		} )
 	} );
+
+	// Does not really work, mocha-fs is crap, find better solutions.
+	xit('should not create a wbfolder.wbl using the `wbl` task not enabled', function( done ) {
+
+		config.wbfolder.enabled = false;
+		senseGo.init( gulp, config, function ( err ) {
+			expect( err ).to.be.undefined;
+
+			gulp.series( 'wbfolder' )( function () {
+				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.be.a.file();
+				done();
+			} );
+		} )
+	})
 
 } );
