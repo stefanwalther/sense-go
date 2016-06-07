@@ -2,12 +2,36 @@
   "name": "sense-go",
   "version": "0.6.0",
   "description": "Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense, Qlik Sense Visualization Extensions or basically any other project ...).",
+  "keywords": [
+    "deployment",
+    "extensions",
+    "grunt",
+    "gulp",
+    "mashups",
+    "packaging",
+    "qlik",
+    "qlik-sense",
+    "qlik-sense-desktop",
+    "qrs",
+    "visualization-extensions",
+    "wbfolder.wbl",
+    "web-projects",
+    "zip"
+  ],
+  "homepage": "https://github.com/stefanwalther/sense-go",
+  "bugs": {
+    "url": "https://github.com/stefanwalther/sense-go/issues"
+  },
+  "license": "MIT",
+  "author": "Stefan Walther",
   "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stefanwalther/sense-go.git"
+  },
   "scripts": {
     "test": "mocha test/*.spec.js"
   },
-  "author": "Stefan Walther",
-  "license": "MIT",
   "dependencies": {
     "async": "^2.0.0-rc.5",
     "chalk": "^1.1.0",
@@ -61,31 +85,7 @@
     "rimraf": "^2.4.4",
     "should": "*"
   },
-  "homepage": "https://github.com/stefanwalther/sense-go",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stefanwalther/sense-go.git"
-  },
-  "bugs": {
-    "url": "https://github.com/stefanwalther/sense-go/issues"
-  },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "keywords": [
-    "deployment",
-    "grunt",
-    "gulp",
-    "web-projects",
-    "qlik",
-    "qlik-sense",
-    "visualization-extensions",
-    "qlik-sense-desktop",
-    "packaging",
-    "zip",
-    "wbfolder.wbl",
-    "qrs",
-    "extensions",
-    "mashups"
-  ]
+  }
 }
