@@ -1,3 +1,3 @@
 ## Known issues
 
-- Deployment task `toSsh` should work properly, but actually gulp does not properly end.
+Found any issues, please create an issue on Github.
