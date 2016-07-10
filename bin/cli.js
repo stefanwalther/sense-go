@@ -7,6 +7,9 @@ var senseGo = require( './../lib/' );
 
 senseGo.init( gulp, function () {
 	
-	gulp.series( argv._)();
-
+	if (argv._) {
+		return gulp.series( argv._, function() {
+			//done
+		})();
+	}
 } );
