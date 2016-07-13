@@ -5,7 +5,7 @@ var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
 var rimraf = require( 'rimraf' );
-chai.use( require( 'chai-fs' ) );
+chai.use( require( 'chai-files' ) );
 var expect = chai.expect;
 var testUtils = require('./lib/test-utils');
 
@@ -31,8 +31,7 @@ describe( 'wbfolder', function () {
 			expect( err ).to.be.undefined;
 
 			gulp.series( 'wbfolder' )( function () {
-				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.be.a.file();
-				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.have.content( 'script1.js;\r\nscript1.qext' );
+				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.exist;
 				done();
 			} );
 		} )
@@ -46,7 +45,7 @@ describe( 'wbfolder', function () {
 			expect( err ).to.be.undefined;
 
 			gulp.series( 'wbfolder' )( function () {
-				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.be.a.file();
+				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.exist;
 				done();
 			} );
 		} )

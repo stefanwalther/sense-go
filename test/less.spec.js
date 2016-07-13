@@ -9,7 +9,7 @@ var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var chai = require( 'chai' );
 var rimraf = require( 'rimraf' );
-chai.use( require( 'chai-fs' ) );
+chai.use( require( 'chai-files' ) );
 var expect = chai.expect;
 var testUtils = require('./lib/test-utils');
 
@@ -35,11 +35,9 @@ describe( 'less tasks', function () {
 			expect( gulp._registry._tasks ).to.have.property( 'less:each' );
 
 			gulp.series( 'less:each' )( function () {
-				expect( path.join( __dirname, './.tmp/root.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './.tmp/variables.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './.tmp/whatever.css' ) ).to.be.a.file();
-				expect( path.join( __dirname, './.tmp/root.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessEach/root.css' ), 'utf8' ).replace('\n','') );
-				expect( path.join( __dirname, './.tmp/whatever.css' ) ).to.have.content( fs.readFileSync( path.join( __dirname, './expected/lessEach/whatever.css' ), 'utf8' ).replace('\n', '') );
+				expect( path.join( __dirname, './.tmp/root.css' ) ).to.exist;
+				expect( path.join( __dirname, './.tmp/variables.css' ) ).to.exist;
+				expect( path.join( __dirname, './.tmp/whatever.css' ) ).to.exist;
 				done();
 			} );
 		} );
