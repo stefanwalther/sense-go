@@ -57,13 +57,13 @@ wbfolder:
   enabled: true
   cwd: './.tmp'
   src: './**/*.*'                   # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './.tmp/wbfolder.wbl'            # Destination for the generated wbfolder.wbl file, by default in the output's root directory
+  dest: './.tmp/wbfolder.wbl'       # Destination for the generated wbfolder.wbl file, by default in the output's root directory
 uglify:
   mangle: true                      # Do not mangle, otherwise angularJS will be broken
   beautify: false
   preserveComments: 'some'
 npm:
-  publish: true                     # If set to false, task npm:publish will do nothing
+  publish: true                     # If set to false, task npm:publish will NOT do anything
 
 # -------------------------------------------------------------------
 # Import settings
