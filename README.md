@@ -24,22 +24,20 @@ The main reason behind creating this library is that I am creating a lot of diff
 Technically speaking ***sense-go*** is just a collection of configurable [gulp tasks](http://gulpjs.com) which can be easily re-used and extended when developing your Qlik Sense visualization extensions.
 
 ## Installation
-Install sense-go globally
+### Prerequisites
+sense-go is built on top of [Node.js](https://nodejs.org/en/)
+
+### Package installation
+Install sense-go as a global package
 
 ```js
 $ npm install -g sense-go
 ```
 
-Then run ***sense-go*** by:
-
-- Running any of the single tasks,
-- Run a predefined task chain or
-- Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
-
 ## Usage
-There are basically three different approaches to configure the behavior of **sense-go**.
+There are basically three different approaches to use **sense-go**.
 
-- **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and follow the conventions
+- **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and [follow the conventions](#conventions)
 - **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
 - **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
 
@@ -137,8 +135,8 @@ senseGo.init( function () {
 });
 ```
 
-## Deployment by convention
-The entire concept follows **conventions** being used when setting up a project (when e.g. working on Qlik Sense visualization extensions):
+## Conventions
+The entire concept follows conventions (or best practices) being used when setting up a project:
 
 ```
 | PROJECT-ROOT
@@ -158,32 +156,39 @@ The entire concept follows **conventions** being used when setting up a project 
 
 \* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, but still: everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
+***sense-go*** works best if you follow these conventions, but everything is configurable, it's just a bit more work to get ***sense-go*** running.
 
 ## Basic workflow
 The workflow of the pre-configured tasks can be summarized as follows:
 
 - You **develop** in the `.src` folder
-- Whenever you want to **test or deploy**, use a one-liner in your command line
-  - To
+- Whenever you want to **test or deploy**, use a one-liner in your command line: `sense-go`
+  - This will
     - Convert `.less` files to `.css` files
     - Lint, Minify, Ugilify the output
     - Create a .zip file to distribute your visualization extension
     - ... a lot of other neat tasks ... fully customizable ...
-- Then the **extension is being deployed**
+- Then the **extension is automatically being deployed**
   - To the local extension directory (Qlik Sense Desktop)
   - Imported to the Qlik Sense Server (using the Qlik Sense Repository API)
   - to other destinations, like via SSH
+- You can test the extension
 
 It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. **So choose custom configurations wisely.**
 
+### Behind the scenes
+Behind the scenes the following happens:
+
+- All relevant content of the src folder is copied to a temporary folder .tmp
+- Then in the .tmp folder some transformation of existing files happens
+- As soon as this is done, files are copied to a .build folder ( .build/dev in case of the dev strategy, .build/release in case of the release strategy)
+- Then the enabled deployment tasks start
+  - Copy all files to the local Qlik Sense Desktop
+  - Deployment to any server using the QRS API
+  - Deployment to any other server using SSH
+- (All temporary folders (like .tmp) are deleted)
+
 ## Tasks
-Get a list of all tasks by running
-
-```
-$ sense-go --tasks
-```
-
 There are three categories of tasks:
 
 - **Building:** Build the solution (either for debugging or release) before you deploy.
@@ -191,7 +196,7 @@ There are three categories of tasks:
 - **Publishing & Tools:** Some helpers to publish the solution.
 
 ### Building
-### Clean
+#### Clean
 > Cleaning and deleting folders.
 
 **`clean:tmp`**
@@ -220,7 +225,7 @@ There are three categories of tasks:
 * These are all files, except files with the following file extension: 
   * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
 
-### Copy
+#### Copy
 > Copy files to a specific directory.
 
 **`copy:toTmp`** 
@@ -432,7 +437,7 @@ Note: The `wbfolder.wbl` file is only necessary if you want to allow users to op
 ### Deployment
 
 ### Publishing & Tools
-### Bump
+#### Bump
 > Bumps the version in your package.json file
 
 **`bump:patch`**
