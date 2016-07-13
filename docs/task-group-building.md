@@ -1,7 +1,7 @@
-### Clean
+#### Clean
 {%= docs('tasks-clean') %}
 
-### Copy
+#### Copy
 {%= docs('tasks-copy') %}
 
 #### Import

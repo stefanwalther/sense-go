@@ -1,9 +1,3 @@
-Get a list of all tasks by running
-
-```
-$ sense-go --tasks
-```
-
 There are three categories of tasks:
 
 - **Building:** Build the solution (either for debugging or release) before you deploy.

@@ -1,6 +1,6 @@
-There are basically three different approaches to configure the behavior of **sense-go**.
+There are basically three different approaches to use **sense-go**.
 
-- **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and follow the conventions
+- **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and [follow the conventions](#conventions)
 - **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
 - **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
 

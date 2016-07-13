@@ -1,12 +1,10 @@
 
-Install sense-go globally
+### Prerequisites
+sense-go is built on top of [Node.js](https://nodejs.org/en/)
+
+### Package installation
+Install sense-go as a global package
 
 ```js
 $ npm install -g sense-go
 ```
-
-Then run ***sense-go*** by:
-
-- Running any of the single tasks,
-- Run a predefined task chain or
-- Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
