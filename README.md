@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://stefanwalther/sense-go">
-    <img height="257" width="114" src="https://raw.githubusercontent.com/stefanwalther/assets/logo.png">
+    <img height="257" width="114" src="https://raw.githubusercontent.com/stefanwalther/sense-go/master/assets/logo.png">
   </a>
   <p align="center">Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.</p>
 </p>
