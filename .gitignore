@@ -8,6 +8,7 @@ web.*.config
 /**/bower_components/
 /test/tmp/
 build/
+src/
 .tmp/
 
 dev-scribble.md
