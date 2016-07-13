@@ -1,3 +1,8 @@
+### Clean
+{%= docs('tasks-clean') %}
+
+### Copy
+{%= docs('tasks-copy') %}
 
 #### Import
 {%= docs('tasks-import') %}
@@ -17,8 +22,9 @@
 #### Wbfolder
 {%= docs('tasks-wbfolder') %}
 
-### Clean
-{%= docs('tasks-clean') %}
+#### Zip
+{%= docs('tasks-zip') %}
 
-### Copy
-{%= docs('tasks-copy') %}
+
+
+

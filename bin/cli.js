@@ -80,7 +80,7 @@ function run ( env ) {
 	if ( hasSenseGoYml && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
 		log( 'Using the .sense-go.yml file ...' );
-		senseGo.init( gulp, userConfig, function () {
+		senseGo.init( userConfig, function () {
 			senseGo.run( toRun );
 		} );
 	} else if ( hasSenseGoJs ) {

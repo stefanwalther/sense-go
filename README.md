@@ -36,46 +36,6 @@ Then run ***sense-go*** by:
 - Run a predefined task chain or
 - Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
 
-## Deployment by convention
-The entire concept follows **conventions** being used when setting up a project (when e.g. working on Qlik Sense visualization extensions):
-
-```
-| PROJECT-ROOT
-|-- build			<= all builds, including source code or zipped files
-    |-- dev			<= target for the development build
-    |-- release		<= target for the release build
-|-- docs			<= documentation files, then used by verb
-|-- src				<= all source files
-    |-- lib
-		|-- css		<= see below *
-        |-- less    <= less files
-| .sense-go.yml		<= sense-go configuration file
-| .verb.md			<= verbs readme template
-| package.json
-
-```
-
-\* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
-
-***sense-go*** works best if you follow these conventions, but still: everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
-
-## Basic workflow
-The workflow of the pre-configured tasks can be summarized as follows:
-
-- You **develop** in the `.src` folder
-- Whenever you want to **test or deploy**, use a one-liner in your command line
-  - To
-    - Convert `.less` files to `.css` files
-    - Lint, Minify, Ugilify the output
-    - Create a .zip file to distribute your visualization extension
-    - ... a lot of other neat tasks ... fully customizable ...
-- Then the **extension is being deployed**
-  - To the local extension directory (Qlik Sense Desktop)
-  - Imported to the Qlik Sense Server (using the Qlik Sense Repository API)
-  - to other destinations, like via SSH
-
-It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. **So choose custom configurations wisely.**
-
 ## Usage
 There are basically three different approaches to configure the behavior of **sense-go**.
 
@@ -177,6 +137,46 @@ senseGo.init( function () {
 });
 ```
 
+## Deployment by convention
+The entire concept follows **conventions** being used when setting up a project (when e.g. working on Qlik Sense visualization extensions):
+
+```
+| PROJECT-ROOT
+|-- build			<= all builds, including source code or zipped files
+    |-- dev			<= target for the development build
+    |-- release		<= target for the release build
+|-- docs			<= documentation files, then used by verb
+|-- src				<= all source files
+    |-- lib
+		|-- css		<= see below *
+        |-- less    <= less files
+| .sense-go.yml		<= sense-go configuration file
+| .verb.md			<= verbs readme template
+| package.json
+
+```
+
+\* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
+
+***sense-go*** works best if you follow these conventions, but still: everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
+
+## Basic workflow
+The workflow of the pre-configured tasks can be summarized as follows:
+
+- You **develop** in the `.src` folder
+- Whenever you want to **test or deploy**, use a one-liner in your command line
+  - To
+    - Convert `.less` files to `.css` files
+    - Lint, Minify, Ugilify the output
+    - Create a .zip file to distribute your visualization extension
+    - ... a lot of other neat tasks ... fully customizable ...
+- Then the **extension is being deployed**
+  - To the local extension directory (Qlik Sense Desktop)
+  - Imported to the Qlik Sense Server (using the Qlik Sense Repository API)
+  - to other destinations, like via SSH
+
+It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. **So choose custom configurations wisely.**
+
 ## Tasks
 Get a list of all tasks by running
 
@@ -184,24 +184,74 @@ Get a list of all tasks by running
 $ sense-go --tasks
 ```
 
-There are five categories of tasks:
+There are three categories of tasks:
 
-- **Preparation:** Prepare the solution to be built.
-- **Validation:** Validate your solution before building the final output.
 - **Building:** Build the solution (either for debugging or release) before you deploy.
 - **Deployment:** Deploy the solution to different targets.
 - **Publishing & Tools:** Some helpers to publish the solution.
 
-### Preparation
-
-### Validation
-
 ### Building
+### Clean
+> Cleaning and deleting folders.
+
+**`clean:tmp`**
+* Delete the entire `.tmp` directory.
+* Options used:
+  * `tmpDir`
+
+**`clean:buildDev`**
+* Deletes all files in the `./build/dev` directory.
+* Options used:
+  * `buildDevDir`
+
+**`clean:buildRelease`**
+* Deletes all files in the `./build/release` directory.
+* Options used:
+  * `buildReleaseDir`
+
+**`clean:localExtensionDir`**
+* Deletes all files in the project's local extension folder. Only makes sense if using deployment to a local Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
+* Options used:
+  * `deployment.toLocal.enabled`
+  * `deployment.toLocal.extensionBaseDir`
+
+**`clean:tmpIllegal`**
+* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory.
+* These are all files, except files with the following file extension: 
+  * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
+
+### Copy
+> Copy files to a specific directory.
+
+**`copy:toTmp`** 
+* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder.
+* Options used:  
+  * `srcDir`
+  * `tmpDir`
+* Excluded files:  
+  * `*.less`
+
+**`copy:tmpToDev`** 
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder.
+* Options used:  
+  * `tmpDir`
+  * `buildDevDir`
+* Excluded files:  
+  * `*.less`
+
+**`copy:tmpToRelease`** 
+* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder.
+* Options used:  
+  * `tmpDir`
+  * `buildReleaseDir`
+* Excluded files:  
+  * `*.less`
+
 #### Import
 > Import files to the deployment.
 
-`gulp import`
-The main use-case behind this task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
+**`import`**
+The main use-case behind the `import` task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
 
 Define the file you want to import in your `.sense-go.yml` file as follows:
 
@@ -215,11 +265,10 @@ import:
 ```
 
 #### Replace
-> Replaces string patterns in text files across your project.
-
-**Usage**
-
-* Use @@ to prefix the key to be replaced with a given value in the source code
+> Replaces string patterns in text files across the project.
+`
+**`replace:tmp`**
+* Use `@@ to prefix the key to be replaced with a given value in the source code
 * Replacements will only be performed in the following file types: 
   * .html
   * .js
@@ -228,7 +277,6 @@ import:
   * .txt
   * .xml
   * .yml
-
  
 **Using data from package.json**
 All keys from your package.json file are available out of the box if you use the prefix `pkg`
@@ -270,24 +318,47 @@ The following patterns are available out of the box:
 **Adding replacement patterns**
 Add new replacements patterns in your .sense-go.yml file:
 
-(tbd)
+```
+replacements:
+  custom:
+    test1: bla bla
+  custom2:
+    var1: true
+    var2: "Whatever comes here"
+```
+
+Then in your e.g. JavaScript file use the replacements:
+
+```js
+console.log('custom.test1', '@@custom.test1');
+console.log('custom2.var2', '@@custom2.var1');
+console.log('custom2.var2', '@@custom2.var2');
+```
+
+Will return:
+
+```
+bla bla
+true
+Whatever comes here
+```
 
 #### Less
 > Converts .less files to .css files.
 
-All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
+All less tasks automatically autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 
-**`gulp less:reduce`**
+**`less:reduce`**
 * Uses `/src/less/main.less`, resolves all its dependencies and creates `/.tmp/css/main.css`
 * Options used:  
-  * srcDir
-  * tmpDir
+  * `srcDir`
+  * `tmpDir`
 
-**`gulp less:each`**
+**`less:each`**
 * Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
 * Options used:  
-  * srcDir
-  * tmpDir
+  * `srcDir`
+  * `tmpDir`
 
 #### Uglify
 > Uglify & minifies JavaScript files
@@ -307,12 +378,12 @@ All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://
 > Several minification tasks
 
 **`minify:html:tmp`**
-* Minifies all htm/html files in the `tmp` folder
+* Minifies all htm/html files in the `tmp` folder.
 * Options used:  
   * `tmpDir`
 
 **`minify:json:tmp`**
-* Minify .json & .qext files
+* Minify .json & .qext files.
 * Options used:  
   * `tmpDir`
 
@@ -330,61 +401,33 @@ All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://
 Note: The `wbfolder.wbl` file is only necessary if you want to allow users to open your visualization extension in Qlik Dev Hub. 
 `wbfolder.wbl` is NOT required and necessary to run your visualization extension in Qlik Sense.
 
-### Clean
-> Cleaning and deleting folders.
+#### Zip
+> Create .zip files based on the building strategy
 
-**`clean:tmp`**
-* Delete the entire `.tmp` directory.
-* Options used:
-  * `tmpDir`
-
-**`clean:buildDev`**
-* Deletes all files in the `./build/dev` directory.
-* Options used:
-  * `buildDevDir`
-
-**`clean:buildRelease`**
-* Deletes all files in the `./build/release` directory.
-* Options used:
-  * `buildReleaseDir`
-
-**`clean:localExtensionDir`**
-* Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
-* Options used:
-  * `deployment.toLocal.enabled`
-  * `deployment.toLocal.extensionBaseDir`
-
-**`clean:tmpIllegal`**
-* Clean all files in the `.tmp` directory which are not supposed to be deployed to the extension directory.
-* These are all files, except files with the following file extension: 
-  * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
-
-### Copy
-> Copy files to a specific directory.
-
-**`copy:toTmp`** 
-* Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder.
-* Options used:  
-  * `srcDir`
-  * `tmpDir`
-* Excluded files:  
-  * `*.less`
-
-**`copy:tmpToDev`** 
-* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder.
+**`zip:dev`**
+- Creates a zip file following the pattern "%packageName%_dev.zip" (e.g. "my-extension_dev.zip")
+- This task is used in the pre-built task-chain build and will create the output of the build-strategy "dev"
 * Options used:  
   * `tmpDir`
-  * `buildDevDir`
-* Excluded files:  
-  * `*.less`
-
-**`copy:tmpToRelease`** 
-* Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder.
+  * `buildDir`
+  * `packageName`
+  
+**`zip:release`**
+- Creates a zip file following the pattern "%packageName%_v%pkg.version%.zip" (e.g. "my-extension_v0.12.1.zip")
+- This task is used in the pre-built task-chain release and creates a packaged version of your current version
 * Options used:  
   * `tmpDir`
-  * `buildReleaseDir`
-* Excluded files:  
-  * `*.less`
+  * `buildDir`
+  * `packageName`
+  * `pkg.version`
+
+**`zip:latest`**
+- Create a zip file following the pattern "%packageName%_latest.zip" (e.g. "my-extension_latest.zip")
+- Useful to have a provide a link to the always latest version
+* Options used:  
+  * `tmpDir`
+  * `buildDir`
+  * `packageName`
 
 ### Deployment
 

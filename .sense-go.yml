@@ -1,0 +1,6 @@
+replacements:
+  custom:
+    test1: bla bla
+  custom2:
+    var1: true
+    var2: false

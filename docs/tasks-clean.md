@@ -16,7 +16,7 @@
   * `buildReleaseDir`
 
 **`clean:localExtensionDir`**
-* Deletes all files in the project's local extension folder. Only makes sense if working against Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
+* Deletes all files in the project's local extension folder. Only makes sense if using deployment to a local Qlik Sense Desktop. Disabled if `deployment.toLocal.enabled === true`.
 * Options used:
   * `deployment.toLocal.enabled`
   * `deployment.toLocal.extensionBaseDir`
