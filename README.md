@@ -1,9 +1,12 @@
+<p align="center">
+  <a href="https://stefanwalther/sense-go">
+    <img height="257" width="114" src="https://raw.githubusercontent.com/stefanwalther/assets/logo.png">
+  </a>
+  <p align="center">Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.</p>
+</p>
+
 [![](https://david-dm.org/stefanwalther/sense-go.png)](https://david-dm.org/stefanwalther/sense-go)
 [![](https://travis-ci.org/stefanwalther/sense-go.svg?branch=master)](https://travis-ci.org/stefanwalther/sense-go.svg?branch=master)
-
-# sense-go
-
-> Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.
 
 ## Motivation
 Main purpose of this library is to provide a framework to easily
