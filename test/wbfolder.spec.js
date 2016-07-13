@@ -27,7 +27,7 @@ describe( 'wbfolder', function () {
 	} );
 
 	it( 'should create a wbfolder.wbl using the `wbl` task', function ( done ) {
-		senseGo.init( gulp, config, function ( err ) {
+		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
 			gulp.series( 'wbfolder' )( function () {
@@ -42,7 +42,7 @@ describe( 'wbfolder', function () {
 	xit('should not create a wbfolder.wbl using the `wbl` task not enabled', function( done ) {
 
 		config.wbfolder.enabled = false;
-		senseGo.init( gulp, config, function ( err ) {
+		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
 			gulp.series( 'wbfolder' )( function () {

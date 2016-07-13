@@ -29,7 +29,7 @@ describe( 'less tasks', function () {
 			testUtils.delDir( config.tmpDir, done);
 		});
 
-		senseGo.init( gulp, config, function ( err ) {
+		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 			expect( gulp._registry._tasks ).not.to.be.null;
 			expect( gulp._registry._tasks ).to.have.property( 'less:each' );

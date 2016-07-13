@@ -22,7 +22,7 @@ describe( 'Configuration', function () {
 				}
 			};
 
-			senseGo.init( gulp, config, function ( err ) {
+			senseGo.init( config, function ( err ) {
 				expect( err ).to.be.undefined;
 				var cfg = senseGo.getConfig();
 				if ( process.platform === 'win32' ) {
@@ -43,7 +43,7 @@ describe( 'Configuration', function () {
 				}
 			};
 
-			senseGo.init( gulp, config, function ( err ) {
+			senseGo.init( config, function ( err ) {
 				expect( err ).not.to.be.undefined;
 				done();
 			} );
@@ -60,7 +60,7 @@ describe( 'Configuration', function () {
 					}
 				}
 			};
-			senseGo.init( gulp, config, function ( err ) {
+			senseGo.init( config, function ( err ) {
 				expect( err ).to.be.undefined;
 				expect( senseGo.getConfig().deployment.toLocal.extensionBaseDir ).equals( config.deployment.toLocal.extensionBaseDir );
 				done();
@@ -82,7 +82,7 @@ describe( 'Configuration', function () {
 			};
 			var expected = expandTilde( '~/Documents/Qlik/Sense/Extensions' );
 			expect( expected ).to.not.contain( '\\' );
-			senseGo.init( gulp, config, function ( err ) {
+			senseGo.init( config, function ( err ) {
 				expect( err ).to.be.undefined;
 				var cfg = senseGo.getConfig();
 				expect( cfg.deployment.toLocal.extensionPath ).not.to.be.empty;
