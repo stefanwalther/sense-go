@@ -93,7 +93,7 @@
   "devDependencies": {
     "assertion-error": "^1.0.2",
     "chai": "latest",
-    "chai-fs": "^0.1.0",
+    "chai-files": "^1.3.0",
     "mocha": "*",
     "rimraf": "^2.5.3",
     "should": "*"
