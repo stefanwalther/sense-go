@@ -119,7 +119,7 @@ In your sense-go.js pass in a custom configuration object to `senseGo.init` as f
 'use strict';
 var senseGo = require('./lib/');
 
-var userConfig = {
+var customConfig = {
   deployment: {
     toLocal: {
       enabled: true
@@ -127,9 +127,9 @@ var userConfig = {
   }
 }
 
-// The userConfig will actually overwrite existing settings from the default-settings.
+// customConfig will be used to overwrite existing settings from the default-settings.
 // Any setting not being defined in your custom configuration will be taken from the default settings.
-senseGo.init( userConfig, function () {
+senseGo.init( customConfig, function () {
   
   
 });
@@ -172,7 +172,6 @@ senseGo.init( function () {
 	gulp.series('customBuild')();
 	
 });
-
 ```
 
 ## Tasks
@@ -455,13 +454,13 @@ Use your own gulpfile.js (be aware that sense-go uses gulp 4.0 beta):
 
 ```js
 'use strict';
-var gulp = require( 'gulp' );
-var senseGo = require( './lib/' );
+var senseGo = require( 'sense-go' );
+var gulp = senseGo.gulp;
 var path = require( 'path' );
 
-var userConfig = senseGo.loadYml( path.join( __dirname, '.sense-go.yml') );
+var customConfig = senseGo.loadYml( path.join( __dirname, 'custom-config.yml') );
 
-senseGo.init( gulp, userConfig,  function (  ) {
+senseGo.init( customConfig,  function (  ) {
   
   gulp.task('myTask', function() {
     ...
@@ -475,11 +474,14 @@ senseGo.init( gulp, userConfig,  function (  ) {
     'copy:toTmp', 
     'myTask'        // <== Load your own custom task and mix it with existing ones 
   ) );
+  
+  // Run your task
+  gulp.series(['build'])();
     
 });
 ```
 
-Then run your task in command line with `$ gulp build`
+Then run `sense-go build` in the CLI.
 
 ## Used Gulp plugins
 sense-go is heavily relying on existing gulp plugins. A big thank you to the authors of these plugins!!

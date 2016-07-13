@@ -14,6 +14,6 @@ senseGo.init( function () {
 	gulp.task('customBuild', gulp.series(['custom', 'build']));
 	
 	// Run it ...
-	gulp.series('customBuild')();
+	//gulp.series('customBuild')();
 	
 });

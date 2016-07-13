@@ -88,6 +88,7 @@ function run ( env ) {
 	} else if ( hasSenseGoJs ) {
 		log( 'Using the sense-go.js file ...' );
 		require( senseGoJsFile );
+		senseGo.run(toRun);
 	} else {
 
 		log( 'Using the default sense-go settings ...' );
