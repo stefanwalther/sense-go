@@ -17,7 +17,7 @@ debugOutput: true
 # -------------------------------------------------------------------
 deployment:
   toLocal:
-    enabled: true
+    enabled: false
     pathFetching: true              # By default the path will be automatically fetched.
     extensionBaseDir: null          # Define the extensionBaseDir if pathFetching is disabled and you still want to deploy locally
   qrs:                              # Not implemented, yet
