@@ -3,60 +3,14 @@
 
 # sense-go
 
-> Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense, Qlik Sense Visualization Extensions or basically any other project ...).
+> Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.
 
----
-
----
-
-## Installation
-**Step 1:** Install sense-go in your project
-
-```js
-npm install sense-go --save-dev
-```
-
-*Note:* 
-*Currently you have to save ***sense-go*** locally as a devDependency in your project. It is planned to get ***sense-go*** working as a global dependency, since ***sense-go*** is quite heavy because of the many gulp packages being installed. As an alternative install ***sense-go*** globally and do an `npm link` in your project as for now.*
-
-**Step 2:** Install Gulp4, to run your local gulpfile.js
-
-```js
-npm install git://github.com/gulpjs/gulp#4.0 --save-dev
-```
-
-*Note:*  
-*The beta of Gulp 4 is used in this project.*
-
-**Step 3:** Create a gulpfile.js in the root folder of your project, containing the following minimal code:
-
-```js
-var gulp = require('gulp');
-var senseGo = require('sense-go');
-
-var userConfig = {
-	"packageName": "Your Package Name"
-};
-
-senseGo.init( gulp, userConfig,  function (  ) {
-  // Your own gulp tasks or task-chains here
-  // ...
-});
-```
-
-Then run ***sense-go*** by:
-
-- Running any of the single gulp commands,
-- Run a predefined task chain or
-- Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
-
-## Purpose
+## Motivation
 Main purpose of this library is to provide a framework to easily
 
-* validate
-* package
-* deploy and 
-* test
+* prepare
+* package and
+* deploy
 
 **Visualization Extensions** created for Qlik Sense.
 
@@ -64,10 +18,23 @@ The implementation is a based on the deployment functionality in the [Yeoman Gen
 
 The main reason behind creating this library is that I am creating a lot of different visualization extensions for Qlik Sense, but in any of these projects I include some kind of deployment system (so far always using grunt). If I have to make changes to the general deployment approach I have to change every single visualization extension repository, which is not really ideal. So introducing this library centralizes the deployment needs and allows me to re-use a central approach.
 
-Technically speaking sense-go is just a collection of configurable gulp tasks which can be easily re-used when developing your Qlik Sense visualization extensions.
+Technically speaking ***sense-go*** is just a collection of configurable [gulp tasks](http://gulpjs.com) which can be easily re-used and extended when developing your Qlik Sense visualization extensions.
+
+## Installation
+Install sense-go globally
+
+```js
+$ npm install -g sense-go
+```
+
+Then run ***sense-go*** by:
+
+- Running any of the single tasks,
+- Run a predefined task chain or
+- Define your own tasks/tasks-chains, combine them with pre-configured ones and run them.
 
 ## Deployment by convention
-The entire concept follows **conventions** I am using when setting up a project (working on Qlik Sense visualization extensions or mashups):
+The entire concept follows **conventions** being used when setting up a project (when e.g. working on Qlik Sense visualization extensions):
 
 ```
 | PROJECT-ROOT
@@ -81,163 +48,300 @@ The entire concept follows **conventions** I am using when setting up a project 
         |-- less    <= less files
 | .sense-go.yml		<= sense-go configuration file
 | .verb.md			<= verbs readme template
-| gulpfile.js		<= gulp file using sense-go
 | package.json
 
 ```
 
-\* If using less files is preferred for a project I keep this folder empty, otherwise all the .css files will be place here
+\* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
+***sense-go*** works best if you follow these conventions, but still: everything is configurable, it's just a bit more work to get ***sense-go*** running immediately, but that's definitely NOT the idea behind this project.
 
 ## Basic workflow
 The workflow of the pre-configured tasks can be summarized as follows:
 
 - You **develop** in the `.src` folder
 - Whenever you want to **test or deploy**, use a one-liner in your command line
-- To
-  - Convert `.less` files to `.css` files
-  - Lint, Minify, Ugilify the output
-  - Create a .zip file to distribute your visualization extension
-  - ... a lot of other neat tasks ... fully customizable ...
+  - To
+    - Convert `.less` files to `.css` files
+    - Lint, Minify, Ugilify the output
+    - Create a .zip file to distribute your visualization extension
+    - ... a lot of other neat tasks ... fully customizable ...
 - Then the **extension is being deployed**
   - To the local extension directory (Qlik Sense Desktop)
   - Imported to the Qlik Sense Server (using the Qlik Sense Repository API)
   - to other destinations, like via SSH
 
-It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. So choose custom configurations wisely.
+It is important to mention that you can by 100% re-define the workflow and also all default settings, but the idea of **sense-go** is really to get something up and running across different projects with as little configuration and development work as possible. **So choose custom configurations wisely.**
 
-## Configuration
+## Usage
 There are basically three different approaches to configure the behavior of **sense-go**.
 
-- Pass in a custom configuration into `senseGo.init
-- Define the configuration in the .sense-go.yml file
-- Rely on the default configuration
+- **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and follow the conventions
+- **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
+- **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
 
-### Pass in a custom configuration as object
+### CLI with default configuration
 
-In your gulpfile.js create a userConfiguration as follows:
+Nothing special to explain, just run `sense-go` in the command line in the root of your project.
+The default configuration will be considered. Also have a look at 
 
-```js
-'use strict';
-var gulp = require('gulp');
-var senseGo = require('./lib/');
-
-var userConfig = {
-  packageName: 'my-custom-extension',
-  deployment: {
-    toLocal: {
-      enabled: false
-    }
-  }
-}
-
-senseGo.init( gulp, userConfig, function () {
-  // Define your custom gulp tasks here ...
-});
-
-```
-
-### .sense-go.yml file
+### CLI with custom configuration
 Place a `.sense-go.yml` file in the root folder of your project:
 
 The easiest way to start with your custom configuration is to copy the [default configuration file](src/default-config.yml) and start modifying it.
 But keep in mind, following the conventions, you should only need to adapt a few of the default configurations.
 
-### Default configuration
-If **sense-go** cannot find neither a `.sense-go.yml file nor a custom-configuration is passed to `senseGo.init`, then the default configuration is loaded, which mich also be fine if you follow the default setup.
+### Programmatic usage
+If you want to add custom gulp tasks, this is the way to go.
+
+- Create a file `sense-go.js` in the root of your project based on the following skeleton:
+
+```js
+'use strict';
+var senseGo = require( 'sense-go' );
+var gulp = senseGo.gulp; // Get the reference to the gulp instance used in sense-go
+
+senseGo.init( function () {
+
+	// Now all default tasks are loaded, can be modified or new ones can be added
+	
+	// Run your tasks, e.g. with
+	gulp.series(['build']);
+	
+});
+```
+
+#### Pass in a custom configuration as object
+
+In your sense-go.js pass in a custom configuration object to `senseGo.init` as follows:
+
+```js
+'use strict';
+var senseGo = require('./lib/');
+
+var userConfig = {
+  deployment: {
+    toLocal: {
+      enabled: true
+    }
+  }
+}
+
+// The userConfig will actually overwrite existing settings from the default-settings.
+// Any setting not being defined in your custom configuration will be taken from the default settings.
+senseGo.init( userConfig, function () {
+  
+  
+});
+```
+
+#### Load configuration from a file:
+
+```js
+'use strict';
+var senseGo = require('./lib/');
+
+var customConfig = senseGo.loadYml( path.join(__dirname, 'custom-config.yml'));
+
+senseGo.init( customConfig, function () {
+  
+  
+});
+```
+
+### Add custom tasks
+
+```js
+
+'use strict';
+var senseGo = require('./lib/');
+var gulp = senseGo.gulp; // Get the reference to the gulp instance used in sense-go
+
+senseGo.init( function () {
+
+	// Create a new custom task
+	gulp.task('custom', function( done ) {
+		console.log('Custom Task');
+		done();
+	});
+	
+	// Create a custom task chain, re-using 'build'
+	gulp.task('customBuild', gulp.series(['custom', 'build']));
+	
+	// Run it ...
+	gulp.series('customBuild')();
+	
+});
+
+```
 
 ## Tasks
 Get a list of all tasks by running
 
 ```
-gulp --tasks
+$ sense-go --tasks
 ```
 
-### Deployment
-> Deploy to either the Extension folder on your local computer (using Qlik Sense Desktop), upload to a server via ssh or upload to a Qlik Sense Repository using the Qlik Sense Repository (QRS) API.
+There are five categories of tasks:
 
-The following typical deployment tasks are available
+- **Preparation:** Prepare the solution to be built.
+- **Validation:** Validate your solution before building the final output.
+- **Building:** Build the solution (either for debugging or release) before you deploy.
+- **Deployment:** Deploy the solution to different targets.
+- **Publishing & Tools:** Some helpers to publish the solution.
 
-### Qlik Sense Desktop
+### Preparation
 
-**`deploy:tmpToLocal`** 
-* Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
-* Options used:
-  * `tmpDir`
-  * `localExtensionDir`
-* Excluded files:
-  * `*.less`
+### Validation
 
-Note: The path for the local deployment will be fetched automatically (using [sense-loc](https://github.com/stefanwalther/sense-loc)), if you want to override the path, use `localExtensionDir`.
-    
+### Building
+#### Import
+> Import files to the deployment.
+
+`gulp import`
+The main use-case behind this task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
+
+Define the file you want to import in your `.sense-go.yml` file as follows:
+
+Example:
+
+```
+import:
+  files:
+    - ["./node_modules/d3/d3.min.js", "./.tmp/lib/external/d3/d3.min.js"]
+    - ["./node_modules/moment/min/moment.min.js", "./.tmp/lib/external/moment/moment.min.js"]
+```
+
+#### Replace
+> Replaces string patterns in text files across your project.
+
+**Usage**
+
+* Use @@ to prefix the key to be replaced with a given value in the source code
+* Replacements will only be performed in the following file types: 
+  * .html
+  * .js
+  * .json
+  * .qext
+  * .txt
+  * .xml
+  * .yml
+
+ 
+**Using data from package.json**
+All keys from your package.json file are available out of the box if you use the prefix `pkg`
+
+* To get the version, use `@@pkg.version`
+* To the get name, use `@@pkg.name`
+* etc.
+
+Example using package.json:
+
+```js
+
+console.log('Extension @@pkg.name, version @@pkg.version');
+
+```
+
+given the following package.json
+
+```js
+{
+  "name": "my-extension",
+  "version": "0.1.0"
+}
+
+```
+
+will return
+
+```js
+Extension my-extension, version 0.1.0
+```
+
+**Builtin patterns**
+The following patterns are available out of the box:
+
+`@@timestamp` - Defaults to new Date().getTime()
+
   
-### Upload to Qlik Sense server
-
-Upload the zipped visualization extension to a Qlik Sense server (using the Repository API in behind).
+**Adding replacement patterns**
+Add new replacements patterns in your .sense-go.yml file:
 
 (tbd)
-  
-### Upload via SSH
 
-**`deploy:toSsh`**
-* Deploy the final output via SSH to another computer
-* Options used:
-  * `deployment.toSsh.enabled`
-  * `deployment.toSsh.host`
-  * `deployment.toSsh.port`
-  * `deployment.toSsh.username`
-  * `deployment.toSsh.password`
-  * `deployment.toSsh.dest`
+#### Less
+> Converts .less files to .css files.
 
-Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.net/), using certificates is not tested, yet.
+All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 
-### Bump
-> Bumps the version in your package.json file
+**`gulp less:reduce`**
+* Uses `/src/less/main.less`, resolves all its dependencies and creates `/.tmp/css/main.css`
+* Options used:  
+  * srcDir
+  * tmpDir
 
-**`gulp bump:patch`**
-* Changes the version in package.json from `0.2.1` to `0.2.2`
-* Shortcuts: `gulp b` or `gulp b:p` 
+**`gulp less:each`**
+* Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
+* Options used:  
+  * srcDir
+  * tmpDir
 
-**`gulp bump:minor`** 
-* Changes the version in package.json from `0.2.1` to `0.3.1`
-* Shortcut: `gulp b:min`
+#### Uglify
+> Uglify & minifies JavaScript files
 
-**`gulp bump:major`**  
-* Changes the version in package.json from `0.2.1` to `1.0.0`
-* Shortcut: `gulp b:maj`
+**`uglify:tmp`**
+* Uglify all JavaScript files.
+* Options:  
+  * `tmpDir`
+  * `uglify*` - All options directly passed to `gulp-uglify`, e.g.
+    * `uglify.mangle`
+    * `uglify.beautify`
+    * `uglify.preserveComments`
+* Excluded:  
+  * All files matching the pattern `*.min.js`
 
-**`gulp bump:version`** 
-* Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
-* Shortcut: `gulp b:v`
-* Example: 
-```sh
-gulp bump:version --newversion=0.1.0
-gulp b:v --nv=0.1.0
-```
+#### Minification/Optimization
+> Several minification tasks
 
-**Possible command line parameters** 
+**`minify:html:tmp`**
+* Minifies all htm/html files in the `tmp` folder
+* Options used:  
+  * `tmpDir`
 
-**`--tag`**  
-* Tags the current version of your commit with the newly created version created by any of the bump-tasks.
+**`minify:json:tmp`**
+* Minify .json & .qext files
+* Options used:  
+  * `tmpDir`
 
-**`--commit="Your commit message"`**  
-* Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
+#### Wbfolder
+> Create a wbfolder.wbl file to be used in Dev Hub - Extension Editor.
+
+**`gulp wbfolder`**
+* Creates a wbfolder.wbl file in  the `.tmp` directory.
+* Options used:  
+  * `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
+  * `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
+  * `wbfolder.src` - Source mask, defaults to `./**/*.*`.
+  * `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
+
+Note: The `wbfolder.wbl` file is only necessary if you want to allow users to open your visualization extension in Qlik Dev Hub. 
+`wbfolder.wbl` is NOT required and necessary to run your visualization extension in Qlik Sense.
 
 ### Clean
 > Cleaning and deleting folders.
 
-**`gulp clean:tmp`**
+**`clean:tmp`**
 * Delete the entire `.tmp` directory.
 * Options used:
   * `tmpDir`
 
-**`gulp clean:buildDev`**
+**`clean:buildDev`**
 * Deletes all files in the `./build/dev` directory.
 * Options used:
   * `buildDevDir`
 
-**`gulp clean:buildRelease`**
+**`clean:buildRelease`**
 * Deletes all files in the `./build/release` directory.
 * Options used:
   * `buildReleaseDir`
@@ -254,9 +358,9 @@ gulp b:v --nv=0.1.0
   * `{png,jpg,jpeg,json,qext,txt,js,css,eot,svg,ttf,woff,html,htm,wbl,svg}`
 
 ### Copy
-> Copy files to a specific directory on your system.
+> Copy files to a specific directory.
 
-**`gulp copy:toTmp`** 
+**`copy:toTmp`** 
 * Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder.
 * Options used:  
   * `srcDir`
@@ -266,160 +370,62 @@ gulp b:v --nv=0.1.0
 
 **`copy:tmpToDev`** 
 * Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\dev` folder.
-* Options used:
+* Options used:  
   * `tmpDir`
   * `buildDevDir`
-* Excluded files:
+* Excluded files:  
   * `*.less`
 
 **`copy:tmpToRelease`** 
 * Copies all files (except the excluded ones) from the `.tmp` folder to `.\build\release` folder.
-* Options used:
+* Options used:  
   * `tmpDir`
   * `buildReleaseDir`
-* Excluded files:
+* Excluded files:  
   * `*.less`
 
-### Minification/Optimization
-> Several minification tasks
+### Deployment
 
-**`minify:html:tmp`**
-* Minifies all htm/html files in the `tmp` folder
-* Options used:
-  * `tmpDir`
+### Publishing & Tools
+### Bump
+> Bumps the version in your package.json file
 
-**`minify:json:tmp`**
-* Minify .json & .qext files
-* Options used:
-  * `tmpDir`
+**`bump:patch`**
+* Changes the version in package.json from `0.2.1` to `0.2.2`
+* Shortcuts: `sense-go b` or `sense-go b:p` 
 
-### Import
-> Import files to the deployment.
+**`bump:minor`** 
+* Changes the version in package.json from `0.2.1` to `0.3.1`
+* Shortcut: `sense-go b:min`
 
-`gulp import`
-The main use-case behind this task is to be able to import "external" files from external dependencies (e.g. node_modules or bower) into the .tmp directory to use them in the solution.
+**`bump:major`**  
+* Changes the version in package.json from `0.2.1` to `1.0.0`
+* Shortcut: `sense-go b:maj`
 
-Define the file you want to import in your `sense-go.yml` file as follows:
+**`bump:version`** 
+* Set the package.json version to a specific value given by the parameter `--newversion` resp. `--nv`.
+* Shortcut: `sense-go b:v`
 
-Example:
-
-```
-import:
-  files:
-    - ["./node_modules/d3/d3.min.js", "./.tmp/lib/external/d3/d3.min.js"]
-    - ["./node_modules/moment/min/moment.min.js", "./.tmp/lib/external/moment/moment.min.js"]
-```
-
-### Less
-> Converts .less files to .css files.
-
-All less tasks automatically create a sourcemap (using [gulp-sourcemaps](http://github.com/floridoo/gulp-sourcemaps)) and autoprefix (using [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
-
-**`gulp less:reduce`**
-* Uses `/src/less/main.less`, resolves all its dependencies and creates `/.tmp/css/main.css`
-* Options used:
-  * srcDir
-  * tmpDir
-
-**`gulp less:each`**
-* Converts every `.less` file from the source directory to a corresponding .css file in the .tmp directory.
-* Options used:
-  * srcDir
-  * tmpDir
-
-### Replace
-> Replaces string patterns in text files across your project.
-
-**Usage**
-
-* Use @@ to prefix the key to be replaced with a given value in the source code
-* Replacements will only be performed in the following file types: 
-  * .html
-  * .js
-  * .json
-  * .qext
-  * .txt
-  * .xml
-  * .yml
-  
-**Example:**
-
-```js
-
-console.log('Extension @@pkg.name, version @@pkg.version');
-
-```
-
-given the following package.json
-
-```js
-{
-  "name": "my-extension",
-  "version": "0.1.2"
-}
-
-```
-
-will return
-
-```js
-Extension my-extension, version 0.1.2
-```
-
-```js
-
-```
+Example:  
  
-**Using data from package.json**
-All keys from your package.json file are available out of the box if you use the prefix `pkg`
+```sh
+$ sense-go bump:version --newversion=0.1.0
+$ sense-go b:v --nv=0.1.0
+```
 
-* To get the version, use `@@pkg.version`
-* To the get name, use `@@pkg.name`
-* etc.
+**Possible command line parameters** 
 
-**Builtin patterns**
-The following patterns are available out of the box:
+**`--tag`**  
+* Tags the current version of your commit with the newly created version created by any of the bump-tasks.
 
-`@@timestamp` - Defaults to new Date().getTime()
-
-  
-**Adding replacement patterns**
-Add new replacements patterns in your .sense-go.yml file:
-
-(tbd)
-
-### Uglify
-> Uglify & minifies JavaScript files
-
-**`uglify:tmp`**
-* Uglify all JavaScript files.
-* Options:
-  * `tmpDir`
-  * `uglify*` - All options directly passed to `gulp-uglify`, e.g.
-    * `uglify.mangle`
-    * `uglify.beautify`
-    * `uglify.preserveComments`
-* Excluded:
-  * All files matching the pattern `*.min.js`
-
-### Wbfolder
-> Create a wbfolder.wbl file to be used in Dev Hub - Extension Editor.
-
-**`gulp wbfolder`**
-* Creates a wbfolder.wbl file in  the `.tmp` directory.
-* Options used:
-  * `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
-  * `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
-  * `wbfolder.src` - Source mask, defaults to `./**/*.*`.
-  * `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
-
-Note: The wbfolder.wbl is only necessary if you want to allow users to open your visualization extension in Dev Hub. wbfolder.wbl is NOT required and necessary to let your visualization extension being used within Qlik Sense.
+**`--commit="Your commit message"`**  
+* Commits all files with the given commit message, if no commit message is defined, "." will be committed as a message.
 
 ## Task Chains
 Based on gulp tasks provided by ***sense-go*** you can then create your task chains.
 Some are already predefined:
 
-**`gulp build`**
+**`sense-go build`**
 
 ```js
   gulp.task( 
@@ -444,28 +450,36 @@ You can add additional tasks on top of sense-go, mixing your very own tasks with
 * When creating your own tasks, note that sense-go relies on Gulp4
 
 **Example:**
+
+Use your own gulpfile.js (be aware that sense-go uses gulp 4.0 beta):
+
 ```js
 'use strict';
-var gulp = require('gulp');
-var senseGo = require('./lib/');
+var gulp = require( 'gulp' );
+var senseGo = require( './lib/' );
+var path = require( 'path' );
 
-var userConfig = {
-	"packageName": "sense-go"
-};
+var userConfig = senseGo.loadYml( path.join( __dirname, '.sense-go.yml') );
 
 senseGo.init( gulp, userConfig,  function (  ) {
   
-  // Create your own task chain, and overwrite the current 'build' task
+  gulp.task('myTask', function() {
+    ...
+  } );
+  
+  
+  // Create your own task chain, and overwrite the current task chain 'build'
   gulp.task( 'build', gulp.series( 
     'init', 
     'clean:tmp', 
     'copy:toTmp', 
-    'myTask1', 
-    'myTask2' 
+    'myTask'        // <== Load your own custom task and mix it with existing ones 
   ) );
     
 });
 ```
+
+Then run your task in command line with `$ gulp build`
 
 ## Used Gulp plugins
 sense-go is heavily relying on existing gulp plugins. A big thank you to the authors of these plugins!!
@@ -521,4 +535,4 @@ Released under the MIT license.
 
 ***
 
-_This file was generated by [verb](https://github.com/verbose/verb), v0.9.0, on July 11, 2016._
+_This file was generated by [verb](https://github.com/verbose/verb), v0.9.0, on July 13, 2016._

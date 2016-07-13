@@ -1,16 +1,16 @@
 > Cleaning and deleting folders.
 
-**`gulp clean:tmp`**
+**`clean:tmp`**
 * Delete the entire `.tmp` directory.
 * Options used:
   * `tmpDir`
 
-**`gulp clean:buildDev`**
+**`clean:buildDev`**
 * Deletes all files in the `./build/dev` directory.
 * Options used:
   * `buildDevDir`
 
-**`gulp clean:buildRelease`**
+**`clean:buildRelease`**
 * Deletes all files in the `./build/release` directory.
 * Options used:
   * `buildReleaseDir`

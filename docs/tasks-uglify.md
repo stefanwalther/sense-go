@@ -2,11 +2,11 @@
 
 **`uglify:tmp`**
 * Uglify all JavaScript files.
-* Options:
+* Options:  
   * `tmpDir`
   * `uglify*` - All options directly passed to `gulp-uglify`, e.g.
     * `uglify.mangle`
     * `uglify.beautify`
     * `uglify.preserveComments`
-* Excluded:
+* Excluded:  
   * All files matching the pattern `*.min.js`

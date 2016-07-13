@@ -1,7 +1,7 @@
 Based on gulp tasks provided by ***sense-go*** you can then create your task chains.
 Some are already predefined:
 
-**`gulp build`**
+**`sense-go build`**
 
 ```js
   gulp.task( 
@@ -26,26 +26,34 @@ You can add additional tasks on top of sense-go, mixing your very own tasks with
 * When creating your own tasks, note that sense-go relies on Gulp4
 
 **Example:**
+
+Use your own gulpfile.js (be aware that sense-go uses gulp 4.0 beta):
+
 ```js
 'use strict';
-var gulp = require('gulp');
-var senseGo = require('./lib/');
+var gulp = require( 'gulp' );
+var senseGo = require( './lib/' );
+var path = require( 'path' );
 
-var userConfig = {
-	"packageName": "sense-go"
-};
+var userConfig = senseGo.loadYml( path.join( __dirname, '.sense-go.yml') );
 
 senseGo.init( gulp, userConfig,  function (  ) {
   
-  // Create your own task chain, and overwrite the current 'build' task
+  gulp.task('myTask', function() {
+    ...
+  } );
+  
+  
+  // Create your own task chain, and overwrite the current task chain 'build'
   gulp.task( 'build', gulp.series( 
     'init', 
     'clean:tmp', 
     'copy:toTmp', 
-    'myTask1', 
-    'myTask2' 
+    'myTask'        // <== Load your own custom task and mix it with existing ones 
   ) );
     
 });
 ```
+
+Then run your task in command line with `$ gulp build`
 

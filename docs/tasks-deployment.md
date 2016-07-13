@@ -6,10 +6,10 @@ The following typical deployment tasks are available
 
 **`deploy:tmpToLocal`** 
 * Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
-* Options used:
+* Options used:  
   * `tmpDir`
   * `localExtensionDir`
-* Excluded files:
+* Excluded files:  
   * `*.less`
 
 Note: The path for the local deployment will be fetched automatically (using [sense-loc](https://github.com/stefanwalther/sense-loc)), if you want to override the path, use `localExtensionDir`.
@@ -25,7 +25,7 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
 
 **`deploy:toSsh`**
 * Deploy the final output via SSH to another computer
-* Options used:
+* Options used:  
   * `deployment.toSsh.enabled`
   * `deployment.toSsh.host`
   * `deployment.toSsh.port`

@@ -11,13 +11,20 @@
   * .txt
   * .xml
   * .yml
-  
-**Example:**
+
+ 
+**Using data from package.json**
+All keys from your package.json file are available out of the box if you use the prefix `pkg`
+
+* To get the version, use `@@pkg.version`
+* To the get name, use `@@pkg.name`
+* etc.
+
+Example using package.json:
 
 ```js
 
 console.log('Extension @@pkg.name, version @@pkg.version');
-
 
 ```
 
@@ -26,28 +33,16 @@ given the following package.json
 ```js
 {
   "name": "my-extension",
-  "version": "0.1.2"
+  "version": "0.1.0"
 }
 
 ```
 
-
 will return
 
 ```js
-Extension my-extension, version 0.1.2
+Extension my-extension, version 0.1.0
 ```
-
-```js
-
-```
- 
-**Using data from package.json**
-All keys from your package.json file are available out of the box if you use the prefix `pkg`
-
-* To get the version, use `@@pkg.version`
-* To the get name, use `@@pkg.name`
-* etc.
 
 **Builtin patterns**
 The following patterns are available out of the box:
