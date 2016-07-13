@@ -1,22 +1,6 @@
-# -------------------------------------------------------------------
-# General mandatory settings
-# -------------------------------------------------------------------
-packageName: 'My-Extension'
-
-# -------------------------------------------------------------------
-# Optional settings
-# -------------------------------------------------------------------
-localExtensionDir: null         # defaults to the local extension directory
-srcDir: './src'                 # defaults to './src'
-buildDir: './build'             # defaults to './build'
-tmpDir: './.tmp'                # defaults to './.tmp'
-
-# -------------------------------------------------------------------
-# Task specific settings
-# -------------------------------------------------------------------
-
-wbfolder:
-  enabled: false
-  cwd: './.tmp'
-  src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './.tmp/wbfolder.wbl'
+replacements:
+  custom:
+    test1: bla bla
+  custom2:
+    var1: true
+    var2: false

@@ -1,4 +1,4 @@
-Some related projects (Qlik Sense Visualization Extensions) I have recently created:
+Some related projects (Qlik Sense Visualization Extensions) recently created:
 
 {%= related([
   'sense-media-box', 

@@ -1,15 +1,24 @@
+v0.6.0:
+  date: "2016-07-10"
+  changes:
+    - "Added documentation for the most important and common tasks"
+    - "Added test coverage for the most important tasks"
+    - "Recognizing a .sense-go.yml file in each project"
+    - "Enabled cli usage of sense-go"
+  fixes:
+    - "toSsh task now properly ends and doesn block gulp task-chain."
 v0.5.3:
   date: "2015-08-12"
   new:
-    - Added stripping of comments to the uglify tasks
+    - "Added stripping of comments to the uglify tasks"
 v0.5.2:
   date: "2015-08-11"
   new:
-    - Uglify
-    - Zip
-    - Release task chain
+    - "Uglify"
+    - "Zip"
+    - "Release task chain"
   enhancements:
-    - Clean unused dependencies
+    - "Clean unused dependencies"
 v0.5.1:
   date: "2015-08-09"
   new:

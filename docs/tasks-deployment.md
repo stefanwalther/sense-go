@@ -1,64 +1,36 @@
+> Deploy to either the Extension folder on your local computer (using Qlik Sense Desktop), upload to a server via ssh or upload to a Qlik Sense Repository using the Qlik Sense Repository (QRS) API.
 
-> 
+The following typical deployment tasks are available
 
-### Less Transpiling
+### Qlik Sense Desktop
 
-Transpile Less files to CSS. 
+**`deploy:tmpToLocal`** 
+* Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
+* Options used:  
+  * `tmpDir`
+  * `localExtensionDir`
+* Excluded files:  
+  * `*.less`
 
-**Tasks:**
-
-- **less-each** - Transpiles every .less file into a .css file
-- **less-reduce** - Transpiles a collection of .less files into a single .css file, which can then be easily loaded in your visualization extension
-
-
-**Options:**
-- less-each
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-- less-reduce
-  - src - Source mask
-  - dest - Destination
-  - cwd - Current working directory, defaults to __dirname
-  
-**Example:**
-
-
-
-### Clean local local deployment directory
-
-**Options:**
-- clean
-  - src
-  - cwd
+Note: The path for the local deployment will be fetched automatically (using [sense-loc](https://github.com/stefanwalther/sense-loc)), if you want to override the path, use `localExtensionDir`.
+    
   
 ### Upload to Qlik Sense server
 
 Upload the zipped visualization extension to a Qlik Sense server (using the Repository API in behind).
 
-**Options:**
-- upload
-  - src
-  - cert
-  - serverUrl
+(tbd)
   
-### Compress
+### Upload via SSH
 
-Compress files.
+**`deploy:toSsh`**
+* Deploy the final output via SSH to another computer
+* Options used:  
+  * `deployment.toSsh.enabled`
+  * `deployment.toSsh.host`
+  * `deployment.toSsh.port`
+  * `deployment.toSsh.username`
+  * `deployment.toSsh.password`
+  * `deployment.toSsh.dest`
 
-**Options:**
-- compress
-  - src
-  - dest
-  - format
-  - password Set a password to protect the .zip file.
-  
-### Replace
-Replace strings in relevent text files (.js, .txt, .json, .yml, .txt, .css)
-
-### Uglify
-(TBC)
-
-### Minify
-(TBC)
-
+Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.net/), using certificates is not tested, yet.

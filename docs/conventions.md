@@ -1,4 +1,4 @@
-The entire concept follows **conventions** I am using when setting up a project:
+The entire concept follows conventions (or best practices) being used when setting up a project:
 
 ```
 | PROJECT-ROOT
@@ -12,11 +12,10 @@ The entire concept follows **conventions** I am using when setting up a project:
         |-- less    <= less files
 | .sense-go.yml		<= sense-go configuration file
 | .verb.md			<= verbs readme template
-| gulpfile.js		<= gulp file using sense-go
 | package.json
 
 ```
 
-\* If using less files is preferred for a project I keep this folder empty, otherwise all the .css files will be place here
+\* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, otherwise everything is configurable, it's just a bit more work to get sense-go running immediately.
+***sense-go*** works best if you follow these conventions, but everything is configurable, it's just a bit more work to get ***sense-go*** running.

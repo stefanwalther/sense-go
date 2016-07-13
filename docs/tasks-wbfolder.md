@@ -1,9 +1,12 @@
-> Create a wbfolder.wbl file to be used in Workbench/Qlik Dev Hub
+> Create a wbfolder.wbl file to be used in Dev Hub - Extension Editor.
 
 **`gulp wbfolder`**
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
+* Options used:  
+  * `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
+  * `wbfolder.cwd` - Working directory, defaults to `./.tmp`.
+  * `wbfolder.src` - Source mask, defaults to `./**/*.*`.
+  * `wbfolder.dest` - wbfolder.wbl file destination, defaults to `./.tmp/wbfolder.wbl`.
 
-Settings used:
-* `wbfolder.cwd` - Working directory
-* `wbfolder.src` - Source mask
-* `wbfolder.dest` - Wbfolder.wbl file destination
+Note: The `wbfolder.wbl` file is only necessary if you want to allow users to open your visualization extension in Qlik Dev Hub. 
+`wbfolder.wbl` is NOT required and necessary to run your visualization extension in Qlik Sense.

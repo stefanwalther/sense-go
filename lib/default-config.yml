@@ -12,6 +12,30 @@ debugOutput: true
 # Replacement patterns
 # -------------------------------------------------------------------
 
+# -------------------------------------------------------------------
+# Deployment
+# -------------------------------------------------------------------
+deployment:
+  toLocal:
+    enabled: false
+    pathFetching: true              # By default the path will be automatically fetched.
+    extensionBaseDir: null          # Define the extensionBaseDir if pathFetching is disabled and you still want to deploy locally
+  qrs:                              # Not implemented, yet
+    enabled: false
+    url: null
+  toSsh:                            # Upload via SSH
+    enabled: false
+    host: "192.168.56.11"
+    port: 22
+    username: "usr"
+    password: "foobar"
+    dest: "/c/Users/usr/Documents/Qlik/Sense/Extensions/whatever-extension"
+
+# -------------------------------------------------------------------
+# Replacement patterns
+# -------------------------------------------------------------------
+replacements:
+
 
 # -------------------------------------------------------------------
 # Optional settings
@@ -32,14 +56,14 @@ transpile:
 wbfolder:
   enabled: true
   cwd: './.tmp'
-  src: './**/*.*'                # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './wbfolder.wbl'
+  src: './**/*.*'                   # Ideally we should use variables here, but not supported by js-yaml right now
+  dest: './.tmp/wbfolder.wbl'       # Destination for the generated wbfolder.wbl file, by default in the output's root directory
 uglify:
-  mangle: true                  # Do not mangle, otherwise angularJS will be broken
+  mangle: true                      # Do not mangle, otherwise angularJS will be broken
   beautify: false
   preserveComments: 'some'
 npm:
-  publish: true                # If set to false, task npm:publish will do nothing
+  publish: true                     # If set to false, task npm:publish will NOT do anything
 
 # -------------------------------------------------------------------
 # Import settings
