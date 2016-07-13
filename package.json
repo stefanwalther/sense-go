@@ -1,18 +1,21 @@
 {
   "name": "sense-go",
   "version": "0.6.0",
-  "description": "Library to easily handle validation, deployment, packaging and testing web projects (e.g. Mashups for Qlik Sense, Qlik Sense Visualization Extensions or basically any other project ...).",
+  "description": "Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.",
   "keywords": [
     "deployment",
     "extensions",
     "grunt",
     "gulp",
+    "less",
     "mashups",
     "packaging",
     "qlik",
     "qlik-sense",
     "qlik-sense-desktop",
     "qrs",
+    "ssh",
+    "validation",
     "visualization-extensions",
     "wbfolder.wbl",
     "web-projects",
@@ -36,6 +39,7 @@
     "test": "mocha test/*.spec.js"
   },
   "dependencies": {
+    "archy": "^1.0.0",
     "async": "^2.0.0-rc.5",
     "chalk": "^1.1.0",
     "deep-extend": "^0.4.1",
@@ -68,27 +72,33 @@
     "gulp-ssh": "^0.6.0",
     "gulp-strip-debug": "^1.0.2",
     "gulp-tag-version": "^1.2.1",
+    "gulp-touch": "^1.0.1",
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.8",
     "gulp-zip": "^3.0.2",
     "js-yaml": "^3.4.6",
+    "liftoff": "^2.2.4",
     "lodash": "^4.13.1",
     "minimatch": "^3.0.2",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "sanitize-filename": "^1.6.0",
     "sense-loc": "github:stefanwalther/sense-loc",
-    "spawn-cmd": "0.0.2"
+    "spawn-cmd": "0.0.2",
+    "tildify": "^1.2.0",
+    "timestamp": "0.0.1",
+    "v8flags": "^2.0.11"
   },
   "devDependencies": {
     "assertion-error": "^1.0.2",
+    "chai": "^3.5.0",
     "chai-fs": "stefanwalther/chai-fs",
     "mocha": "*",
     "rimraf": "^2.5.3",
     "should": "*"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.0"
   }
 }
