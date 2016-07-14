@@ -30,7 +30,7 @@ describe( 'wbfolder', function () {
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
-			gulp.series( 'wbfolder' )( function () {
+			gulp.series( 'wbfolder:tmp' )( function () {
 				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.exist;
 				done();
 			} );
