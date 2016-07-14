@@ -124,8 +124,4 @@ taskChains:
     - "git:commit"
     - "git:push"
     - "npm:publish"
-  - "build:lib":
-    - "clean:tmp"
-    - "copy:toTmp"
-    - "import"
 
