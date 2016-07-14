@@ -124,4 +124,3 @@ taskChains:
     - "git:commit"
     - "git:push"
     - "npm:publish"
-
