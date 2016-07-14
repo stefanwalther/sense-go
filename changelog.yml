@@ -1,3 +1,7 @@
+v0.6.2:
+  date: "2016-07-14"
+  changes:
+    - "Fix wbfolder:tmp test"
 v0.6.1:
   date: "2016-07-14"
   changes:
