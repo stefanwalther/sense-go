@@ -41,27 +41,27 @@ replacements:
 # Optional settings
 # -------------------------------------------------------------------
 localExtensionDir: null             # defaults to the local extension directory
-srcDir: './src'                     # defaults to './src'
-tmpDir: './.tmp'                    # defaults to './.tmp'
-buildDir: './build'                 # defaults to './build'
-buildDevDir: './build/dev'          # defaults to './build/dev'
-buildReleaseDir: './build/release'  # defaults to './build/release'
+srcDir: "./src"                     # defaults to "./src"
+tmpDir: "./.tmp"                    # defaults to "./.tmp"
+buildDir: "./build"                 # defaults to "./build"
+buildDevDir: "./build/dev"          # defaults to "./build/dev"
+buildReleaseDir: "./build/release"  # defaults to "./build/release"
 
 # -------------------------------------------------------------------
 # Task specific settings
 # -------------------------------------------------------------------
 transpile:
-  src: './'
-  dest: './'
+  src: "./"
+  dest: "./"
 wbfolder:
   enabled: true
-  cwd: './.tmp'
-  src: './**/*.*'                   # Ideally we should use variables here, but not supported by js-yaml right now
-  dest: './.tmp/wbfolder.wbl'       # Destination for the generated wbfolder.wbl file, by default in the output's root directory
+  cwd: "./.tmp"
+  src: "./**/*.*"                   # Ideally we should use variables here, but not supported by js-yaml right now
+  dest: "./.tmp/wbfolder.wbl"       # Destination for the generated wbfolder.wbl file, by default in the output"s root directory
 uglify:
   mangle: true                      # Do not mangle, otherwise angularJS will be broken
   beautify: false
-  preserveComments: 'some'
+  preserveComments: "some"
 npm:
   publish: true                     # If set to false, task npm:publish will NOT do anything
 
@@ -72,4 +72,60 @@ import:
   files:
     # - ["src/glob", "dest/glob/"]
 
+# -------------------------------------------------------------------
+# Task chains
+# -------------------------------------------------------------------
+taskChains:
+  - "build":
+    - "clean:tmp"
+    - "copy:toTmp"
+    - "import"
+    - "less:reduce"
+    - "replace:tmp"
+    - "wbfolder:tmp"
+    - "clean:tmpIllegal"              #clean illegal files
+    - "jsonlint:tmp"
+    - "minify:html:tmp"
+    - "clean:buildDev"
+    - "copy:tmpToDev"
+    - "zip:dev"
+    - "clean:localExtensionDir"
+    - "deploy:toLocal"
+    - "deploy:toSsh"
+    - "clean:tmp"
+  - "release":
+    - "clean:tmp"
+    - "copy:toTmp"
+    - "import"
+    - "less:reduce"
+    - "replace:tmp"
+    # - "wbfolder:tmp" ==> doesn"t make sense since the uglified files cannot really be edited in Dev-Hub
+    - "uglify:tmp"
+    # - //"copy:tmpMeta" ==> upload to QRS does not work
+    - "clean:tmpIllegal"
+    - "jsonlint:tmp"
+    - "minify:json:tmp"
+    - "clean:buildRelease"
+    - "copy:tmpToRelease"
+    - "zip:release"
+    - "zip:latest"
+    - "clean:localExtensionDir"
+    - "deploy:toLocal"
+    - "clean:tmp"
+  - "publish":
+    - "git:add"
+    - "git:commit"
+    - "git:push"
+  - "all":
+    - "bump:patch"
+    - "build"
+    - "release"
+    - "git:add"
+    - "git:commit"
+    - "git:push"
+    - "npm:publish"
+  - "build:lib":
+    - "clean:tmp"
+    - "copy:toTmp"
+    - "import"
 
