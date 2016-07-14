@@ -36,10 +36,11 @@
 These external libraries are used within this solution. Many thanks to the authors!
 
 **sense-go** Logo:
-* Name: bootstrap
-* License: MIT
-* Url: http://getbootstrap.com/
-* Author: Twitter, Inc
+* Name: Services icon
+* License: Free for commercial use (Include link to authors website)
+* Url: https://www.iconfinder.com/icons/175334/services_icon
+* Author: Visual Pharm (http://icons8.com/)
+
 
 ---
 
