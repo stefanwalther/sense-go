@@ -23,6 +23,24 @@ The main reason behind creating this library is that I am creating a lot of diff
 
 Technically speaking ***sense-go*** is just a collection of configurable [gulp tasks](http://gulpjs.com) which can be easily re-used and extended when developing your Qlik Sense visualization extensions.
 
+## What does it do for you?
+Imagine you have the following requirements:
+
+- Convert .less to .css
+- Import external dependencies like libraries, images, fonts, etc.
+- Minify/Uglify all your code
+- Package your extension to a .zip file
+- Deploy to
+  - Qlik Sense Deskto
+  - To a Qlik Sense server
+  - To a remote machine
+- Publishing to npm
+- Watch changes and automatically re-run building & packaging
+
+sense-go does all this for you as one very simple command line tool, fully configurable to meet your needs:
+
+![](docs/images/sense-go.gif)
+
 ## Installation
 ### Prerequisites
 sense-go is built on top of [Node.js](https://nodejs.org/en/)
@@ -40,8 +58,6 @@ There are basically three different approaches to use **sense-go**.
 - **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and [follow the conventions](#conventions)
 - **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
 - **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
-
-![](docs/images/sense-go.gif)
 
 ### CLI with default configuration
 
