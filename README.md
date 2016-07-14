@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://stefanwalther/sense-go">
-    <img src="https://raw.githubusercontent.com/stefanwalther/sense-go/master/assets/logo_400x184.png">
+    <img src="https://raw.githubusercontent.com/stefanwalther/sense-go/master/docs/images/logo_400x184.png">
   </a>
   <p align="center">Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.</p>
 </p>
@@ -40,6 +40,8 @@ There are basically three different approaches to use **sense-go**.
 - **CLI with default configuration:** Just run `sense-go` in the command line and use the default settings and [follow the conventions](#conventions)
 - **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
 - **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
+
+[](docs/images/sense-go.gif)
 
 ### CLI with default configuration
 
