@@ -25,8 +25,7 @@ var taskTree = require( './task-tree' );
 process.env.INIT_CWD = process.cwd();
 
 var cli = new Liftoff( {
-	name: 'verb',
-	//extensions: { '.js': null, '.coffee': 'coffee-script/register' },
+	name: 'sense-go',
 	v8flags: v8flags
 } );
 
