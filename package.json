@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "archy": "^1.0.0",
-    "async": "^2.0.0-rc.5",
+    "async": "^2.0.0",
     "chalk": "^1.1.0",
     "deep-extend": "^0.4.1",
     "del": "^2.2.1",
