@@ -1,6 +1,6 @@
 > Create a wbfolder.wbl file to be used in Dev Hub - Extension Editor.
 
-**`gulp wbfolder`**
+**`wbfolder:tmp`**
 * Creates a wbfolder.wbl file in  the `.tmp` directory.
 * Options used:  
   * `wbfolder.enabled`- Whether the task is enabled or not, defaults to `true`.
