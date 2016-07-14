@@ -4,7 +4,7 @@ There are basically three different approaches to use **sense-go**.
 - **CLI with custom configuration:** Place a `.sense-go.yml` file into the root folder of your project and customize the settings, then just run `sense-go`
 - **Programmatic usage:** Place a `sense-go.js` file into the root folder of your project, load the default tasks and add custom tasks, then just run `sense-go`
 
-[](docs/images/sense-go.gif)
+![](docs/images/sense-go.gif)
 
 ### CLI with default configuration
 
