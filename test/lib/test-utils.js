@@ -6,8 +6,8 @@ var del = require('del');
 var testUtils = function () {
 
 	function delDir( dir, done) {
-		del( dir ).then( function() {
-			done();
+		return del( dir ).then( function() {
+			return done();
 		});
 	}
 

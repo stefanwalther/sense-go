@@ -5,7 +5,9 @@ var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
 var rimraf = require( 'rimraf' );
-chai.use( require( 'chai-files' ) );
+var chaiFiles = require('chai-files');
+chai.use( chaiFiles );
+var file = chaiFiles.file;
 var expect = chai.expect;
 var testUtils = require('./lib/test-utils');
 
@@ -23,7 +25,6 @@ describe( 'wbfolder', function () {
 
 	afterEach( function ( done ) {
 		testUtils.delDir( config.tmpDir, done);
-		//done();
 	} );
 
 	it( 'should create a wbfolder.wbl using the `wbl` task', function ( done ) {
@@ -31,21 +32,20 @@ describe( 'wbfolder', function () {
 			expect( err ).to.be.undefined;
 
 			gulp.series( 'wbfolder:tmp' )( function () {
-				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.exist;
+				expect( file(path.join( __dirname, './.tmp/wbfolder.wbl' )) ).to.exist;
 				done();
 			} );
 		} )
 	} );
 
-	// Does not really work, mocha-fs is crap, find better solutions.
-	xit('should not create a wbfolder.wbl using the `wbl` task not enabled', function( done ) {
+	it('should not create a wbfolder.wbl using the `wbl` task not enabled', function( done ) {
 
 		config.wbfolder.enabled = false;
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
-			gulp.series( 'wbfolder' )( function () {
-				expect( path.join( __dirname, './.tmp/wbfolder.wbl' ) ).to.exist;
+			gulp.series( 'wbfolder:tmp' )( function () {
+				expect( file(path.join( __dirname, './.tmp/wbfolder.wbl' )) ).to.not.exist;
 				done();
 			} );
 		} )
