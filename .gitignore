@@ -9,7 +9,7 @@ web.*.config
 /test/tmp/
 build/
 src/
-.tmp/
+/**/.tmp/
 
 dev-scribble.md
 
