@@ -3,7 +3,6 @@
 var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
-var rimraf = require( 'rimraf' );
 var chaiFiles = require( 'chai-files' );
 chai.use( chaiFiles );
 var file = chaiFiles.file;
