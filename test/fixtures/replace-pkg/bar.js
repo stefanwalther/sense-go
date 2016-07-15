@@ -1,0 +1,1 @@
+var lic = '@@pkg.license';
