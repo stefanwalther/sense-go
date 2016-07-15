@@ -1,5 +1,5 @@
 > Replaces string patterns in text files across the project.
-`
+
 **`replace:tmp`**
 * Use `@@ to prefix the key to be replaced with a given value in the source code
 * Replacements will only be performed in the following file types: 
@@ -18,7 +18,7 @@ All keys from your package.json file are available out of the box if you use the
 * To the get name, use `@@pkg.name`
 * etc.
 
-Example using package.json:
+Example:
 
 ```js
 
@@ -26,12 +26,12 @@ console.log('Extension @@pkg.name, version @@pkg.version');
 
 ```
 
-given the following package.json
+with the following package.json
 
 ```js
 {
   "name": "my-extension",
-  "version": "0.1.0"
+  "version": "0.1.12"
 }
 
 ```
@@ -39,13 +39,13 @@ given the following package.json
 will return
 
 ```js
-Extension my-extension, version 0.1.0
+Extension my-extension, version 0.1.12
 ```
 
 **Builtin patterns**
 The following patterns are available out of the box:
 
-`@@timestamp` - Defaults to new Date().getTime()
+- `@@timestamp` - Defaults to new Date().getTime()
 
   
 **Adding replacement patterns**

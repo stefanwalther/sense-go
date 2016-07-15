@@ -105,7 +105,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-push": "verb",
+      "pre-push": "npm run verb",
       "post-merge": "npm install",
       "post-rewrite": "npm install"
     }
