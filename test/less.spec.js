@@ -1,14 +1,15 @@
 'use strict';
 
 // core dependencies
-var fs = require( 'fs' );
 var path = require( 'path' );
 
 // local dependencies
 var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var chai = require( 'chai' );
-chai.use( require( 'chai-files' ) );
+var chaiFiles = require('chai-files');
+chai.use( chaiFiles );
+var file = chaiFiles.file;
 var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
 
@@ -37,9 +38,9 @@ describe( 'less tasks (with custom configuration)', function () {
 			expect( gulp._registry._tasks ).to.have.property( 'less:each' );
 
 			gulp.series( 'less:each' )( function () {
-				expect( fs.existsSync( path.join( __dirname, './.tmp/root.css' ) ) ).to.be.true;
-				expect( fs.existsSync( path.join( __dirname, './.tmp/variables.css' ) ) ).to.be.true;
-				expect( fs.existsSync( path.join( __dirname, './.tmp/whatever.css' ) ) ).to.be.true;
+				expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
+				expect( file( path.join( __dirname, './.tmp/variables.css' ) ) ).to.exist;
+				expect( file( path.join( __dirname, './.tmp/whatever.css' ) ) ).to.exist;
 				done();
 			} );
 		} );
@@ -67,7 +68,7 @@ describe( 'less tasks (with custom configuration)', function () {
 			expect( gulp._registry._tasks ).to.have.property( 'less:reduce' );
 
 			gulp.series( 'less:reduce' )( function () {
-				expect( fs.existsSync( path.join( __dirname, './.tmp/root.css' ) ) ).to.be.true;
+				expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
 				done();
 			} );
 		} );
