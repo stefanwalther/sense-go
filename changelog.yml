@@ -1,3 +1,7 @@
+v0.6.5:
+  date: "2016-07-15"
+  changes:
+    - "Fix error messages in case there is no package.json file"
 v0.6.4:
   date: "2016-07-14"
   changes:
