@@ -10,10 +10,9 @@ The entire concept follows conventions (or best practices) being used when setti
     |-- lib
 		|-- css		<= see below *
         |-- less    <= less files
-| .sense-go.yml		<= sense-go configuration file
+| .sense-go.yml		<= sense-go configuration file (OPTIONAL)
 | .verb.md			<= verbs readme template
 | package.json
-
 ```
 
 \* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here

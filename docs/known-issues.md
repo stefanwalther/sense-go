@@ -1,3 +1,3 @@
 ## Known issues
 
-Found any issues, please create an issue on Github.
+Found any issues, please create an issue on [Github]({%=bugs.url%}).

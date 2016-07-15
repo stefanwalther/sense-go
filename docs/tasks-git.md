@@ -1,4 +1,4 @@
-> Several tasks for working with git
+> Several convenience tasks for working with git
 
 **`gulp git:add`**
 * Add all files not staged for commit

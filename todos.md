@@ -3,15 +3,13 @@ Unused dependencies (basically installed to get it running again):
 - minimatch (used by glob)
 - assertion-error (chai)
 
-Can be removed:
-- rimraf (save-dev dep)
-
 Tasks which need full test-coverage:
 
 - [ ] bump
+- [x] clean
 - [ ] copy
 - [ ] git
-- [ ] htmlmin
+- [x] htmlmin
 - [ ] import
 - [ ] jsonlint
 - [ ] jsonminify
