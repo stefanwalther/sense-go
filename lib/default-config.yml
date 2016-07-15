@@ -1,16 +1,27 @@
-# -------------------------------------------------------------------
-# General mandatory settings
-# -------------------------------------------------------------------
-packageName: null
+# -------------------------------------------------------------------------------
+# Package Name
+# -------------------------------------------------------------------------------
+packageName: null                   # defaults to "name" in package.json
 
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+# Basic Paths
+# -------------------------------------------------------------------------------
+localExtensionDir: null             # defaults to the local extension directory
+srcDir: "./src"                     # defaults to "./src"
+tmpDir: "./.tmp"                    # defaults to "./.tmp"
+buildDir: "./build"                 # defaults to "./build"
+buildDevDir: "./build/dev"          # defaults to "./build/dev"
+buildReleaseDir: "./build/release"  # defaults to "./build/release"
+
+
+# -------------------------------------------------------------------------------
 # Runtime options
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 debugOutput: true
 
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 # Deployment
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 deployment:
   toLocal:
     enabled: false
@@ -27,12 +38,15 @@ deployment:
     password: "foobar"
     dest: "/c/Users/usr/Documents/Qlik/Sense/Extensions/whatever-extension"
 
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 # Replacement tasks
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 lessReduce:
   src: "./src/lib/less/main.less"
   dest: "./.tmp/lib/css"
+lessEach:
+  src: "./src/**/*.less"
+  dest: "./.tmp"
 replaceTmp:
   src: "./tmp/**/*.{qext,json,js,html,htm,xml,yml,txt}"
   dest: "./.tmp"
@@ -40,19 +54,10 @@ replaceTmp:
 replacements:
 
 
-# -------------------------------------------------------------------
-# Optional settings
-# -------------------------------------------------------------------
-localExtensionDir: null             # defaults to the local extension directory
-srcDir: "./src"                     # defaults to "./src"
-tmpDir: "./.tmp"                    # defaults to "./.tmp"
-buildDir: "./build"                 # defaults to "./build"
-buildDevDir: "./build/dev"          # defaults to "./build/dev"
-buildReleaseDir: "./build/release"  # defaults to "./build/release"
 
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 # Task specific settings
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 transpile:
   src: "./"
   dest: "./"
@@ -67,22 +72,22 @@ uglify:
   preserveComments: "some"
 npm:
   publish: true                     # If set to false, task npm:publish will NOT do anything
-lessEach:
-  src: "./src/**/*.less"
-  dest: "./.tmp"
-
-
-
-# -------------------------------------------------------------------
-# Import settings
-# -------------------------------------------------------------------
 import:
   files:
     # - ["src/glob", "dest/glob/"]
 
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+# Misc options
+# -------------------------------------------------------------------------------
+htmlmin:
+  collapseWhitespace: true
+  preserveLineBreaks: true
+  removeComments: true
+
+
+# -------------------------------------------------------------------------------
 # Task chains
-# -------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 taskChains:
   - "build":
     - "clean:tmp"
@@ -93,7 +98,7 @@ taskChains:
     - "wbfolder:tmp"
     - "clean:tmpIllegal"              #clean illegal files
     - "jsonlint:tmp"
-    - "minify:html:tmp"
+    - "htmlmin:tmp"
     - "clean:buildDev"
     - "copy:tmpToDev"
     - "zip:dev"
@@ -112,6 +117,7 @@ taskChains:
     # - //"copy:tmpMeta" ==> upload to QRS does not work
     - "clean:tmpIllegal"
     - "jsonlint:tmp"
+    - "htmlmin:tmp"
     - "minify:json:tmp"
     - "clean:buildRelease"
     - "copy:tmpToRelease"
