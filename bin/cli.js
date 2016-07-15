@@ -70,12 +70,18 @@ cli.launch( {
 
 function run ( env ) {
 
+	senseGo.gulp.on('error', function( error ) {
+		console.log('error', error);
+	});
+	
 	// chdir before requiring `sense-go.js` to allow users to chdir as needed
 	if ( process.cwd() !== env.cwd ) {
 		process.chdir( env.cwd );
 		log( 'Working directory changed to', tildify( env.cwd ) );
 	}
 
+	console.log(''); // empty line
+	log('.: STARTING SENSE-GO :.');
 	if ( hasSenseGoYml && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
 		log( 'Using the .sense-go.yml file ...' );
@@ -85,7 +91,7 @@ function run ( env ) {
 	} else if ( hasSenseGoJs ) {
 		log( 'Using the sense-go.js file ...' );
 		require( senseGoJsFile );
-		senseGo.run(toRun);
+		senseGo.run( toRun );
 	} else {
 
 		log( 'Using the default sense-go settings ...' );
@@ -93,6 +99,7 @@ function run ( env ) {
 			senseGo.run( toRun );
 		} );
 	}
+	
 }
 
 // fix stdout truncation on windows
