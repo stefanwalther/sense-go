@@ -102,5 +102,12 @@
   },
   "engines": {
     "node": ">=0.12.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-push": "verb",
+      "post-merge": "npm install",
+      "post-rewrite": "npm install"
+    }
   }
 }
