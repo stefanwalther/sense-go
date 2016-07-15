@@ -1,6 +1,5 @@
 'use strict';
 
-var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
@@ -27,6 +26,8 @@ describe( 'Configuration', function () {
 				var cfg = senseGo.getConfig();
 				if ( process.platform === 'win32' ) {
 					expect( cfg.deployment.toLocal.extensionPath ).to.not.be.empty;
+				} else {
+					expect( cfg.deployment.toLocal.extensionPath).to.be.empty;
 				}
 				done();
 			} );

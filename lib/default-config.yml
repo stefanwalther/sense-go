@@ -64,6 +64,12 @@ uglify:
   preserveComments: "some"
 npm:
   publish: true                     # If set to false, task npm:publish will NOT do anything
+lessEach:
+  src: "./src/**/*.less"
+  dest: "./.tmp"
+lessReduce:
+  src: "./src/lib/less/main.less"
+  dest: "./tmp/lib/css"
 
 # -------------------------------------------------------------------
 # Import settings

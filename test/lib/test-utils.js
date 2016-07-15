@@ -1,17 +1,14 @@
 'use strict';
 
 // local dependencies
-var rimraf = require( 'rimraf' );
+var del = require('del');
 
 var testUtils = function () {
 
 	function delDir( dir, done) {
-		rimraf( dir, function ( err ) {
-			if ( err ) {
-				throw err;
-			}
+		del( dir ).then( function() {
 			done();
-		} )
+		});
 	}
 
 	return {
