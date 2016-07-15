@@ -1,6 +1,5 @@
 'use strict';
 
-var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
@@ -31,7 +30,7 @@ describe( 'wbfolder', function () {
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
-			gulp.series( 'wbfolder:tmp' )( function () {
+			senseGo.gulp.series( 'wbfolder:tmp' )( function () {
 				expect( file(path.join( __dirname, './.tmp/wbfolder.wbl' )) ).to.exist;
 				done();
 			} );
@@ -44,7 +43,7 @@ describe( 'wbfolder', function () {
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
 
-			gulp.series( 'wbfolder:tmp' )( function () {
+			senseGo.gulp.series( 'wbfolder:tmp' )( function () {
 				expect( file(path.join( __dirname, './.tmp/wbfolder.wbl' )) ).to.not.exist;
 				done();
 			} );

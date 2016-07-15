@@ -4,7 +4,6 @@
 var path = require( 'path' );
 
 // local dependencies
-var gulp = require( 'gulp' );
 var senseGo = require( './../lib/' );
 var chai = require( 'chai' );
 var chaiFiles = require('chai-files');
@@ -34,10 +33,10 @@ describe( 'less tasks (with custom configuration)', function () {
 
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
-			expect( gulp._registry._tasks ).not.to.be.null;
-			expect( gulp._registry._tasks ).to.have.property( 'less:each' );
+			expect( senseGo.gulp._registry._tasks ).not.to.be.null;
+			expect( senseGo.gulp._registry._tasks ).to.have.property( 'less:each' );
 
-			gulp.series( 'less:each' )( function () {
+			senseGo.gulp.series( 'less:each' )( function () {
 				expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
 				expect( file( path.join( __dirname, './.tmp/variables.css' ) ) ).to.exist;
 				expect( file( path.join( __dirname, './.tmp/whatever.css' ) ) ).to.exist;
@@ -64,10 +63,10 @@ describe( 'less tasks (with custom configuration)', function () {
 
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
-			expect( gulp._registry._tasks ).not.to.be.null;
-			expect( gulp._registry._tasks ).to.have.property( 'less:reduce' );
+			expect( senseGo.gulp._registry._tasks ).not.to.be.null;
+			expect( senseGo.gulp._registry._tasks ).to.have.property( 'less:reduce' );
 
-			gulp.series( 'less:reduce' )( function () {
+			senseGo.gulp.series( 'less:reduce' )( function () {
 				expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
 				done();
 			} );
