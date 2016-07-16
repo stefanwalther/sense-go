@@ -37,7 +37,7 @@
   },
   "scripts": {
     "test": "mocha test/*.spec.js",
-    "verb": "verb && if [[ `git status -z --porcelain` ]]; then git commit -a -m 'Update Readme'; else echo '\n\nNO CHANGES, NOTHING TO PUSH'; fi"
+    "verb": "verb && if [[ `git status -z --porcelain` ]]; then git commit -a -m 'docs: Update Readme'; else echo '\n\nNO CHANGES, NOTHING TO PUSH'; fi"
   },
   "dependencies": {
     "archy": "^1.0.0",
