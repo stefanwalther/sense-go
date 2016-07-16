@@ -37,7 +37,7 @@
   },
   "scripts": {
     "test": "mocha test/*.spec.js",
-    "verb": "verb"
+    "verb": "verb && git commit -a -m 'Update Readme'"
   },
   "dependencies": {
     "archy": "^1.0.0",
