@@ -37,7 +37,7 @@
   },
   "scripts": {
     "test": "mocha test/*.spec.js",
-    "verb": "verb && git commit -a -m 'Update Readme'"
+    "verb": "verb && if [[ `git status --porcelain` ]]; then git commit -a -m 'Update Readme'; fi"
   },
   "dependencies": {
     "archy": "^1.0.0",
