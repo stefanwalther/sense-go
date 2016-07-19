@@ -93,11 +93,6 @@ describe( 'Configuration', function () {
 				done();
 			} );
 		} );
-
-
-
-
-
 	} );
 
 } );
