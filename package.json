@@ -109,5 +109,17 @@
       "post-merge": "npm install",
       "post-rewrite": "npm install"
     }
+  },
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "data": {
+      "twitter": "waltherstefan",
+      "travis_url": "stefanwaltehr"
+    }
   }
 }
