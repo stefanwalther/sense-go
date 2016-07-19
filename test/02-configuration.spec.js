@@ -22,7 +22,7 @@ describe( 'Configuration', function () {
 			};
 
 			senseGo.init( config, function ( err ) {
-				expect( err ).to.be.undefined;
+				expect( err ).to.not.exist;
 				var cfg = senseGo.getConfig();
 				if ( process.platform === 'win32' ) {
 					expect( cfg.deployment.toLocal.extensionPath ).to.not.be.empty;
@@ -45,7 +45,7 @@ describe( 'Configuration', function () {
 			};
 
 			senseGo.init( config, function ( err ) {
-				expect( err ).not.to.be.undefined;
+				expect( err ).to.exist;
 				done();
 			} );
 		} );
@@ -72,6 +72,7 @@ describe( 'Configuration', function () {
 		xit( 'A tilde path (*nix) is resolved correctly', function ( done ) {
 
 			var config = {
+				"packageName": "whatever",
 				"deployment": {
 					"toLocal": {
 						"enabled": true,
@@ -87,7 +88,7 @@ describe( 'Configuration', function () {
 				expect( err ).to.be.undefined;
 				var cfg = senseGo.getConfig();
 				expect( cfg.deployment.toLocal.extensionPath ).not.to.be.empty;
-				expect( senseGo.getConfig().deployment.toLocal.extensionPath ).to.have.string( cfg.packageName );
+				expect( senseGo.getConfig().deployment.toLocal.extensionPath ).to.have.string( config.packageName );
 				done();
 			} );
 		} );
