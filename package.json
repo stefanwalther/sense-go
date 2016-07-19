@@ -85,7 +85,7 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "sanitize-filename": "^1.6.0",
-    "sense-loc": "github:stefanwalther/sense-loc",
+    "sense-loc": "^0.4.0",
     "spawn-cmd": "0.0.2",
     "tildify": "^1.2.0",
     "timestamp": "0.0.1",
