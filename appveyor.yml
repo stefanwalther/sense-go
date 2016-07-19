@@ -13,8 +13,6 @@ matrix:
   fast_finish: true
   allow_failures:
     - nodejs_version: "4.0"
-    - nodejs_version: "0.12"
-    - nodejs_version: "0.10"
 
 # Install scripts. (runs after repo cloning)
 install:
