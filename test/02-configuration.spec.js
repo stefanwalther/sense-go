@@ -46,6 +46,7 @@ describe( 'Configuration', function () {
 
 			senseGo.init( config, function ( err ) {
 				expect( err ).to.exist;
+				expect( err).to.contain('config.deployment.toLocal.extensionBaseDir needs to be defined.');
 				done();
 			} );
 		} );
