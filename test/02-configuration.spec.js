@@ -39,7 +39,8 @@ describe( 'Configuration', function () {
 				"deployment": {
 					"toLocal": {
 						"enabled": true,
-						"pathFetching": false
+						"pathFetching": false,
+						"extensionBaseDir": ""
 					}
 				}
 			};
