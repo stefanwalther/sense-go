@@ -6,7 +6,7 @@ packageName: null                   # defaults to "name" in package.json
 # -------------------------------------------------------------------------------
 # Basic Paths
 # -------------------------------------------------------------------------------
-localExtensionDir: null             # defaults to the local extension directory
+localExtensionDir:                  # defaults to the local extension directory
 srcDir: "./src"                     # defaults to "./src"
 tmpDir: "./.tmp"                    # defaults to "./.tmp"
 buildDir: "./build"                 # defaults to "./build"
