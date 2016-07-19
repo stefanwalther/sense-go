@@ -2,6 +2,12 @@ v0.6.5:
   date: "2016-07-15"
   changes:
     - "Fix error messages in case there is no package.json file"
+    - "Fix tests on Windows"
+    - "Add CI on travis"
+    - "Add CI in appveyor"
+    - "Updated to sense-loc v0.4.0"
+    - "Added several tests"
+    - "Improved documentation"
 v0.6.4:
   date: "2016-07-14"
   changes:
