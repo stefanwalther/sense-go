@@ -1,3 +1,7 @@
+v0.6.6:
+  date: "2016-07-26"
+  changes:
+    - "Fix missing time-stamp dependency (#30)"
 v0.6.5:
   date: "2016-07-15"
   changes:
