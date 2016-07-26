@@ -88,7 +88,7 @@
     "sense-loc": "^0.4.0",
     "spawn-cmd": "0.0.2",
     "tildify": "^1.2.0",
-    "timestamp": "0.0.1",
+    "time-stamp": "^1.0.1",
     "v8flags": "^2.0.11"
   },
   "devDependencies": {
