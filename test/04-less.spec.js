@@ -61,7 +61,7 @@ describe( 'less tasks (with custom configuration)', function () {
 			expect( senseGo.gulp._registry._tasks ).to.have.property( 'less:reduce' );
 
 			senseGo.gulp.series( 'less:reduce' )( function () {
-				//expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
+				expect( file( path.join( __dirname, './.tmp/root.css' ) ) ).to.exist;
 				done();
 			} );
 		} );

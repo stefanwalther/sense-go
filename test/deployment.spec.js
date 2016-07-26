@@ -6,7 +6,7 @@ var path = require( 'path' );
 var chai = require( 'chai' );
 var expect = chai.expect;
 
-describe('Deployment tasks', function (  ) {
+xdescribe('Deployment tasks', function (  ) {
 
 	it('toLocal should be ignored if disabled', function ( done ) {
 
