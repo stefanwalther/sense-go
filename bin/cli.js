@@ -99,7 +99,7 @@ function run ( env ) {
 		senseGo.run( toRun );
 	} else {
 
-		log( 'Using the default sense-go settings ...' );
+		log( 'Using the default sense-go settings (neither package.json nor .sense-go.yml available) ...' );
 		senseGo.init( gulp, function () {
 			senseGo.run( toRun );
 		} );
