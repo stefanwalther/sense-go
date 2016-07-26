@@ -1,13 +1,18 @@
-Main purpose of this library is to provide a framework to easily
+sense-go **automates typical repetitive tasks** when developing a *Visualization extension* for Qlik Sense, such as:
 
-* prepare
-* package and
-* deploy
+* **Preparation tasks**  
+  * Import dependencies (like libraries, images, fonts, etc.)
+* **Packaging**  
+  * Health checks for your source files
+  * Compile your .less files to CSS
+* **Deployment**  
+  * to GitHub or your favorite [VCS](https://en.wikipedia.org/wiki/Version_control)
+  * to Qlik Sense Desktop
+  * to a Qlik Sense Server
+  * to a .zip file to share with others
+* **Watching your changes**
+  * to just rebuild everything automatically
 
-**Visualization Extensions** created for Qlik Sense.
+Technically speaking ***sense-go*** is just a collection of configurable [gulp](http://gulpjs.com) tasks which can be easily re-used and extended.
 
-The implementation is a based on the deployment functionality in the [Yeoman Generator for Visualization Extensions](https://github.com/stefanwalther/generator-qsExtension).
-
-The main reason behind creating this library is that I am creating a lot of different visualization extensions for Qlik Sense, but in any of these projects I include some kind of deployment system (so far always using grunt). If I have to make changes to the general deployment approach I have to change every single visualization extension repository, which is not really ideal. So introducing this library centralizes the deployment needs and allows me to re-use a central approach.
-
-Technically speaking ***sense-go*** is just a collection of configurable [gulp tasks](http://gulpjs.com) which can be easily re-used and extended when developing your Qlik Sense visualization extensions.
+![](docs/images/sense-go.gif)
