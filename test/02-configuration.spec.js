@@ -71,7 +71,7 @@ describe( 'Configuration', function () {
 
 		} );
 
-		xit( 'A tilde path (*nix) is resolved correctly', function ( done ) {
+		it( 'A tilde path (*nix) is resolved correctly', function ( done ) {
 
 			var config = {
 				"packageName": "whatever",
@@ -90,7 +90,7 @@ describe( 'Configuration', function () {
 				expect( err ).to.be.undefined;
 				var cfg = senseGo.getConfig();
 				expect( cfg.deployment.toLocal.extensionPath ).not.to.be.empty;
-				expect( senseGo.getConfig().deployment.toLocal.extensionPath ).to.have.string( config.packageName );
+				expect( senseGo.getConfig().deployment.toLocal.extensionPath ).to.have.string( expected );
 				done();
 			} );
 		} );
