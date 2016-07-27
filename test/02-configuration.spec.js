@@ -79,7 +79,7 @@ describe( 'Configuration', function () {
 					"toLocal": {
 						"enabled": true,
 						"pathFetching": false,
-						"extensionBaseDir": "/Documents/Qlik/Sense/Extensions"
+						"extensionBaseDir": "~/Documents/Qlik/Sense/Extensions"
 
 					}
 				}
