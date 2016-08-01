@@ -20,6 +20,7 @@ describe( 'wbfolder', function () {
 	it( 'should create a wbfolder.wbl using the `wbl` task', function ( done ) {
 
 		var config = {
+			"tmpDir": tmpDir,
 			"wbfolder": {
 				"enabled": true,
 				"cwd": path.join( __dirname, './fixtures/wbfolder' ),

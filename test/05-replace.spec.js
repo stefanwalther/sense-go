@@ -17,16 +17,17 @@ describe( 'replace tasks', function () {
 	var tmpDir = path.join( __dirname, './.tmp' );
 
 	beforeEach( function( done ) {
-		return testUtils.delDir(tmpDir, done);
+		testUtils.delDir(tmpDir, done);
 	});
 
 	afterEach( function( done ) {
-		return testUtils.delDir(tmpDir, done);
+		testUtils.delDir(tmpDir, done);
 	});
 
 	it( 'replaces content from package.json', function ( done ) {
 
 		var config = {
+			tmpDir: tmpDir,
 			replaceTmp: {
 				src: path.join( __dirname, './fixtures/replace-pkg/**/*.js' ),
 				dest: tmpDir
