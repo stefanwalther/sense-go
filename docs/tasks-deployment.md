@@ -8,7 +8,10 @@ The following typical deployment tasks are available
 * Copies all files (except the excluded ones) from the `.mp` directory to the local extension directory, creating a new folder for the current package and eventually deleting any already existing files in the targeted folder.
 * Options used:  
   * `tmpDir`
-  * `localExtensionDir`
+  * `deployment.toLocal.enabled` - Enables or disables the deployment to a local folder *(Default: false)*
+  * `deployment.toLocal.pathFetching` - If enabled, the local default path for Extensions will be determined. Only works on Windows and if Qlik Sense is installed. *(Default: true)*
+  * `deployment.toLocal.localExtensionsBaseDir` - Define the base path for Qlik Sense extensions (in case `pathFetching` is set to `false`)
+  * `deployment.toLocal.extensionDirOverride` - Define the name of the relative folder where your extension will be copied to. Defaults to the `packageName`. *(Default: null)*
 * Excluded files:  
   * `*.less`
 

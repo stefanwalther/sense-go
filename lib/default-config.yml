@@ -6,7 +6,6 @@ packageName: null                   # defaults to "name" in package.json
 # -------------------------------------------------------------------------------
 # Basic Paths
 # -------------------------------------------------------------------------------
-localExtensionDir:                  # defaults to the local extension directory
 srcDir: "./src"                     # defaults to "./src"
 tmpDir: "./.tmp"                    # defaults to "./.tmp"
 buildDir: "./build"                 # defaults to "./build"
@@ -26,7 +25,11 @@ deployment:
   toLocal:
     enabled: false
     pathFetching: true              # By default the path will be automatically fetched.
-    extensionBaseDir:               # Define the extensionBaseDir if pathFetching is disabled and you still want to deploy locally
+
+    localExtensionsBaseDir:         # defaults to the local extension directory of Qlik Sense,
+                                    # if pathFetching is enabled, this path will be determined automatically
+
+    extensionDirOverride:           # Define the extensionDir if you want to deploy to another directory than defined in packageName
   qrs:                              # Not implemented, yet
     enabled: false
     url: null

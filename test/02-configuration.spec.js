@@ -33,32 +33,32 @@ describe( 'Configuration', function () {
 			} );
 		} );
 
-		it( 'toLocal.enabled & pathFetching=false will throw and error if extensionBaseDir is not defined', function ( done ) {
+		it( 'toLocal.enabled & pathFetching=false will throw and error if localExtensionsBaseDir is not defined', function ( done ) {
 
 			var config = {
 				"deployment": {
 					"toLocal": {
 						"enabled": true,
 						"pathFetching": false,
-						"extensionBaseDir": ""
+						"localExtensionsBaseDir": ""
 					}
 				}
 			};
 
 			senseGo.init( config, function ( err ) {
 				expect( err ).to.exist;
-				expect( err ).to.have.property('message', 'config.deployment.toLocal.extensionBaseDir needs to be defined.');
+				expect( err ).to.have.property('message', 'config.deployment.toLocal.localExtensionsBaseDir needs to be defined.');
 				done();
 			} );
 		} );
 
-		it( 'toLocal.enabled && pathFetching=false is OK if extensionBaseDir is defined', function ( done ) {
+		it( 'toLocal.enabled && pathFetching=false is OK if localExtensionsBaseDir is defined', function ( done ) {
 			var config = {
 				"deployment": {
 					"toLocal": {
 						"enabled": true,
 						"pathFetching": false,
-						"extensionBaseDir": "/Documents/Qlik/Sense/Extensions"
+						"localExtensionsBaseDir": "/Documents/Qlik/Sense/Extensions"
 
 					}
 				}
@@ -79,7 +79,7 @@ describe( 'Configuration', function () {
 					"toLocal": {
 						"enabled": true,
 						"pathFetching": false,
-						"extensionBaseDir": "~/Documents/Qlik/Sense/Extensions"
+						"localExtensionsBaseDir": "~/Documents/Qlik/Sense/Extensions"
 
 					}
 				}

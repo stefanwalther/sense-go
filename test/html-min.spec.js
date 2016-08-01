@@ -25,7 +25,7 @@ describe( 'HtmlMin tasks', function () {
 		} );
 	} );
 
-	it.only( 'transforms properly', function ( done ) {
+	xit( 'transforms properly', function ( done ) {
 		var gulp = senseGo.gulp;
 
 		var globalConfig = {
