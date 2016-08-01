@@ -14,7 +14,7 @@ var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
 var htmlMinTask = require( './../lib/tasks/htmlmin' );
 
-describe.only( 'HtmlMin tasks', function () {
+describe( 'HtmlMin tasks', function () {
 
 	var tmpDir = path.join( __dirname, './.tmp' );
 
