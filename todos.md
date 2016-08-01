@@ -3,6 +3,9 @@ Unused dependencies (basically installed to get it running again):
 - minimatch (used by glob)
 - assertion-error (chai)
 
+Finished event should be inside the CLI not in the code.
+Test for Windows (localPathFetching, registry, etc.)
+
 Tasks which need full test-coverage:
 
 - [ ] bump
@@ -15,7 +18,7 @@ Tasks which need full test-coverage:
 - [ ] jsonminify
 - [x] less
 - [ ] npm
-- [ ] replace
+- [x] replace
 - [ ] ssh
 - [ ] transpile
 - [ ] uglify

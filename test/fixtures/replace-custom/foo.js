@@ -1,1 +1,1 @@
-var foo = "@@foo.v";
+var foo = '@@foo.v';

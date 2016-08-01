@@ -1,1 +1,1 @@
-var bar = "@@bar.v";
+var bar = '@@bar.v';

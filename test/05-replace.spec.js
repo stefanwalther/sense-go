@@ -1,5 +1,8 @@
+/**
+ * @todo
+ * - Some negative tests
+ */
 'use strict';
-
 var senseGo = require( './../lib/' );
 var path = require( 'path' );
 var chai = require( 'chai' );
@@ -14,11 +17,11 @@ describe( 'replace tasks', function () {
 	var tmpDir = path.join( __dirname, './.tmp' );
 
 	beforeEach( function( done ) {
-		testUtils.delDir(tmpDir, done);
+		return testUtils.delDir(tmpDir, done);
 	});
 
 	afterEach( function( done ) {
-		testUtils.delDir(tmpDir, done);
+		return testUtils.delDir(tmpDir, done);
 	});
 
 	it( 'replaces content from package.json', function ( done ) {
@@ -32,10 +35,10 @@ describe( 'replace tasks', function () {
 
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
-			expect( senseGo.gulp._registry._tasks ).not.to.be.null;
-			expect( senseGo.gulp._registry._tasks ).to.have.property( 'replace:tmp' );
+			expect( senseGo.tasks ).not.to.be.null;
+			expect( senseGo.tasks ).to.have.property( 'replace:tmp' );
 
-			senseGo.gulp.series( 'replace:tmp' )( function () {
+			senseGo.gulp.series( ['copy:toTmp', 'replace:tmp'] )( function () {
 				expect( file( path.join( tmpDir, 'bar.js' ) ) ).to.exist;
 				expect( file( path.join( tmpDir, 'foo.js' ) ) ).to.exist;
 				expect( file( path.join( tmpDir, 'bar.js' ) ) ).to.contain( "var lic = 'MIT';" );
@@ -47,7 +50,7 @@ describe( 'replace tasks', function () {
 
 	} );
 
-	it( 'replaces custom replacements items', function () {
+	it( 'replaces custom replacements items', function ( done ) {
 
 		var config = {
 			replaceTmp: {
@@ -69,10 +72,11 @@ describe( 'replace tasks', function () {
 
 		senseGo.init( config, function ( err ) {
 			expect( err ).to.be.undefined;
-			expect( senseGo.gulp._registry._tasks ).not.to.be.null;
-			expect( senseGo.gulp._registry._tasks ).to.have.property( 'replace:tmp' );
+			expect( senseGo.tasks ).not.to.be.null;
+			expect( senseGo.tasks ).to.have.property( 'copy:toTmp' );
+			expect( senseGo.tasks ).to.have.property( 'replace:tmp' );
 
-			senseGo.gulp.series( 'replace:tmp' )( function () {
+			senseGo.gulp.series( ['copy:toTmp', 'replace:tmp'] )( function () {
 				expect( file( path.join( tmpDir, 'foo.js' ) ) ).to.exist;
 				expect( file( path.join( tmpDir, 'bar.js' ) ) ).to.exist;
 				expect( file( path.join( tmpDir, 'baz.js' ) ) ).to.exist;

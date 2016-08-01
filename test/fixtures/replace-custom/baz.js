@@ -1,1 +1,1 @@
-var baz = "@@baz.v";
+var baz = '@@baz.v';
