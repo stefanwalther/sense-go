@@ -12,7 +12,7 @@ chai.use( chaiFiles );
 var file = chaiFiles.file;
 var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
-var htmlMinTask = require('./../lib/tasks/htmlmin');
+var htmlMinTask = require( './../lib/tasks/htmlmin' );
 
 describe( 'HtmlMin tasks', function () {
 
@@ -25,7 +25,7 @@ describe( 'HtmlMin tasks', function () {
 		} );
 	} );
 
-	xit( 'transforms properly', function ( done ) {
+	it.only( 'transforms properly', function ( done ) {
 		var gulp = senseGo.gulp;
 
 		var globalConfig = {
@@ -35,14 +35,16 @@ describe( 'HtmlMin tasks', function () {
 		};
 		var config = {
 			taskName: 'htmlmin',
-			src: path.join(__dirname, './fixtures/html-min/**/*.htm[l]'),
-			dest: path.join(__dirname, './.tmp')
+			src: path.join( __dirname, './fixtures/html-min/**/*.htm[l]' ),
+			dest: path.join( __dirname, './.tmp' )
 		};
-		var plugins = require('./../lib/pluginLoader');
-		var taskUtils = require('./../lib/taskUtils')( plugins, config );
-		htmlMinTask( gulp, plugins, globalConfig, taskUtils).htmlmin( config, function() {
-			done();
-		} );
+		var plugins = require( './../lib/pluginLoader' );
+		var taskUtils = require( './../lib/taskUtils' )( plugins, config );
+		htmlMinTask( gulp, plugins, globalConfig, taskUtils )
+			.htmlmin( config, function ( x ) {
+				console.log('x', x);
+				done();
+			} );
 	} );
 
 } );
