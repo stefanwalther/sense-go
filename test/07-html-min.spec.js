@@ -14,9 +14,16 @@ var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
 var htmlMinTask = require( './../lib/tasks/htmlmin' );
 
-xdescribe( 'HtmlMin tasks', function () {
+describe.only( 'HtmlMin tasks', function () {
 
 	var tmpDir = path.join( __dirname, './.tmp' );
+
+	beforeEach( function ( done ) {
+		testUtils.delDir( tmpDir, done );
+	} );
+	afterEach( function ( done ) {
+		testUtils.delDir( tmpDir, done );
+	} );
 
 	it( 'load properly', function ( done ) {
 		senseGo.init( function () {
@@ -25,24 +32,28 @@ xdescribe( 'HtmlMin tasks', function () {
 		} );
 	} );
 
-	xit( 'transforms properly', function ( done ) {
+	it( 'transforms properly', function ( done ) {
 		var gulp = senseGo.gulp;
 
 		var globalConfig = {
 			htmlmin: {
-				preserveComments: true
+				collapseWhitespace: true,
+				removeComments: true
 			}
 		};
-		var config = {
+		var taskConfig = {
 			taskName: 'htmlmin',
 			src: path.join( __dirname, './fixtures/html-min/**/*.htm[l]' ),
-			dest: path.join( __dirname, './.tmp' )
+			dest: path.join( tmpDir, './html-min' )
 		};
 		var plugins = require( './../lib/pluginLoader' );
-		var taskUtils = require( './../lib/taskUtils' )( plugins, config );
+		var taskUtils = require( './../lib/taskUtils' )( plugins, taskConfig );
 		htmlMinTask( gulp, plugins, globalConfig, taskUtils )
-			.htmlmin( config, function ( x ) {
-				console.log('x', x);
+			.htmlmin( taskConfig, function ( err ) {
+				expect( err ).to.not.exist;
+				expect( file( path.join( tmpDir, './html-min/foo.html' ) ) ).to.exist;
+				expect( file( path.join( tmpDir, './html-min/foo.html' ) ) ).to.not.contain( '<!-- comment -->' );
+				expect( file( path.join( tmpDir, './html-min/foo.html' ) ) ).to.not.contain( '\n' );
 				done();
 			} );
 	} );
