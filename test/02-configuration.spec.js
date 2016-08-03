@@ -85,7 +85,6 @@ describe( 'Configuration', function () {
 				}
 			};
 			var expected = expandTilde( '~/Documents/Qlik/Sense/Extensions' );
-			expect( expected ).to.not.contain( '\\' );
 			senseGo.init( config, function ( err ) {
 				expect( err ).to.be.undefined;
 				var cfg = senseGo.getConfig();
