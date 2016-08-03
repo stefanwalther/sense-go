@@ -1,3 +1,8 @@
+v0.6.11:
+  date: "2016-08-03"
+  changes:
+  - "tests: Minor bugfixes and cleaning in several tests"
+  - "tests: Fix some tests for Windows & appveyor"
 v0.6.10:
   date: "2016-08-01"
   changes:
