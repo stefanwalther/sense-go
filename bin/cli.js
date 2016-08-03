@@ -70,6 +70,17 @@ cli.launch( {
 
 function run ( env ) {
 
+	console.log( '' ); // empty line
+	log( '.: STARTING SENSE-GO :.' );
+
+	process.on('senseGo_onInit', function() {
+		//
+	});
+	process.on('senseGo_onEnd', function() {
+		log( '.: SENSE-GO FINISHED :.' );
+		console.log('');
+	});
+
 	senseGo.gulp.on( 'error', function ( error ) {
 		console.log( 'error', error );
 	} );
@@ -85,8 +96,6 @@ function run ( env ) {
 
 	}
 
-	console.log( '' ); // empty line
-	log( '.: STARTING SENSE-GO :.' );
 	if ( hasSenseGoYml && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
 		log( 'Using the .sense-go.yml file ...' );
@@ -99,7 +108,8 @@ function run ( env ) {
 		senseGo.run( toRun );
 	} else {
 
-		log( 'Using the default sense-go settings (neither package.json nor .sense-go.yml available) ...' );
+		log( 'Using the default sense-go settings');
+		log('\tneither package.json nor .sense-go.yml available) ...' );
 		senseGo.init( gulp, function () {
 			senseGo.run( toRun );
 		} );
