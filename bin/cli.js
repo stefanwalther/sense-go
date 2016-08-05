@@ -17,6 +17,7 @@ var senseGo = require( './../lib/' );
 var Liftoff = require( 'liftoff' );
 var v8flags = require( 'v8flags' );
 var log = require( './log' );
+var _ = require( 'lodash' );
 
 var pkg = require( '../package' );
 var taskTree = require( './task-tree' );
@@ -43,6 +44,7 @@ process.once( 'exit', function ( code ) {
 var versionFlag = argv.v || argv.version;
 var tasksFlag = argv.T || argv.tasks;
 var hasSenseGoYml = fs.existsSync( path.join( process.cwd(), '.sense-go.yml' ) );
+var hasSenseGoYmlLocal = fs.existsSync( path.join( process.cwd(), '.sense-go.local.yml' ) );
 var hasSenseGoJs = fs.existsSync( path.join( process.cwd(), 'sense-go.js' ) );
 var senseGoJsFile = (hasSenseGoJs) ? path.join( process.cwd(), 'sense-go.js' ) : null;
 var tasks = argv._;
@@ -73,13 +75,13 @@ function run ( env ) {
 	console.log( '' ); // empty line
 	log( '.: STARTING SENSE-GO :.' );
 
-	process.on('senseGo_onInit', function() {
+	process.on( 'senseGo_onInit', function () {
 		//
-	});
-	process.on('senseGo_onEnd', function() {
+	} );
+	process.on( 'senseGo_onEnd', function () {
 		log( '.: SENSE-GO FINISHED :.' );
-		console.log('');
-	});
+		console.log( '' );
+	} );
 
 	senseGo.gulp.on( 'error', function ( error ) {
 		console.log( 'error', error );
@@ -96,9 +98,16 @@ function run ( env ) {
 
 	}
 
-	if ( hasSenseGoYml && !hasSenseGoJs ) {
+	if ( (hasSenseGoYml || hasSenseGoYmlLocal) && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
-		log( 'Using the .sense-go.yml file ...' );
+		if ( hasSenseGoYmlLocal ) {
+			var userConfigLocal = senseGo.loadYml( path.join( process.cwd(), '.sense-go.local.yml' ) );
+			userConfig = _.extend( userConfig, userConfigLocal );
+			log( 'Using the .sense-go.local.yml file ...' );
+		} else {
+			log( 'Using the .sense-go.yml file ...' );
+		}
+
 		senseGo.init( userConfig, function () {
 			senseGo.run( toRun );
 		} );
@@ -108,8 +117,8 @@ function run ( env ) {
 		senseGo.run( toRun );
 	} else {
 
-		log( 'Using the default sense-go settings');
-		log('\tneither package.json nor .sense-go.yml available) ...' );
+		log( 'Using the default sense-go settings' );
+		log( '\tneither package.json nor .sense-go.yml available) ...' );
 		senseGo.init( gulp, function () {
 			senseGo.run( toRun );
 		} );
