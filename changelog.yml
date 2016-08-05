@@ -1,8 +1,15 @@
+v0.6.12:
+  date: "2016-08-06"
+  changes:
+    - "Fix issues with non working js-uglify tasks"
+    - "Add support to have a local .sense-go.local.yml file, extending the .sense-go.yml file"
+    - "Fix: Return empty object instead of null for loadYml method"
+    - "Add deploy:toSsh also to default release task"
 v0.6.11:
   date: "2016-08-03"
   changes:
-  - "tests: Minor bugfixes and cleaning in several tests"
-  - "tests: Fix some tests for Windows & appveyor"
+    - "tests: Minor bugfixes and cleaning in several tests"
+    - "tests: Fix some tests for Windows & appveyor"
 v0.6.10:
   date: "2016-08-01"
   changes:
