@@ -95,7 +95,7 @@ htmlmin:
 # Task chains
 # -------------------------------------------------------------------------------
 taskChains:
-  - "build":
+  "build":
     - "clean:tmp"
     - "copy:toTmp"
     - "import"
@@ -112,7 +112,7 @@ taskChains:
     - "deploy:toLocal"
     - "deploy:toSsh"
     - "clean:tmp"
-  - "release":
+  "release":
     - "clean:tmp"
     - "copy:toTmp"
     - "import"
@@ -133,11 +133,11 @@ taskChains:
     - "deploy:toLocal"
     - "deploy:toSsh"
     - "clean:tmp"
-  - "publish":
+  "publish":
     - "git:add"
     - "git:commit"
     - "git:push"
-  - "all":
+  "all":
     - "bump:patch"
     - "build"
     - "release"
