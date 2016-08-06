@@ -14,7 +14,7 @@ var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
 var _ = require( 'lodash' );
 
-describe.only( 'Uglify tasks', function () {
+describe( 'Uglify tasks', function () {
 
 	var tmpDir = path.join( __dirname, './.tmp' );
 
