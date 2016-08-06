@@ -5,6 +5,7 @@ v0.6.12:
     - "Add support to have a local .sense-go.local.yml file, extending the .sense-go.yml file"
     - "Fix: Return empty object instead of null for loadYml method"
     - "Add deploy:toSsh also to default release task"
+    - "Fix: Change task in the taskChain (default-config.yml or .sense-go.yml to be objects instead of an array"
 v0.6.11:
   date: "2016-08-03"
   changes:
