@@ -51,11 +51,6 @@ wbfolder:
   cwd: "./.tmp"
   src: "./**/*.*"                   # Ideally we should use variables here, but not supported by js-yaml right now
   dest: "./.tmp/wbfolder.wbl"       # Destination for the generated wbfolder.wbl file, by default in the output"s root directory
-uglify:
-  mangle: false                      # Do not mangle, otherwise angularJS will be broken
-  beautify: true
-  compress: true
-  preserveComments: "license"
 npm:
   publish: true                     # If set to false, task npm:publish will NOT do anything
 import:
@@ -82,6 +77,11 @@ replacements:
 # -------------------------------------------------------------------------------
 # Uglify tasks
 # -------------------------------------------------------------------------------
+uglify:
+  mangle: false                      # Do not mangle, otherwise angularJS will be broken
+  beautify: true
+  compress: true
+  preserveComments: "license"
 uglifyTmp:
   src: "./.tmp/**/*.js"
   srcExcluded: "./.tmp/**/*.min.js"

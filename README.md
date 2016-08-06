@@ -387,16 +387,20 @@ All less tasks automatically autoprefix (using [gulp-autoprefixer](https://githu
 #### Uglify
 > Uglify & minifies JavaScript files
 
-**`uglify:tmp`**
-* Uglify all JavaScript files.
-* Options:  
-  * `tmpDir`
+**General uglify options**
   * `uglify*` - All options directly passed to `gulp-uglify`, e.g.
     * `uglify.mangle`
     * `uglify.beautify`
-    * `uglify.preserveComments`
-* Excluded:  
-  * All files matching the pattern `*.min.js`
+    * `uglify.compress`
+    * `uglify.preserveComments` - *(Default: 'license')*
+    
+Further options can be passed according to the [gulp-uglify](https://github.com/terinjokes/gulp-uglify) documentation.
+
+**`uglify:tmp`**
+* Uglify all JavaScript files.
+* Options:  
+  * `uglifyTmp.src` - Included source files. *(Default: `./.tmp/**/*.js`)*
+  * `uglifyTmp.srcExcluded` - Excluded source files *(Default: `./.tmp/**/*.min.js`)*
 
 #### Minification/Optimization
 > Several minification tasks
