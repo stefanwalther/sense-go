@@ -13,12 +13,13 @@ var path = require( 'path' );
 
 var gulp = require( 'gulp' );
 var argv = require( 'minimist' )( process.argv.slice( 2 ) );
-var senseGo = require( './../lib/' );
 var Liftoff = require( 'liftoff' );
 var v8flags = require( 'v8flags' );
-var log = require( './log' );
 var _ = require( 'lodash' );
+var chalk = require( 'chalk' );
 
+var log = require( './log' );
+var senseGo = require( './../lib/' );
 var pkg = require( '../package' );
 var taskTree = require( './task-tree' );
 
@@ -73,13 +74,13 @@ cli.launch( {
 function run ( env ) {
 
 	console.log( '' ); // empty line
-	log( '.: STARTING SENSE-GO :.' );
+	log( chalk.cyan('.: STARTING SENSE-GO :.') );
 
 	process.on( 'senseGo_onInit', function () {
 		//
 	} );
 	process.on( 'senseGo_onEnd', function () {
-		log( '.: SENSE-GO FINISHED :.' );
+		log( chalk.cyan('.: SENSE-GO FINISHED :.') );
 		console.log( '' );
 	} );
 
