@@ -1,3 +1,7 @@
+v0.7.1:
+  date: "2016-08-11"
+  changes:
+    - "Add task import:fromSsh, not part of any default task chain."
 v0.7.0:
   date: "2016-08-11"
   changes:

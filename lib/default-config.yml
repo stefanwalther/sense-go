@@ -72,6 +72,9 @@ import:
     password: "foobar"
     src: ""
     dest: ""
+    files:
+      - src: ""
+        dest: ""
 
 # -------------------------------------------------------------------------------
 # Replacement tasks

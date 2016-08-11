@@ -1,6 +1,6 @@
 {
   "name": "sense-go",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.",
   "keywords": [
     "deployment",
@@ -66,6 +66,7 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-nop": "0.0.3",
     "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-replace-task": "^0.11.0",
     "gulp-simple-task-loader": "^1.3.8",
     "gulp-sourcemaps": "^1.6.0",
