@@ -1,3 +1,7 @@
+v0.8.0:
+  date: "2016-08-12"
+  changes:
+    - "Add shell task"
 v0.7.1:
   date: "2016-08-11"
   changes:
