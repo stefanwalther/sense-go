@@ -22,6 +22,7 @@ var log = require( './log' );
 var senseGo = require( './../lib/' );
 var pkg = require( '../package' );
 var taskTree = require( './task-tree' );
+var extend = require('deep-extend');
 
 // store a reference to the current CWD
 process.env.INIT_CWD = process.cwd();
@@ -74,13 +75,13 @@ cli.launch( {
 function run ( env ) {
 
 	console.log( '' ); // empty line
-	log( chalk.cyan('.: STARTING SENSE-GO :.') );
+	log( chalk.cyan( '.: STARTING SENSE-GO :.' ) );
 
 	process.on( 'senseGo_onInit', function () {
 		//
 	} );
 	process.on( 'senseGo_onEnd', function () {
-		log( chalk.cyan('.: SENSE-GO FINISHED :.') );
+		log( chalk.cyan( '.: SENSE-GO FINISHED :.' ) );
 		console.log( '' );
 	} );
 
@@ -101,12 +102,11 @@ function run ( env ) {
 
 	if ( (hasSenseGoYml || hasSenseGoYmlLocal) && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
+		log( 'Using the .sense-go.local.yml file ...' );
 		if ( hasSenseGoYmlLocal ) {
 			var userConfigLocal = senseGo.loadYml( path.join( process.cwd(), '.sense-go.local.yml' ) );
-			userConfig = _.extend( userConfig, userConfigLocal );
-			log( 'Using the .sense-go.local.yml file ...' );
-		} else {
-			log( 'Using the .sense-go.yml file ...' );
+			userConfig = extend( userConfig, userConfigLocal );
+			log( 'Extending with settings in  the .sense-go.local.yml file ...' );
 		}
 
 		senseGo.init( userConfig, function () {
