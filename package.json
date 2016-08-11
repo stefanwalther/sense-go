@@ -79,8 +79,8 @@
     "gulp-zip": "^3.2.0",
     "js-yaml": "^3.6.1",
     "liftoff": "^2.3.0",
-    "lodash": "^4.14.1",
-    "minimatch": "^3.0.2",
+    "lodash": "^4.14.2",
+    "minimatch": "^3.0.3",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "sanitize-filename": "^1.6.0",
@@ -103,7 +103,12 @@
   "preferGlobal": true,
   "verb": {
     "run": true,
-    "toc": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 2,
+      "footer": false
+    },
     "layout": "empty",
     "tasks": [
       "readme"

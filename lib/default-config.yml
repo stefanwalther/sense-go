@@ -53,11 +53,25 @@ wbfolder:
   dest: "./.tmp/wbfolder.wbl"       # Destination for the generated wbfolder.wbl file, by default in the output"s root directory
 npm:
   publish: true                     # If set to false, task npm:publish will NOT do anything
-import:
-  files:
-    # - ["src/glob", "dest/glob/"]
 watch:
   - "./src/**/*.*"
+
+# -------------------------------------------------------------------------------
+# Replacement tasks
+# -------------------------------------------------------------------------------
+import:
+  fromLocal:
+    enabled: true
+    files:
+      # - ["src/glob", "dest/glob/"]
+  fromSsh:
+    enabled: false
+    host: "192.168.56.11"
+    port: 22
+    username: "usr"
+    password: "foobar"
+    src: ""
+    dest: ""
 
 # -------------------------------------------------------------------------------
 # Replacement tasks
@@ -105,7 +119,7 @@ taskChains:
   "build":
     - "clean:tmp"
     - "copy:toTmp"
-    - "import"
+    - "import:fromLocal"
     - "less:reduce"
     - "replace:tmp"
     - "wbfolder:tmp"
@@ -122,7 +136,7 @@ taskChains:
   "release":
     - "clean:tmp"
     - "copy:toTmp"
-    - "import"
+    - "import:fromLocal"
     - "less:reduce"
     - "replace:tmp"
     # - "wbfolder:tmp" ==> doesn"t make sense since the uglified files cannot really be edited in Dev-Hub

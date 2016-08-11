@@ -1,3 +1,7 @@
+v0.7.0:
+  date: "2016-08-11"
+  changes:
+    - "Breaking change: Task import becomes import:fromLocal. No changes are necessary if you haven't used this task before. If so, have a look into the default configuration file."
 v0.6.12:
   date: "2016-08-06"
   changes:

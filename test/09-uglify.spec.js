@@ -27,7 +27,7 @@ describe( 'Uglify tasks', function () {
 		expect( defaultConfig.taskChains.build ).to.not.contain( 'uglify:tmp' );
 	} );
 
-	it( 'uglify:tmp should be <include></include>d in the pre-build <release> task', function () {
+	it( 'uglify:tmp should be included in the pre-build <release> task', function () {
 		var defaultConfig = senseGo.loadYml( path.join( __dirname, './../lib/default-config.yml' ) );
 		expect( defaultConfig.taskChains.release ).to.contain( 'uglify:tmp' );
 	} );
