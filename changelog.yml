@@ -1,3 +1,10 @@
+v0.8.1:
+  date: "016-08-21"
+  changes:
+    - "Version v0.10.0"
+    - "Add clean-css task"
+    - "The less tasks will not compress the files by default anymore"
+    - "Added cleanCss:tmp to the default task chains build & release"
 v0.8.0:
   date: "2016-08-12"
   changes:
