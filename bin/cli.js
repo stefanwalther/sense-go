@@ -22,7 +22,7 @@ var log = require( './log' );
 var senseGo = require( './../lib/' );
 var pkg = require( '../package' );
 var taskTree = require( './task-tree' );
-var extend = require('deep-extend');
+var extend = require( 'deep-extend' );
 
 // store a reference to the current CWD
 process.env.INIT_CWD = process.cwd();
@@ -44,6 +44,7 @@ process.once( 'exit', function ( code ) {
  * flags
  */
 var versionFlag = argv.v || argv.version;
+var debugFlag = argv.d || argv.debug;
 var tasksFlag = argv.T || argv.tasks;
 var hasSenseGoYml = fs.existsSync( path.join( process.cwd(), '.sense-go.yml' ) );
 var hasSenseGoYmlLocal = fs.existsSync( path.join( process.cwd(), '.sense-go.local.yml' ) );
@@ -86,7 +87,12 @@ function run ( env ) {
 	} );
 
 	senseGo.gulp.on( 'error', function ( error ) {
-		console.log( 'error', error );
+		if ( debugFlag ) {
+			log( error.name + ' ' + chalk.red( 'An error occurred. Here are the details:') );
+			console.log( 'error', error );
+		} else {
+			log( error.name + ' ' + chalk.red( 'An error occurred. Use -d to show details') );
+		}
 	} );
 
 	// chdir before requiring `sense-go.js` to allow users to chdir as needed
