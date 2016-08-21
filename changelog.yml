@@ -1,7 +1,10 @@
-v0.8.1:
-  date: "016-08-21"
+v0.11.0:
+  date: "2016-08-21"
   changes:
-    - "Version v0.10.0"
+    - "Add header task to inject a copyright header into each js file"
+v0.10.0:
+  date: "2016-08-21"
+  changes:
     - "Add clean-css task"
     - "The less tasks will not compress the files by default anymore"
     - "Added cleanCss:tmp to the default task chains build & release"
