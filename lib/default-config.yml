@@ -40,6 +40,9 @@ deployment:
     username: "usr"
     password: "foobar"
     dest: "/c/Users/usr/Documents/Qlik/Sense/Extensions/whatever-extension"
+  viaShell:
+    enabled: false
+    cmd: "ls"
 
 # -------------------------------------------------------------------------------
 # Task specific settings
@@ -118,7 +121,7 @@ uglifyTmp:
   dest: "./.tmp"
 
 # -------------------------------------------------------------------------------
-# Shellt
+# Shell
 # -------------------------------------------------------------------------------
 shell:
   enabled: false
@@ -159,6 +162,7 @@ taskChains:
     - "clean:localExtensionDir"
     - "deploy:toLocal"
     - "deploy:toSsh"
+    - "deploy:viaShell"
     - "clean:tmp"
   "release":
     - "shell"
@@ -182,6 +186,7 @@ taskChains:
     - "clean:localExtensionDir"
     - "deploy:toLocal"
     - "deploy:toSsh"
+    - "deploy:viaShell"
     - "clean:tmp"
   "publish":
     - "git:add"

@@ -37,3 +37,12 @@ Upload the zipped visualization extension to a Qlik Sense server (using the Repo
   * `deployment.toSsh.dest`
 
 Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.net/), using certificates is not tested, yet.
+
+
+### Deploy via Shell
+
+> Use a shell task for your custom deployment
+
+* Options used:  
+  * `deployment.enabled` - Enables or disable the deployment via shell. *(Default: `false`)*
+  * `deployment.cmd - The shell command.
