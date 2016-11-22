@@ -108,7 +108,7 @@ function run ( env ) {
 
 	if ( (hasSenseGoYml || hasSenseGoYmlLocal) && !hasSenseGoJs ) {
 		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
-		log( 'Using the .sense-go.local.yml file ...' );
+		log( 'Using the .sense-go.yml file ...' );
 		if ( hasSenseGoYmlLocal ) {
 			var userConfigLocal = senseGo.loadYml( path.join( process.cwd(), '.sense-go.local.yml' ) );
 			userConfig = extend( userConfig, userConfigLocal );
