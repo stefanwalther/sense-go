@@ -1,3 +1,7 @@
+v0.12.1:
+  date: "2016-11-23"
+  changes:
+    - "copy:toTmp task: Don't remove the .css files"
 v0.12.0:
   date: "2016-10-19"
   changes:
