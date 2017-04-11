@@ -1,3 +1,7 @@
+v0.12.2:
+  date: "2017-04-11"
+  changes:
+    - "Improve some cli messages"
 v0.12.1:
   date: "2016-11-23"
   changes:

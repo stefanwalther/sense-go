@@ -14,7 +14,7 @@ var expect = chai.expect;
 var testUtils = require( './lib/test-utils' );
 var headerTask = require( './../lib/tasks/header' );
 
-describe.only( 'Header tasks', function () {
+describe( 'Header tasks', function () {
 
 	var tmpDir = path.join( __dirname, './.tmp' );
 
