@@ -125,7 +125,7 @@ function run ( env ) {
 	} else {
 
 		log( 'Using the default sense-go settings' );
-		log( '\tneither package.json nor .sense-go.yml available) ...' );
+		log( '\tneither package.json nor .sense-go.yml available ...' );
 		senseGo.init( gulp, function () {
 			senseGo.run( toRun );
 		} );
