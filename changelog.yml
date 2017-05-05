@@ -1,3 +1,7 @@
+v0.12.3:
+  date: "2017-05-05"
+  changes:
+    - "Improve the author field when creating the javascript header"
 v0.12.2:
   date: "2017-04-11"
   changes:
