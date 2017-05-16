@@ -12,6 +12,9 @@
 
 ## Table of Contents
 
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd348c2723f54f7398399549225ca2e9)](https://www.codacy.com/app/stefan-walther/sense-go?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stefanwalther/sense-go&amp;utm_campaign=badger)
+
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Usage](#usage)
