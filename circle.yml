@@ -1,0 +1,19 @@
+machine:
+  pre:
+    - mkdir ~/.yarn-cache
+  node:
+    version: 7.2
+
+dependencies:
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+  cache_directories:
+    - ~/.yarn-cache
+  override:
+    - yarn install
+
+test:
+  override:
+    - yarn run test-coverage
+  post:
+    - bash <(curl -s https://codecov.io/bash)
