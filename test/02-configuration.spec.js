@@ -24,7 +24,7 @@ describe('Configuration', function () {
         if (process.platform === 'win32') {
           expect(cfg.deployment.toLocal.extensionPath).to.not.be.empty;
         } else {
-          expect(cfg.deployment.toLocal.extensionPath).to.be.empty;
+          expect(cfg.deployment.toLocal.extensionPath).to.be.undefined;
         }
         done();
       });
