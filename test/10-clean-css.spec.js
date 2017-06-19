@@ -64,7 +64,7 @@ describe( 'Clean Css tasks', function () {
 
 	// Make sure that URLs are not transformed (which happened with a new version of clean-css
 	//   ==> this then potentially breaks every extension ...
-	it.only('does not transform URLs', function( done ){
+	it('does not transform URLs', function( done ){
 		var gulp = senseGo.gulp;
 
 		var globalConfig = {

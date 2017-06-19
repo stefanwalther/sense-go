@@ -38,7 +38,10 @@
   "scripts": {
     "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
     "docs": "verb && if [[ `git status -z --porcelain` ]]; then git commit -a -m 'docs: Update Readme'; else echo '\n\nNO CHANGES, NOTHING TO PUSH'; fi",
-    "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov"
+    "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov",
+    "lint": "eslint lib && eslint test",
+    "lint:src": "eslint lib",
+    "lint:src:fix": "eslint lib --fix"
   },
   "dependencies": {
     "archy": "^1.0.0",
@@ -99,6 +102,8 @@
     "chai": "latest",
     "chai-files": "^1.4.0",
     "codecov": "^2.2.0",
+    "eslint": "^4.0.0",
+    "eslint-config-space-single": "^0.2.0",
     "istanbul": "^0.4.5",
     "mocha": "*",
     "should": "*"
