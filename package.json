@@ -36,7 +36,7 @@
     "url": "git://github.com/stefanwalther/sense-go.git"
   },
   "scripts": {
-    "test": "mocha test/*.spec.js",
+    "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
     "docs": "verb && if [[ `git status -z --porcelain` ]]; then git commit -a -m 'docs: Update Readme'; else echo '\n\nNO CHANGES, NOTHING TO PUSH'; fi",
     "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov"
   },
