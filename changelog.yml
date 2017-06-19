@@ -1,8 +1,9 @@
-v0.12.5:
+v0.12.7:
   date: "2017-06-19"
   changes:
     - "Update several dependencies"
     - "Docs: Add documentation for deployment:viaShell"
+    - "CI: Remove logging when running automated tests"
 v0.12.3:
   date: "2017-05-05"
   changes:
