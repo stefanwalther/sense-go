@@ -41,8 +41,10 @@ Note: `deploy:toSsh` has mainly be tested with [mobaSSH](http://mobassh.mobatek.
 
 ### Deploy via Shell
 
+**`deploy:viaShell`**
+
 > Use a shell task for your custom deployment
 
 * Options used:  
-  * `deployment.enabled` - Enables or disable the deployment via shell. *(Default: `false`)*
-  * `deployment.cmd - The shell command.
+  * `deployment.viaShell.enabled` - Enables or disable the deployment via shell. *(Default: `false`)*
+  * `deployment.viaShell.cmd - The shell command.
