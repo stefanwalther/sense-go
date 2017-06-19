@@ -4,6 +4,7 @@ v0.12.9:
     - "Start using eslint"
     - "Use eslint-config-space-single"
     - "Satisfy linter for lib"
+    - "Using docker-verb for documentation"
 v0.12.8:
   date: "2017-06-19"
   changes:

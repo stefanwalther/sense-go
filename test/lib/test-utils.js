@@ -1,18 +1,17 @@
 'use strict';
 
-// local dependencies
+// Local dependencies
 var del = require('del');
 
-var testUtils = function () {
+var TestUtils = function () {
+  function delDir(dir, done) {
+    del(dir).then(function () {
+      done();
+    });
+  }
 
-	function delDir( dir, done) {
-		del( dir ).then( function() {
-			done();
-		});
-	}
-
-	return {
-		delDir: delDir
-	}
+  return {
+    delDir: delDir
+  };
 };
-module.exports = new testUtils;
+module.exports = new TestUtils();

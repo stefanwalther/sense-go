@@ -41,7 +41,9 @@
     "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov",
     "lint": "eslint lib && eslint test",
     "lint:src": "eslint lib",
-    "lint:src:fix": "eslint lib --fix"
+    "lint:src:fix": "eslint lib --fix",
+    "lint:test": "eslint test",
+    "lint:test:fix": "eslint test --fix"
   },
   "dependencies": {
     "archy": "^1.0.0",
