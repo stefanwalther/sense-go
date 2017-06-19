@@ -1,3 +1,7 @@
+v0.12.8:
+  date: "2017-06-19"
+  changes:
+    - "Fix an issue with url() in css files being changed by clean-css"
 v0.12.7:
   date: "2017-06-19"
   changes:

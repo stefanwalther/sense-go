@@ -17,6 +17,7 @@ var cleanCssTask = require( './../lib/tasks/clean-css' );
 describe( 'Clean Css tasks', function () {
 
 	var tmpDir = path.join( __dirname, './.tmp' );
+	var expectedDir = path.join(__dirname, './expected');
 
 	beforeEach( function ( done ) {
 		testUtils.delDir( tmpDir, done );
@@ -60,4 +61,37 @@ describe( 'Clean Css tasks', function () {
 				done();
 			} );
 	} );
+
+	// Make sure that URLs are not transformed (which happened with a new version of clean-css
+	//   ==> this then potentially breaks every extension ...
+	it.only('does not transform URLs', function( done ){
+		var gulp = senseGo.gulp;
+
+		var globalConfig = {
+			cleanCssTmp: {
+				dest: true
+			}
+		};
+		var taskConfig = {
+			taskName: 'cleanCss:tmp',
+			src: [
+				path.join( __dirname, './fixtures/clean-css-urls/**/*.css' ),
+				'!' + path.join( __dirname, './fixtures/clean-css-urls/**/*.min.css' )
+			],
+			dest: path.join( tmpDir, './clean-css-urls' )
+		};
+
+		var plugins = require( './../lib/pluginLoader' );
+		var taskUtils = require( './../lib/taskUtils' )( plugins, taskConfig );
+
+		cleanCssTask( gulp, plugins, globalConfig, taskUtils )
+			.cleanCss( taskConfig, function ( err ) {
+				expect( err ).to.not.exist;
+				expect( file( path.join( tmpDir, './clean-css-urls/test.min.css' ) ) ).to.exist;
+				expect( file( path.join( tmpDir, './clean-css-urls/test.css' ) ) ).to.not.exist;
+				expect( file( path.join( tmpDir, './clean-css-urls/test.min.css'))).to.equal( file(path.join(expectedDir, 'clean-css-urls/', 'test.min.css')));
+				done();
+			} );
+
+	});
 } );
