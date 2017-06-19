@@ -37,7 +37,7 @@
   },
   "scripts": {
     "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
-    "docs": "verb && if [[ `git status -z --porcelain` ]]; then git commit -a -m 'docs: Update Readme'; else echo '\n\nNO CHANGES, NOTHING TO PUSH'; fi",
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov",
     "lint": "eslint lib && eslint test",
     "lint:src": "eslint lib",
