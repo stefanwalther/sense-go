@@ -1,21 +1,21 @@
 'use strict';
 
 // Core dependencies
-var path = require('path');
-var fs = require('fs-extra');
+const path = require('path');
+const fs = require('fs-extra');
 
 // Local dependencies
-var senseGo = require('./../lib/');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
-var headerTask = require('./../lib/tasks/header');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
+const headerTask = require('./../lib/tasks/header');
 
 describe('Header tasks', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -32,14 +32,14 @@ describe('Header tasks', function () {
   });
 
   it('Adds the header properly', function (done) {
-    var gulp = senseGo.gulp;
+    const gulp = senseGo.gulp;
 
-    var globalConfig = {
+    const globalConfig = {
       cleanCssTmp: {
         dest: true
       }
     };
-    var taskConfig = {
+    const taskConfig = {
       taskName: 'header',
       src: [
         path.join(__dirname, './fixtures/header/**/*.js'),
@@ -55,8 +55,8 @@ describe('Header tasks', function () {
       },
       dest: path.join(tmpDir, './header')
     };
-    var plugins = require('./../lib/pluginLoader');
-    var taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
+    const plugins = require('./../lib/pluginLoader');
+    const taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
     headerTask(gulp, plugins, globalConfig, taskUtils)
       .header(taskConfig, function (err) {
         expect(err).to.not.exist;

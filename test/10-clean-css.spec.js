@@ -1,22 +1,22 @@
 'use strict';
 
 // Core dependencies
-var path = require('path');
-var fs = require('fs-extra');
+const path = require('path');
+const fs = require('fs-extra');
 
 // Local dependencies
-var senseGo = require('./../lib/');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
-var cleanCssTask = require('./../lib/tasks/clean-css');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
+const cleanCssTask = require('./../lib/tasks/clean-css');
 
 describe('Clean Css tasks', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
-  var expectedDir = path.join(__dirname, './expected');
+  const tmpDir = path.join(__dirname, './.tmp');
+  const expectedDir = path.join(__dirname, './expected');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -33,14 +33,14 @@ describe('Clean Css tasks', function () {
   });
 
   it('transforms properly', function (done) {
-    var gulp = senseGo.gulp;
+    const gulp = senseGo.gulp;
 
-    var globalConfig = {
+    const globalConfig = {
       cleanCssTmp: {
         dest: true
       }
     };
-    var taskConfig = {
+    const taskConfig = {
       taskName: 'cleanCss:tmp',
       src: [
         path.join(__dirname, './fixtures/clean-css/**/*.css'),
@@ -48,8 +48,8 @@ describe('Clean Css tasks', function () {
       ],
       dest: path.join(tmpDir, './clean-css')
     };
-    var plugins = require('./../lib/pluginLoader');
-    var taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
+    const plugins = require('./../lib/pluginLoader');
+    const taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
     cleanCssTask(gulp, plugins, globalConfig, taskUtils)
       .cleanCss(taskConfig, function (err) {
         expect(err).to.not.exist;
@@ -64,14 +64,14 @@ describe('Clean Css tasks', function () {
   // Make sure that URLs are not transformed (which happened with a new version of clean-css
   //   ==> this then potentially breaks every extension ...
   it('does not transform URLs', function (done) {
-    var gulp = senseGo.gulp;
+    const gulp = senseGo.gulp;
 
-    var globalConfig = {
+    const globalConfig = {
       cleanCssTmp: {
         dest: true
       }
     };
-    var taskConfig = {
+    const taskConfig = {
       taskName: 'cleanCss:tmp',
       src: [
         path.join(__dirname, './fixtures/clean-css-urls/**/*.css'),
@@ -80,8 +80,8 @@ describe('Clean Css tasks', function () {
       dest: path.join(tmpDir, './clean-css-urls')
     };
 
-    var plugins = require('./../lib/pluginLoader');
-    var taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
+    const plugins = require('./../lib/pluginLoader');
+    const taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
 
     cleanCssTask(gulp, plugins, globalConfig, taskUtils)
       .cleanCss(taskConfig, function (err) {

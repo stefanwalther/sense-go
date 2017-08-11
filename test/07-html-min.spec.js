@@ -1,21 +1,21 @@
 'use strict';
 
 // Core dependencies
-var path = require('path');
-var fs = require('fs-extra');
+const path = require('path');
+const fs = require('fs-extra');
 
 // Local dependencies
-var senseGo = require('./../lib/');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
-var htmlMinTask = require('./../lib/tasks/htmlmin');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
+const htmlMinTask = require('./../lib/tasks/htmlmin');
 
 describe('HtmlMin tasks', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -32,21 +32,21 @@ describe('HtmlMin tasks', function () {
   });
 
   it('transforms properly', function (done) {
-    var gulp = senseGo.gulp;
+    const gulp = senseGo.gulp;
 
-    var globalConfig = {
+    const globalConfig = {
       htmlmin: {
         collapseWhitespace: true,
         removeComments: true
       }
     };
-    var taskConfig = {
+    const taskConfig = {
       taskName: 'htmlmin',
       src: path.join(__dirname, './fixtures/html-min/**/*.htm[l]'),
       dest: path.join(tmpDir, './html-min')
     };
-    var plugins = require('./../lib/pluginLoader');
-    var taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
+    const plugins = require('./../lib/pluginLoader');
+    const taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
     htmlMinTask(gulp, plugins, globalConfig, taskUtils)
       .htmlmin(taskConfig, function (err) {
         expect(err).to.not.exist;

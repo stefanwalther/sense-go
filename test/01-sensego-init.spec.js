@@ -1,10 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
-var senseGo = require('./../lib/');
-var path = require('path');
-var chai = require('chai');
-var expect = chai.expect;
+const gulp = require('gulp');
+const senseGo = require('./../lib/');
+const path = require('path');
+const chai = require('chai');
+const expect = chai.expect;
 
 describe('sense-go', function () {
   it('should take packageName from package.json by default', function (done) {
@@ -27,7 +27,7 @@ describe('sense-go', function () {
   it('should contain default configuration', function (done) {
     senseGo.init({packageName: 'whatever'}, function (err) {
       expect(err).to.not.exist;
-      var cfg = senseGo.getConfig();
+      const cfg = senseGo.getConfig();
       expect(cfg).not.to.be.undefined;
       expect(cfg).to.have.property('debugOutput');
       expect(cfg).to.have.property('packageName', 'whatever');

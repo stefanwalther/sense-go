@@ -1,19 +1,19 @@
 'use strict';
 
 // Core dependencies
-var path = require('path');
+const path = require('path');
 
 // Local dependencies
-var senseGo = require('./../lib/');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
 
 describe('less tasks (with custom configuration)', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -23,7 +23,7 @@ describe('less tasks (with custom configuration)', function () {
   });
 
   it('should run lessEach', function (done) {
-    var config = {
+    const config = {
       lessEach: {
         src: path.join(__dirname, './fixtures/lessEach/**/*.less'),
         dest: tmpDir

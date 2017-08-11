@@ -3,17 +3,17 @@
  * - Some negative tests
  */
 'use strict';
-var senseGo = require('./../lib/');
-var path = require('path');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const path = require('path');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
 
 describe('replace tasks', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -24,7 +24,7 @@ describe('replace tasks', function () {
   });
 
   it('replaces content from package.json', function (done) {
-    var config = {
+    const config = {
       tmpDir: tmpDir,
       replaceTmp: {
         src: path.join(__dirname, './fixtures/replace-pkg/**/*.js'),
@@ -48,7 +48,7 @@ describe('replace tasks', function () {
   });
 
   it('replaces custom replacements items', function (done) {
-    var config = {
+    const config = {
       replaceTmp: {
         src: path.join(__dirname, './fixtures/replace-custom/**/*.js'),
         dest: tmpDir

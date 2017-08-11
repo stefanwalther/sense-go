@@ -1,23 +1,23 @@
 'use strict';
 
-var senseGo = require('./../lib/');
-var path = require('path');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const senseGo = require('./../lib/');
+const path = require('path');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
 
 describe('wbfolder', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
   });
 
   it('should create a wbfolder.wbl using the `wbl` task', function (done) {
-    var config = {
+    const config = {
       tmpDir: tmpDir,
       wbfolder: {
         enabled: true,
@@ -39,7 +39,7 @@ describe('wbfolder', function () {
   });
 
   it('should not create a wbfolder.wbl using the `wbl` task not enabled', function (done) {
-    var config = {
+    const config = {
       wbfolder: {
         enabled: true,
         cwd: path.join(__dirname, './fixtures/wbfolder'),

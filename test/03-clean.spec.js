@@ -1,17 +1,17 @@
 'use strict';
-var fs = require('fs-extra');
-var senseGo = require('./../lib/');
-var path = require('path');
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const fs = require('fs-extra');
+const senseGo = require('./../lib/');
+const path = require('path');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var expect = chai.expect;
-var testUtils = require('./lib/test-utils');
-var cleanTask = require('./../lib/tasks/clean');
+const file = chaiFiles.file;
+const expect = chai.expect;
+const testUtils = require('./lib/test-utils');
+const cleanTask = require('./../lib/tasks/clean');
 
 describe('Clean tasks', function () {
-  var tmpDir = path.join(__dirname, './.tmp');
+  const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
     testUtils.delDir(tmpDir, done);
@@ -22,16 +22,16 @@ describe('Clean tasks', function () {
 
   describe('Core method', function () {
     it('should clean the entire directory', function (done) {
-      var gulp = senseGo.gulp;
+      const gulp = senseGo.gulp;
       fs.copy(path.join(__dirname, './fixtures/clean'), tmpDir, function (err) {
         if (err) {
           return console.error(err);
         }
-        var taskConfig = {
+        const taskConfig = {
           taskName: 'test:',
           src: path.join(tmpDir, './**/*.*')
         };
-        var delOptions = {};
+        const delOptions = {};
         cleanTask(gulp)
           // eslint-disable-next-line max-nested-callbacks
           .clean(taskConfig, delOptions, function () {

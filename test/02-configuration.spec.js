@@ -1,15 +1,15 @@
 'use strict';
 
-var senseGo = require('./../lib/');
-var path = require('path');
-var chai = require('chai');
-var expect = chai.expect;
-var expandTilde = require('expand-tilde');
+const senseGo = require('./../lib/');
+const path = require('path');
+const chai = require('chai');
+const expect = chai.expect;
+const expandTilde = require('expand-tilde');
 
 describe('Configuration', function () {
   describe('deployment', function () {
     it('toLocal.enabled & pathFetching=true will fetch the path on Windows', function (done) {
-      var config = {
+      const config = {
         deployment: {
           toLocal: {
             enabled: true,
@@ -20,7 +20,7 @@ describe('Configuration', function () {
 
       senseGo.init(config, function (err) {
         expect(err).to.not.exist;
-        var cfg = senseGo.getConfig();
+        const cfg = senseGo.getConfig();
         if (process.platform === 'win32') {
           expect(cfg.deployment.toLocal.extensionPath).to.not.be.empty;
         } else {
@@ -31,7 +31,7 @@ describe('Configuration', function () {
     });
 
     it('toLocal.enabled & pathFetching=false will throw and error if localExtensionsBaseDir is not defined', function (done) {
-      var config = {
+      const config = {
         deployment: {
           toLocal: {
             enabled: true,
@@ -49,7 +49,7 @@ describe('Configuration', function () {
     });
 
     it('toLocal.enabled && pathFetching=false is OK if localExtensionsBaseDir is defined', function (done) {
-      var config = {
+      const config = {
         deployment: {
           toLocal: {
             enabled: true,
@@ -67,7 +67,7 @@ describe('Configuration', function () {
     });
 
     it('A tilde path (*nix) is resolved correctly', function (done) {
-      var config = {
+      const config = {
         packageName: 'whatever',
         deployment: {
           toLocal: {
@@ -78,10 +78,10 @@ describe('Configuration', function () {
           }
         }
       };
-      var expected = expandTilde('~/Documents/Qlik/Sense/Extensions');
+      const expected = expandTilde('~/Documents/Qlik/Sense/Extensions');
       senseGo.init(config, function (err) {
         expect(err).to.be.undefined;
-        var cfg = senseGo.getConfig();
+        const cfg = senseGo.getConfig();
         expect(cfg.deployment.toLocal.extensionPath).not.to.be.empty;
         expect(senseGo.getConfig().deployment.toLocal.extensionPath).to.have.string(expected);
         done();
