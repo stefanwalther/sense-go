@@ -8,7 +8,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('sense-go', function () {
-
   let senseGo;
   beforeEach(() => {
     senseGo = new SenseGo();

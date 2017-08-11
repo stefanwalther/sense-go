@@ -10,16 +10,15 @@ const chai = require('chai');
 const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
 const expect = chai.expect;
-const SenseGo = require('./../lib/')
+const SenseGo = require('./../lib/');
 
 describe('Deployment.viaShell', () => {
-
   let senseGo;
   beforeEach(() => {
     senseGo = new SenseGo();
   });
 
-  it('should not do anything if disabled', (done) => {
+  it('should not do anything if disabled', done => {
     const config = {
       deployment: {
         viaShell: {
@@ -28,8 +27,7 @@ describe('Deployment.viaShell', () => {
       }
     };
 
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('deploy:viaShell');
@@ -40,21 +38,20 @@ describe('Deployment.viaShell', () => {
         expect(result[0]).to.not.exist;
         done();
       });
-    })
+    });
   });
 
-  it('should run a single command in root', (done) => {
+  it('should run a single command in root', done => {
     const config = {
       deployment: {
         viaShell: {
           enabled: true,
-          cmd: "echo 1"
+          cmd: 'echo 1'
         }
       }
     };
 
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('deploy:viaShell');
@@ -64,10 +61,10 @@ describe('Deployment.viaShell', () => {
         expect(result[0][0]).to.be.equal('1\n');
         done();
       });
-    })
+    });
   });
 
-  it('should run if an array of commands is defined', (done) => {
+  it('should run if an array of commands is defined', done => {
     const config = {
       deployment: {
         viaShell: {
@@ -75,19 +72,18 @@ describe('Deployment.viaShell', () => {
           commands: [
             {
               enabled: true,
-              cmd: "echo 1"
+              cmd: 'echo 1'
             },
             {
               enabled: true,
-              cmd: "echo 2"
+              cmd: 'echo 2'
             }
           ]
         }
       }
     };
 
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('deploy:viaShell');
@@ -98,7 +94,6 @@ describe('Deployment.viaShell', () => {
         expect(result[0][1]).to.be.equal('2\n');
         done();
       });
-    })
-  })
-
+    });
+  });
 });

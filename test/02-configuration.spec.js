@@ -1,4 +1,4 @@
-/*global describe, it */
+/* global describe, it */
 'use strict';
 
 const SenseGo = require('./../lib/');
@@ -8,7 +8,6 @@ const expect = chai.expect;
 const expandTilde = require('expand-tilde');
 
 describe('Configuration', function () {
-
   let senseGo;
   beforeEach(() => {
     senseGo = new SenseGo();

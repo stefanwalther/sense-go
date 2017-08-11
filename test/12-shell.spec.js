@@ -12,32 +12,30 @@ chai.use(chaiFiles);
 const expect = chai.expect;
 
 describe('Shell Tasks', () => {
-
   let senseGo;
 
   beforeEach(() => {
     senseGo = new SenseGo();
   });
 
-  it('Should return basic shell commands', (done) => {
+  it('Should return basic shell commands', done => {
     const config = {
       shell: {
         enabled: true,
         tasks: [
           {
             enabled: true,
-            cmd: "echo 1"
+            cmd: 'echo 1'
           },
           {
             enabled: true,
-            cmd: "echo 2"
+            cmd: 'echo 2'
           }
         ]
       }
     };
 
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
@@ -48,27 +46,26 @@ describe('Shell Tasks', () => {
         expect(result[0][1]).to.be.equal('2\n');
         done();
       });
-    })
+    });
   });
 
-  it('should allow to disable each of the commands', (done) => {
+  it('should allow to disable each of the commands', done => {
     const config = {
       shell: {
         enabled: true,
         tasks: [
           {
             enabled: false,
-            cmd: "echo 1"
+            cmd: 'echo 1'
           },
           {
             enabled: true,
-            cmd: "echo 2"
+            cmd: 'echo 2'
           }
         ]
       }
     };
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
@@ -82,22 +79,21 @@ describe('Shell Tasks', () => {
     });
   });
 
-  it('should enable each of the tasks by default', (done) => {
+  it('should enable each of the tasks by default', done => {
     const config = {
       shell: {
         enabled: true,
         tasks: [
           {
-            cmd: "echo 1"
+            cmd: 'echo 1'
           },
           {
-            cmd: "echo 2"
+            cmd: 'echo 2'
           }
         ]
       }
     };
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
@@ -110,19 +106,18 @@ describe('Shell Tasks', () => {
     });
   });
 
-  it('can be disabled at all', (done) => {
+  it('can be disabled at all', done => {
     const config = {
       shell: {
         enabled: false,
         tasks: [
           {
-            cmd: "echo 1"
+            cmd: 'echo 1'
           }
         ]
       }
     };
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
@@ -134,15 +129,14 @@ describe('Shell Tasks', () => {
     });
   });
 
-  it('works if no tasks are defined', (done) => {
+  it('works if no tasks are defined', done => {
     const config = {
       shell: {
         enabled: true
       }
     };
 
-    senseGo.init(config, function(err)  {
-
+    senseGo.init(config, function (err) {
       expect(err).to.be.undefined;
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
@@ -154,5 +148,4 @@ describe('Shell Tasks', () => {
       });
     });
   });
-
 });
