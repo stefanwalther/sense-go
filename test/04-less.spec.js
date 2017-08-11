@@ -5,7 +5,7 @@
 const path = require('path');
 
 // Local dependencies
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
@@ -14,9 +14,11 @@ const expect = chai.expect;
 const testUtils = require('./lib/test-utils');
 
 describe('less tasks (with custom configuration)', function () {
+  let senseGo;
   const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
+    senseGo = new SenseGo();
     testUtils.delDir(tmpDir, done);
   });
   afterEach(function (done) {

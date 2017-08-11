@@ -3,7 +3,7 @@
  * - Some negative tests
  */
 'use strict';
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const path = require('path');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
@@ -13,9 +13,11 @@ const expect = chai.expect;
 const testUtils = require('./lib/test-utils');
 
 describe('replace tasks', function () {
+  let senseGo;
   const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
+    senseGo = new SenseGo();
     testUtils.delDir(tmpDir, done);
   });
 

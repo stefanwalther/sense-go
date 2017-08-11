@@ -1,3 +1,11 @@
+v0.13.0:
+  date: "2017-08-12":
+  changes:
+    - "Breaking change: sense-go needs to be initialized if using the API"
+    - "Adding tests for shell"
+    - "Adding tests for deploy:shell"
+    - "Shell tasks can now be defined as an array"
+    - "Deployment:shell tasks can now be defined as an array"
 v0.12.9:
   date: "2017-06-19"
   changes:

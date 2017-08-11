@@ -2,12 +2,18 @@
 'use strict';
 
 const gulp = require('gulp');
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const path = require('path');
 const chai = require('chai');
 const expect = chai.expect;
 
 describe('sense-go', function () {
+
+  let senseGo;
+  beforeEach(() => {
+    senseGo = new SenseGo();
+  });
+
   it('should take packageName from package.json by default', function (done) {
     senseGo.init({}, function (err) {
       expect(err).to.not.exist;

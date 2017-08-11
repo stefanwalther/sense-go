@@ -1,6 +1,6 @@
 'use strict';
 const fs = require('fs-extra');
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const path = require('path');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
@@ -11,9 +11,11 @@ const testUtils = require('./lib/test-utils');
 const cleanTask = require('./../lib/tasks/clean');
 
 describe('Clean tasks', function () {
+  let senseGo;
   const tmpDir = path.join(__dirname, './.tmp');
 
   beforeEach(function (done) {
+    senseGo = new SenseGo();
     testUtils.delDir(tmpDir, done);
   });
   afterEach(function (done) {
@@ -33,7 +35,7 @@ describe('Clean tasks', function () {
         };
         const delOptions = {};
         cleanTask(gulp)
-          // eslint-disable-next-line max-nested-callbacks
+        // eslint-disable-next-line max-nested-callbacks
           .clean(taskConfig, delOptions, function () {
             expect(file(path.join(tmpDir, './foo.js'))).to.not.exist;
             expect(file(path.join(tmpDir, './bar.js'))).to.not.exist;

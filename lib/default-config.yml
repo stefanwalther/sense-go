@@ -42,7 +42,11 @@ deployment:
     dest: "/c/Users/usr/Documents/Qlik/Sense/Extensions/whatever-extension"
   viaShell:
     enabled: false
-    cmd: "ls"
+    # root commands are deprecated, move your tasks to "commands"
+#    cmd: "ls"
+#    commands:
+#      - enabled: true
+#        cmd: "echo 1"
 
 # -------------------------------------------------------------------------------
 # Task specific settings
@@ -125,7 +129,7 @@ uglifyTmp:
 # -------------------------------------------------------------------------------
 shell:
   # enable or disable shell tasks in general
-  enabled: true
+  enabled: false
   tasks:
 #    - enabled: true
 #      cmd: echo 1

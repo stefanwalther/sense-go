@@ -4,7 +4,8 @@ In your sense-go.js pass in a custom configuration object to `senseGo.init` as f
 
 ```js
 'use strict';
-var senseGo = require('./lib/');
+const SenseGo = require('./lib/');
+const senseGo = new SenseGo();
 
 var customConfig = {
   deployment: {
@@ -26,7 +27,8 @@ senseGo.init( customConfig, function () {
 
 ```js
 'use strict';
-var senseGo = require('./lib/');
+const SenseGo = require('./lib/');
+const senseGo = new SenseGo();
 
 var customConfig = senseGo.loadYml( path.join(__dirname, 'custom-config.yml'));
 
@@ -42,8 +44,9 @@ senseGo.init( customConfig, function () {
 ```js
 
 'use strict';
-var senseGo = require('./lib/');
-var gulp = senseGo.gulp; // Get the reference to the gulp instance used in sense-go
+const SenseGo = require('./lib/');
+const senseGo = new SenseGo();
+const gulp = senseGo.gulp; // Get the reference to the gulp instance used in sense-go
 
 senseGo.init( function () {
 

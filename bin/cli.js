@@ -8,32 +8,33 @@
  * Copyright (c) 2014-2015 Fractal <contact@wearefractal.com>
  */
 
-var fs = require( 'fs' );
-var path = require( 'path' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
-var gulp = require( 'gulp' );
-var argv = require( 'minimist' )( process.argv.slice( 2 ) );
-var Liftoff = require( 'liftoff' );
-var v8flags = require( 'v8flags' );
-var _ = require( 'lodash' );
-var chalk = require( 'chalk' );
+const gulp = require( 'gulp' );
+const argv = require( 'minimist' )( process.argv.slice( 2 ) );
+const Liftoff = require( 'liftoff' );
+const v8flags = require( 'v8flags' );
+const _ = require( 'lodash' );
+const chalk = require( 'chalk' );
 
 var log = require( './log' );
-var senseGo = require( './../lib/' );
-var pkg = require( '../package' );
-var taskTree = require( './task-tree' );
-var extend = require( 'deep-extend' );
+const SenseGo = require( './../lib/' );
+const pkg = require( '../package' );
+const taskTree = require( './task-tree' );
+const extend = require( 'deep-extend' );
+let senseGo = new SenseGo();
 
 // store a reference to the current CWD
 process.env.INIT_CWD = process.cwd();
 
-var cli = new Liftoff( {
+const cli = new Liftoff( {
 	name: 'sense-go',
 	v8flags: v8flags
 } );
 
 // exit with 0 or 1
-var failed = false;
+let failed = false;
 process.once( 'exit', function ( code ) {
 	if ( code === 0 && failed ) {
 		exit( 1 );
@@ -43,31 +44,31 @@ process.once( 'exit', function ( code ) {
 /**
  * flags
  */
-var versionFlag = argv.v || argv.version;
-var debugFlag = argv.d || argv.debug;
-var tasksFlag = argv.T || argv.tasks;
-var hasSenseGoYml = fs.existsSync( path.join( process.cwd(), '.sense-go.yml' ) );
-var hasSenseGoYmlLocal = fs.existsSync( path.join( process.cwd(), '.sense-go.local.yml' ) );
-var hasSenseGoJs = fs.existsSync( path.join( process.cwd(), 'sense-go.js' ) );
-var senseGoJsFile = (hasSenseGoJs) ? path.join( process.cwd(), 'sense-go.js' ) : null;
-var tasks = argv._;
-var toRun = tasks.length ? tasks : ['default'];
+let versionFlag = argv.v || argv.version;
+let debugFlag = argv.d || argv.debug;
+let tasksFlag = argv.T || argv.tasks;
+let hasSenseGoYml = fs.existsSync( path.join( process.cwd(), '.sense-go.yml' ) );
+let hasSenseGoYmlLocal = fs.existsSync( path.join( process.cwd(), '.sense-go.local.yml' ) );
+let hasSenseGoJs = fs.existsSync( path.join( process.cwd(), 'sense-go.js' ) );
+let senseGoJsFile = (hasSenseGoJs) ? path.join( process.cwd(), 'sense-go.js' ) : null;
+let tasks = argv._;
+let toRun = tasks.length ? tasks : ['default'];
 
-var simpleTasksFlag = argv['tasks-simple'];
-var shouldLog = !argv.silent && !simpleTasksFlag;
+let simpleTasksFlag = argv['tasks-simple'];
+let shouldLog = !argv.silent && !simpleTasksFlag;
 
 if ( !shouldLog ) {
 	log = function () {};
 }
 
 cli.on( 'respawn', function ( flags, child ) {
-	var nodeFlags = chalk.magenta( flags.join( ', ' ) );
-	var pid = chalk.magenta( child.pid );
+	const nodeFlags = chalk.magenta( flags.join( ', ' ) );
+	const pid = chalk.magenta( child.pid );
 	log( 'Node flags detected:', nodeFlags );
 	log( 'Respawned to PID:', pid );
 } );
 
-var cwd = argv.cwd || (hasSenseGoYml ? process.cwd() : null);
+const cwd = argv.cwd || (hasSenseGoYml ? process.cwd() : null);
 
 cli.launch( {
 	cwd: cwd
@@ -107,10 +108,10 @@ function run ( env ) {
 	}
 
 	if ( (hasSenseGoYml || hasSenseGoYmlLocal) && !hasSenseGoJs ) {
-		var userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
+		let userConfig = senseGo.loadYml( path.join( process.cwd(), '.sense-go.yml' ) );
 		log( 'Using the .sense-go.yml file ...' );
 		if ( hasSenseGoYmlLocal ) {
-			var userConfigLocal = senseGo.loadYml( path.join( process.cwd(), '.sense-go.local.yml' ) );
+			let userConfigLocal = senseGo.loadYml( path.join( process.cwd(), '.sense-go.local.yml' ) );
 			userConfig = extend( userConfig, userConfigLocal );
 			log( 'Extending with settings in  the .sense-go.local.yml file ...' );
 		}

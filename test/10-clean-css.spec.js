@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs-extra');
 
 // Local dependencies
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
@@ -15,10 +15,12 @@ const testUtils = require('./lib/test-utils');
 const cleanCssTask = require('./../lib/tasks/clean-css');
 
 describe('Clean Css tasks', function () {
+  let senseGo;
   const tmpDir = path.join(__dirname, './.tmp');
   const expectedDir = path.join(__dirname, './expected');
 
   beforeEach(function (done) {
+    senseGo = new SenseGo();
     testUtils.delDir(tmpDir, done);
   });
   afterEach(function (done) {

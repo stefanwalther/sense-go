@@ -1,13 +1,19 @@
 /*global describe, it */
 'use strict';
 
-const senseGo = require('./../lib/');
+const SenseGo = require('./../lib/');
 const path = require('path');
 const chai = require('chai');
 const expect = chai.expect;
 const expandTilde = require('expand-tilde');
 
 describe('Configuration', function () {
+
+  let senseGo;
+  beforeEach(() => {
+    senseGo = new SenseGo();
+  });
+
   describe('deployment', function () {
     it('toLocal.enabled & pathFetching=true will fetch the path on Windows', function (done) {
       const config = {
