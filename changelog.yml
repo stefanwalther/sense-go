@@ -1,7 +1,7 @@
 v0.13.0:
   date: "2017-08-12":
   changes:
-    - "Breaking change: sense-go needs to be initialized if using the API"
+    - "Breaking change: sense-go needs to be instantiated if using the API"
     - "Adding tests for shell"
     - "Adding tests for deploy:shell"
     - "Shell tasks can now be defined as an array"
