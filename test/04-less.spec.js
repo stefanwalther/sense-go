@@ -1,3 +1,4 @@
+/* global describe, beforeEach, afterEach, it */
 'use strict';
 
 // Core dependencies
@@ -45,7 +46,7 @@ describe('less tasks (with custom configuration)', function () {
   });
 
   it('should run lessReduce tasks', function (done) {
-    var config = {
+    const config = {
       lessReduce: {
         src: path.join(__dirname, './fixtures/lessReduce/root.less'),
         dest: tmpDir

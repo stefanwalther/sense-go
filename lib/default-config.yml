@@ -124,9 +124,13 @@ uglifyTmp:
 # Shell
 # -------------------------------------------------------------------------------
 shell:
-  enabled: false
+  # enable or disable shell tasks in general
+  enabled: true
   tasks:
-  # - ""
+#    - enabled: true
+#      cmd: echo 1
+#    - enabled: true
+#      cmd: echo 2
 
 
 

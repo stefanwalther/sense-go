@@ -1,3 +1,4 @@
+/* global describe, it */
 'use strict';
 
 const gulp = require('gulp');

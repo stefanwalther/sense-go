@@ -1,16 +1,16 @@
 'use strict';
 
 // Core dependencies
-var path = require('path');
-var fs = require('fs-extra');
+const path = require('path');
+const fs = require('fs-extra');
 
 // Local dependencies
-var chai = require('chai');
-var chaiFiles = require('chai-files');
+const chai = require('chai');
+const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
-var file = chaiFiles.file;
-var dir = chaiFiles.dir;
-var expect = chai.expect;
+const file = chaiFiles.file;
+const dir = chaiFiles.dir;
+const expect = chai.expect;
 
 describe('After all tests', function () {
   it('There is no .tmp directory in root', function () {
