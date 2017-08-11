@@ -8,7 +8,7 @@ The entire concept follows conventions (or best practices) being used when setti
 |-- docs          <= documentation files, then used by verb
 |-- src           <= all source files
     |-- lib
-		|-- css	      <= see below *
+    |-- css	      <= see below *
         |-- less  <= less files
 | .sense-go.yml   <= sense-go configuration file (OPTIONAL)
 | .verb.md        <= verbs readme template
