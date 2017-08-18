@@ -1,3 +1,7 @@
+v0.13.1:
+  date: "2017-08-18"
+  changes:
+    - "Fix minor issue that for the replace:tmp task the task name was not included in the log"
 v0.13.0:
   date: "2017-08-12":
   changes:
