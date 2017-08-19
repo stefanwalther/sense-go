@@ -1,1 +1,2 @@
-var lic = '@@pkg.license';
+const lic = '@@pkg.license';
+const version = '@@pkg.version';
