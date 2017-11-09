@@ -1,3 +1,8 @@
+v0.13.2:
+  date: "2017-11-09"
+  changes:
+    - "Add .nvmrc"
+    - "Move back to npm instead of yarn"
 v0.13.1:
   date: "2017-08-18"
   changes:
