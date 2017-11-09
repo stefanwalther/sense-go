@@ -1,3 +1,7 @@
+v0.13.6:
+  date: "2017-11-10"
+  changes:
+    - "Fix field homepage in header"
 v0.13.5:
   date: "2017-11-09"
   changes:
