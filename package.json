@@ -1,6 +1,6 @@
 {
   "name": "sense-go",
-  "version": "0.13.2",
+  "version": "0.13.4",
   "description": "Validate, package and deploy your Qlik Sense Visualization Extension projects with ease.",
   "keywords": [
     "deployment",
