@@ -34,7 +34,7 @@ describe('Deployment.viaShell', () => {
 
       senseGo.gulp.series('deploy:viaShell')((err, result) => {
         expect(err).to.not.exist;
-        expect(result).to.be.an.array;
+        expect(result).to.be.an('array');
         expect(result[0]).to.not.exist;
         done();
       });
@@ -57,7 +57,6 @@ describe('Deployment.viaShell', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('deploy:viaShell');
 
       senseGo.gulp.series('deploy:viaShell')((err, result) => {
-        expect(result).to.not.be.an.array;
         expect(result[0][0]).to.be.equal('1\n');
         done();
       });
@@ -89,7 +88,6 @@ describe('Deployment.viaShell', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('deploy:viaShell');
 
       senseGo.gulp.series('deploy:viaShell')((err, result) => {
-        expect(result).to.not.be.an.array;
         expect(result[0][0]).to.be.equal('1\n');
         expect(result[0][1]).to.be.equal('2\n');
         done();

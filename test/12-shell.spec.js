@@ -41,7 +41,7 @@ describe('Shell Tasks', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
 
       senseGo.gulp.series('shell')((err, result) => {
-        expect(result).to.be.an.array;
+        expect(result).to.be.an('array');
         expect(result[0][0]).to.be.equal('1\n');
         expect(result[0][1]).to.be.equal('2\n');
         done();
@@ -71,7 +71,7 @@ describe('Shell Tasks', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
 
       senseGo.gulp.series('shell')((err, result) => {
-        expect(result).to.be.an.array;
+        expect(result).to.be.an('array');
         expect(result[0]).to.have.length(1);
         expect(result[0][0]).to.be.equal('2\n');
         done();
@@ -99,7 +99,7 @@ describe('Shell Tasks', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
 
       senseGo.gulp.series('shell')((err, result) => {
-        expect(result).to.be.an.array;
+        expect(result).to.be.an('array');
         expect(result[0]).to.have.length(2);
         done();
       });
@@ -123,7 +123,8 @@ describe('Shell Tasks', () => {
       expect(senseGo.gulp._registry._tasks).to.have.a.property('shell');
 
       senseGo.gulp.series('shell')((err, result) => {
-        expect(result).not.to.be.an.array;
+
+        expect(result).to.be.an('array').to.be.eql([undefined]);
         done();
       });
     });
@@ -143,7 +144,7 @@ describe('Shell Tasks', () => {
 
       senseGo.gulp.series('shell')((err, result) => {
         console.log('error', err);
-        expect(result).not.to.be.an.array;
+        expect(result).to.be.an('array').to.be.eql([undefined]);
         done();
       });
     });
