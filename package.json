@@ -97,7 +97,7 @@
     "spawn-cmd": "0.0.2",
     "tildify": "^1.2.0",
     "time-stamp": "^2.0.0",
-    "v8flags": "^2.0.11"
+    "v8flags": "^3.0.1"
   },
   "devDependencies": {
     "assertion-error": "^1.0.2",
