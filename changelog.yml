@@ -1,3 +1,7 @@
+v0.13.8:
+  date: "2017-11-10"
+  changes:
+    - "Move to node.js v8.6.0"
 v0.13.7:
   date: "2017-11-10"
   changes:
