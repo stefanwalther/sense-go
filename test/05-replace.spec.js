@@ -43,10 +43,10 @@ describe('replace tasks', function () {
       senseGo.gulp.series(['copy:toTmp', 'replace:tmp'])(function () {
         expect(file(path.join(tmpDir, 'bar.js'))).to.exist;
         expect(file(path.join(tmpDir, 'foo.js'))).to.exist;
-        expect(file(path.join(tmpDir, 'bar.js'))).to.contain("const lic = 'MIT';");
-        expect(file(path.join(tmpDir, 'bar.js'))).to.contain("const version = '" + pkg.version +"';");
-        expect(file(path.join(tmpDir, 'foo.js'))).to.contain("const name = 'sense-go';");
-        expect(file(path.join(tmpDir, 'foo.js'))).to.contain("const version = '" + pkg.version + "';");
+        expect(file(path.join(tmpDir, 'bar.js'))).to.contain('const lic = \'MIT\';');
+        expect(file(path.join(tmpDir, 'bar.js'))).to.contain('const version = \'' + pkg.version + '\';');
+        expect(file(path.join(tmpDir, 'foo.js'))).to.contain('const name = \'sense-go\';');
+        expect(file(path.join(tmpDir, 'foo.js'))).to.contain('const version = \'' + pkg.version + '\';');
         done();
       });
     });

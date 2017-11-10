@@ -1,3 +1,9 @@
+v0.14.0:
+  date: "2017-11-10"
+  changes:
+    - "Move to gulp-uglify v3.0.0, which introduces a few breaking changes"
+    - "Handle breaking changes in initialization of sense-go"
+    - "uglify-tasks: allow es6"
 v0.13.8:
   date: "2017-11-10"
   changes:

@@ -116,9 +116,9 @@ replacements:
 # -------------------------------------------------------------------------------
 uglify:
   mangle: false                      # Do not mangle, otherwise angularJS will be broken
-  beautify: true
   compress: true
-  preserveComments: "license"
+  output:
+    comments: "some"
 uglifyTmp:
   src: "./.tmp/**/*.js"
   srcExcluded: "./.tmp/**/*.min.js"

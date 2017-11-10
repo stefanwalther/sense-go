@@ -13,7 +13,6 @@ chai.use(chaiFiles);
 const file = chaiFiles.file;
 const expect = chai.expect;
 const testUtils = require('./lib/test-utils');
-const _ = require('lodash');
 
 describe('Uglify tasks', function () {
   let senseGo;
@@ -24,17 +23,17 @@ describe('Uglify tasks', function () {
     testUtils.delDir(tmpDir, done);
   });
 
-  it('uglify:tmp should NOT be included in the pre-built <build> task', function () {
+  it('uglify:tmp should NOT be included in the pre-built <build> task', () => {
     const defaultConfig = senseGo.loadYml(path.join(__dirname, './../lib/default-config.yml'));
     expect(defaultConfig.taskChains.build).to.not.contain('uglify:tmp');
   });
 
-  it('uglify:tmp should be included in the pre-build <release> task', function () {
+  it('uglify:tmp should be included in the pre-build <release> task', () => {
     const defaultConfig = senseGo.loadYml(path.join(__dirname, './../lib/default-config.yml'));
     expect(defaultConfig.taskChains.release).to.contain('uglify:tmp');
   });
 
-  it('should minify JavaScript files and ignore already minified files', function (done) {
+  it('should minify JavaScript files and ignore already minified files', done => {
     const config = {
       uglifyTmp: {
         src: path.join(__dirname, './fixtures/uglify/**/*.js'),
@@ -47,7 +46,7 @@ describe('Uglify tasks', function () {
       expect(senseGo.gulp._registry._tasks).not.to.be.null;
       expect(senseGo.gulp._registry._tasks).to.have.property('uglify:tmp');
 
-      senseGo.gulp.series(['uglify:tmp'])(function () {
+      senseGo.gulp.series(['uglify:tmp'])(() => {
         expect(file(path.join(tmpDir, './foo.js'))).to.exist;
         expect(file(path.join(tmpDir, './foo.js'))).to.contain('var a=1,b=2,c=3;');
         expect(file(path.join(tmpDir, './foo.min.js'))).to.not.exist;
