@@ -1,4 +1,4 @@
-v0.14.0:
+v0.14.1:
   date: "2017-11-10"
   changes:
     - "Move to gulp-uglify v3.0.0, which introduces a few breaking changes"
