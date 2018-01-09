@@ -19,7 +19,7 @@ const _ = require('lodash');
 const chalk = require('chalk');
 
 let log = require('./log');
-const SenseGo = require('./../lib/');
+const SenseGo = require('./../lib/index');
 const pkg = require('../package');
 const taskTree = require('./task-tree');
 const extend = require('deep-extend');
