@@ -1,6 +1,5 @@
 'use strict';
 
-// Core dependencies
 const path = require('path');
 const fs = require('fs-extra');
 

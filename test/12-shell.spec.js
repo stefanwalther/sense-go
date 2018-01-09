@@ -1,10 +1,7 @@
 'use strict';
 /* global describe, it */
-// Core dependencies
 const path = require('path');
 const fs = require('fs-extra');
-
-// Local dependencies
 const SenseGo = require('./../lib/');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
