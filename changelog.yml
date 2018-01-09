@@ -1,3 +1,7 @@
+v0.14.2:
+  date: "2018-01-09"
+  changes:
+    - "Do not clean .woff2 files (task clean.js"
 v0.14.1:
   date: "2017-11-10"
   changes:
