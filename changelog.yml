@@ -1,3 +1,7 @@
+v0.14.4:
+  daete: "2018-01-20"
+  fixes:
+    - "Use LF instead of CRLF in task header"
 v0.14.3:
   date: "2018-01-09"
   changes:
