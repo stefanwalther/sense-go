@@ -40,8 +40,8 @@ describe('Shell Tasks', () => {
       senseGo.gulp.series('shell')((err, result) => {
         expect(err).to.not.exist;
         expect(result).to.be.an('array');
-        expect(result[0][0]).to.be.equal('1' + os.EOL);
-        expect(result[0][1]).to.be.equal('2' + os.EOL);
+        expect(result[0][0]).to.be.contain('1');
+        expect(result[0][1]).to.be.contain('2');
         done();
       });
     });
@@ -72,7 +72,7 @@ describe('Shell Tasks', () => {
         expect(err).to.not.exist;
         expect(result).to.be.an('array');
         expect(result[0]).to.have.length(1);
-        expect(result[0][0]).to.be.equal('2' + os.EOL);
+        expect(result[0][0]).to.be.contain('2');
         done();
       });
     });
