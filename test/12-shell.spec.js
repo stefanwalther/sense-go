@@ -7,7 +7,6 @@ chai.use(chaiFiles);
 const expect = chai.expect;
 const os = require('os');
 
-
 describe('Shell Tasks', () => {
   let senseGo;
 
