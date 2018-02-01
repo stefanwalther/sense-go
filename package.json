@@ -64,7 +64,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^3.2.0",
     "gulp-filter": "^5.1.0",
-    "gulp-git": "^2.4.2",
+    "gulp-git": "^2.5.1",
     "gulp-header": "^1.8.9",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
