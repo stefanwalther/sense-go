@@ -58,7 +58,7 @@
     "graceful-fs": "^4.1.11",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.1.0",
-    "gulp-babel": "^7.0.0",
+    "gulp-babel": "^7.0.1",
     "gulp-bump": "^2.8.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
