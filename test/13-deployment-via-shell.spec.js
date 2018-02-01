@@ -58,7 +58,7 @@ describe('Deployment.viaShell', () => {
 
       senseGo.gulp.series('deploy:viaShell')((err, result) => {
         expect(err).to.not.exist;
-        expect(result[0][0]).to.be.equal('1\n');
+        expect(result[0][0]).to.contain('1');
         done();
       });
     });
@@ -90,8 +90,8 @@ describe('Deployment.viaShell', () => {
 
       senseGo.gulp.series('deploy:viaShell')((err, result) => {
         expect(err).to.not.exist;
-        expect(result[0][0]).to.be.equal('1\n');
-        expect(result[0][1]).to.be.equal('2\n');
+        expect(result[0][0]).to.contain('1');
+        expect(result[0][1]).to.contain('2');
         done();
       });
     });
