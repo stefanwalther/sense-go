@@ -13,6 +13,7 @@
 
 <details>
 <summary><strong>Table of Contents</strong></summary>
+
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -26,6 +27,7 @@
 - [Contributing](#contributing)
 - [Author](#author)
 - [License](#license) 
+
 </details>
 
 ## Motivation
