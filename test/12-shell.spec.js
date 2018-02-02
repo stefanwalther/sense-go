@@ -1,12 +1,11 @@
 'use strict';
 /* global describe, it */
-const path = require('path');
-const fs = require('fs-extra');
 const SenseGo = require('./../lib/');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
 chai.use(chaiFiles);
 const expect = chai.expect;
+const os = require('os');
 
 describe('Shell Tasks', () => {
   let senseGo;
@@ -40,8 +39,8 @@ describe('Shell Tasks', () => {
       senseGo.gulp.series('shell')((err, result) => {
         expect(err).to.not.exist;
         expect(result).to.be.an('array');
-        expect(result[0][0]).to.be.equal('1\n');
-        expect(result[0][1]).to.be.equal('2\n');
+        expect(result[0][0]).to.be.contain('1');
+        expect(result[0][1]).to.be.contain('2');
         done();
       });
     });
@@ -72,7 +71,7 @@ describe('Shell Tasks', () => {
         expect(err).to.not.exist;
         expect(result).to.be.an('array');
         expect(result[0]).to.have.length(1);
-        expect(result[0][0]).to.be.equal('2\n');
+        expect(result[0][0]).to.be.contain('2');
         done();
       });
     });
