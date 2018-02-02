@@ -11,8 +11,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/28jsxcoelyuo81fk/branch/master?svg=true)](https://ci.appveyor.com/project/stefanwalther/sense-go/branch/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd348c2723f54f7398399549225ca2e9)](https://www.codacy.com/app/stefan-walther/sense-go?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stefanwalther/sense-go&amp;utm_campaign=badger)
 
-## Table of Contents
-
+<details>
+<summary><strong>Table of Contents</strong></summary>
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -26,6 +26,7 @@
 - [Contributing](#contributing)
 - [Author](#author)
 - [License](#license) 
+</details>
 
 ## Motivation
 sense-go **automates typical repetitive tasks** when developing a *Visualization extension* for Qlik Sense, such as:
