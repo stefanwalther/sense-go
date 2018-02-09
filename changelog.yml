@@ -1,5 +1,9 @@
+v0.14.5:
+  date: "2018-02-09"
+  fixes:
+    - "Savely resolve nested props in task header-js:tmp"
 v0.14.4:
-  daete: "2018-01-20"
+  date: "2018-01-20"
   fixes:
     - "Use LF instead of CRLF in task header"
 v0.14.3:

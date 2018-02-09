@@ -16,14 +16,16 @@ const headerTask = require('./../lib/tasks/header');
 describe('Header tasks', function () {
   let senseGo;
   const tmpDir = path.join(__dirname, './.tmp');
+  const plugins = require('./../lib/pluginLoader');
 
   beforeEach(function (done) {
     senseGo = new SenseGo();
-    testUtils.delDir(tmpDir, done);
+    //testUtils.delDir(tmpDir, done);
+    done();
   });
-  afterEach(function (done) {
-    testUtils.delDir(tmpDir, done);
-  });
+  // afterEach(function (done) {
+  //   testUtils.delDir(tmpDir, done);
+  // });
 
   it('load properly', function (done) {
     senseGo.init(function () {
@@ -32,7 +34,17 @@ describe('Header tasks', function () {
     });
   });
 
-  it('Adds the header properly', function (done) {
+  it('header-js:tmp SHOULD be included in the pre-built <build> task', () => {
+    const defaultConfig = senseGo.loadYml(path.join(__dirname, './../lib/default-config.yml'));
+    expect(defaultConfig.taskChains.build).to.contain('header-js:tmp');
+  });
+
+  it('header-js:tmp SHOULD be included in the pre-built <release> task', () => {
+    const defaultConfig = senseGo.loadYml(path.join(__dirname, './../lib/default-config.yml'));
+    expect(defaultConfig.taskChains.release).to.contain('header-js:tmp');
+  });
+
+  it('Adds the header properly (minimalistic example)', function (done) {
     const gulp = senseGo.gulp;
 
     const globalConfig = {
@@ -56,7 +68,7 @@ describe('Header tasks', function () {
       },
       dest: path.join(tmpDir, './header')
     };
-    const plugins = require('./../lib/pluginLoader');
+
     const taskUtils = require('./../lib/taskUtils')(plugins, taskConfig);
     headerTask(gulp, plugins, globalConfig, taskUtils)
       .header(taskConfig, function (err) {
