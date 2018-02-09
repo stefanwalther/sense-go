@@ -20,12 +20,11 @@ describe('Header tasks', function () {
 
   beforeEach(function (done) {
     senseGo = new SenseGo();
-    //testUtils.delDir(tmpDir, done);
-    done();
+    testUtils.delDir(tmpDir, done);
   });
-  // afterEach(function (done) {
-  //   testUtils.delDir(tmpDir, done);
-  // });
+  afterEach(function (done) {
+    testUtils.delDir(tmpDir, done);
+  });
 
   it('load properly', function (done) {
     senseGo.init(function () {

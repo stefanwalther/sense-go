@@ -1,3 +1,7 @@
+v0.14.6:
+  date: "2018-02-09"
+  fixes:
+    - "Fix link i header-js:tmp"
 v0.14.5:
   date: "2018-02-09"
   fixes:
