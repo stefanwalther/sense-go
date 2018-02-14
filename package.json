@@ -36,15 +36,15 @@
     "url": "git://github.com/stefanwalther/sense-go.git"
   },
   "scripts": {
-    "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
-    "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov",
     "lint": "eslint lib && eslint test",
     "lint:fix": "npm run lint:src:fix && npm run lint:test:fix",
     "lint:src": "eslint lib",
     "lint:src:fix": "eslint lib --fix",
     "lint:test": "eslint test",
-    "lint:test:fix": "eslint test --fix"
+    "lint:test:fix": "eslint test --fix",
+    "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
+    "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov"
   },
   "dependencies": {
     "archy": "^1.0.0",
