@@ -1,5 +1,6 @@
 > Copy files to a specific directory.
 
+
 **`copy:toTmp`** 
 * Copies all files (except the excluded ones) from the `src` folder to the `.tmp` folder.
 * Options used:  
