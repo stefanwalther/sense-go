@@ -8,7 +8,7 @@ The entire concept follows conventions (or best practices) being used when setti
 |-- docs          <= documentation files, then used by verb
 |-- src           <= all source files
     |-- lib
-    |-- css	      <= see below *
+    |-- css       <= see below *
         |-- less  <= less files
 | .sense-go.yml   <= sense-go configuration file (OPTIONAL)
 | .verb.md        <= verbs readme template
@@ -17,4 +17,4 @@ The entire concept follows conventions (or best practices) being used when setti
 
 \* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, but everything is configurable, it's just a bit more work to get ***sense-go*** running.
+***sense-go*** works best if you follow these conventions, but [everything is configurable](./lib/default-config.yml), it's just a bit more work to get ***sense-go*** running.

@@ -24,9 +24,7 @@
 - [Task Chains](#task-chains)
 - [Create your own task-chains](#create-your-own-task-chains)
 - [Used Gulp plugins](#used-gulp-plugins)
-- [Contributing](#contributing)
-- [Author](#author)
-- [License](#license) 
+- [About](#about) 
 
 </details>
 
@@ -108,7 +106,7 @@ The entire concept follows conventions (or best practices) being used when setti
 |-- docs          <= documentation files, then used by verb
 |-- src           <= all source files
     |-- lib
-    |-- css	      <= see below *
+    |-- css       <= see below *
         |-- less  <= less files
 | .sense-go.yml   <= sense-go configuration file (OPTIONAL)
 | .verb.md        <= verbs readme template
@@ -117,7 +115,7 @@ The entire concept follows conventions (or best practices) being used when setti
 
 \* If using less files is preferred for a project, I keep this folder empty, otherwise all the .css files will be place here
 
-***sense-go*** works best if you follow these conventions, but everything is configurable, it's just a bit more work to get ***sense-go*** running.
+***sense-go*** works best if you follow these conventions, but [everything is configurable](./lib/default-config.yml), it's just a bit more work to get ***sense-go*** running.
 
 ## Basic workflow
 The workflow of the pre-configured tasks can be summarized as follows:
@@ -635,7 +633,16 @@ sense-go is heavily relying on existing gulp plugins. A big thank you to the aut
 ### Transpilation
 [babel](https://www.npmjs.com/package/babel): Turn ES6 code into readable vanilla ES5 with source maps | [homepage](https://babeljs.io/ "Turn ES6 code into readable vanilla ES5 with source maps")
 
-## Contributing
+## About
+
+### Author
+**Stefan Walther**
+
+* [qliksite.io](http://qliksite.io)
+* [twitter/waltherstefan](http://twitter.com/waltherstefan)
+* [github.com/stefanwalther](http://github.com/stefanwalther)
+
+### Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/stefanwalther/sense-go/issues).
 The process for contributing is outlined below:
 
@@ -645,14 +652,7 @@ The process for contributing is outlined below:
 
 I cannot guarantee that I will merge all PRs but I will evaluate them all.
 
-## Author
-**Stefan Walther**
-
-* [qliksite.io](http://qliksite.io)
-* [twitter/waltherstefan](http://twitter.com/waltherstefan)
-* [github.com/stefanwalther](http://github.com/stefanwalther)
-
-## License
+### License
 Copyright © 2018, [Stefan Walther](https://github.com/stefanwalther).<br/> 
 MIT
 
