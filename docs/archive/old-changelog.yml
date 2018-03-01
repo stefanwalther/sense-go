@@ -1,3 +1,6 @@
+
+## Old changelog before moving to github-changelog-generator
+```
 v0.14.8:
   date: "2018-02-15"
   changes:
@@ -204,3 +207,4 @@ v0.5.0:
   date: "2015-08-02"
   enhancements:
     - "Added task wbfolder"
+```

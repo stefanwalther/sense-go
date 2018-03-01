@@ -1,0 +1,222 @@
+# Change Log
+
+## [v0.14.9](https://github.com/stefanwalther/sense-go/tree/v0.14.9) (2018-03-01)
+[Full Changelog](https://github.com/stefanwalther/sense-go/compare/v0.14.7...v0.14.9)
+
+**Merged pull requests:**
+
+- Update gulp-less to the latest version 🚀 [\#41](https://github.com/stefanwalther/sense-go/pull/41) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+
+## Old changelog before moving to github-changelog-generator
+```
+v0.14.8:
+  date: "2018-02-15"
+  changes:
+    - "Fix issue in the header-js:tmp template"
+v0.14.6:
+  date: "2018-02-09"
+  fixes:
+    - "Fix link i header-js:tmp"
+v0.14.5:
+  date: "2018-02-09"
+  fixes:
+    - "Savely resolve nested props in task header-js:tmp"
+v0.14.4:
+  date: "2018-01-20"
+  fixes:
+    - "Use LF instead of CRLF in task header"
+v0.14.3:
+  date: "2018-01-09"
+  changes:
+    - "Do not exclude .css files in task copy:tmpToRelease"
+v0.14.2:
+  date: "2018-01-09"
+  changes:
+    - "Do not clean .woff2 files (task clean.js"
+v0.14.1:
+  date: "2017-11-10"
+  changes:
+    - "Move to gulp-uglify v3.0.0, which introduces a few breaking changes"
+    - "Handle breaking changes in initialization of sense-go"
+    - "uglify-tasks: allow es6"
+v0.13.8:
+  date: "2017-11-10"
+  changes:
+    - "Move to node.js v8.6.0"
+v0.13.7:
+  date: "2017-11-10"
+  changes:
+    - "Fix unit tests for mocha 4"
+    - "Upgrade dependencies"
+v0.13.6:
+  date: "2017-11-10"
+  changes:
+    - "Fix field homepage in header"
+v0.13.5:
+  date: "2017-11-09"
+  changes:
+    - "Fix some issues in case of no package.json"
+v0.13.2:
+  date: "2017-11-09"
+  changes:
+    - "Add .nvmrc"
+    - "Move back to npm instead of yarn"
+v0.13.1:
+  date: "2017-08-18"
+  changes:
+    - "Fix minor issue that for the replace:tmp task the task name was not included in the log"
+v0.13.0:
+  date: "2017-08-12":
+  changes:
+    - "Breaking change: sense-go needs to be instantiated if using the API"
+    - "Adding tests for shell"
+    - "Adding tests for deploy:shell"
+    - "Shell tasks can now be defined as an array"
+    - "Deployment:shell tasks can now be defined as an array"
+v0.12.9:
+  date: "2017-06-19"
+  changes:
+    - "Start using eslint"
+    - "Use eslint-config-space-single"
+    - "Satisfy linter for lib"
+    - "Using docker-verb for documentation"
+v0.12.8:
+  date: "2017-06-19"
+  changes:
+    - "Fix an issue with url() in css files being changed by clean-css"
+v0.12.7:
+  date: "2017-06-19"
+  changes:
+    - "Update several dependencies"
+    - "Docs: Add documentation for deployment:viaShell"
+    - "CI: Remove logging when running automated tests"
+v0.12.3:
+  date: "2017-05-05"
+  changes:
+    - "Improve the author field when creating the javascript header"
+v0.12.2:
+  date: "2017-04-11"
+  changes:
+    - "Improve some cli messages"
+v0.12.1:
+  date: "2016-11-23"
+  changes:
+    - "copy:toTmp task: Don't remove the .css files"
+v0.12.0:
+  date: "2016-10-19"
+  changes:
+    - "Added custom deployment task via shell"
+    - "Added `deployment:viaShell` to the predefined task chain `build`"
+    - "Added `deployment:viaShell` to the predefined task chain `release`"
+v0.11.0:
+  date: "2016-08-21"
+  changes:
+    - "Add header task to inject a copyright header into each js file"
+v0.10.0:
+  date: "2016-08-21"
+  changes:
+    - "Add clean-css task"
+    - "The less tasks will not compress the files by default anymore"
+    - "Added cleanCss:tmp to the default task chains build & release"
+v0.8.0:
+  date: "2016-08-12"
+  changes:
+    - "Add shell task"
+v0.7.1:
+  date: "2016-08-11"
+  changes:
+    - "Add task import:fromSsh, not part of any default task chain."
+v0.7.0:
+  date: "2016-08-11"
+  changes:
+    - "Breaking change: Task import becomes import:fromLocal. No changes are necessary if you haven't used this task before. If so, have a look into the default configuration file."
+v0.6.12:
+  date: "2016-08-06"
+  changes:
+    - "Fix issues with non working js-uglify tasks"
+    - "Add support to have a local .sense-go.local.yml file, extending the .sense-go.yml file"
+    - "Fix: Return empty object instead of null for loadYml method"
+    - "Add deploy:toSsh also to default release task"
+    - "Fix: Change task in the taskChain (default-config.yml or .sense-go.yml to be objects instead of an array"
+v0.6.11:
+  date: "2016-08-03"
+  changes:
+    - "tests: Minor bugfixes and cleaning in several tests"
+    - "tests: Fix some tests for Windows & appveyor"
+v0.6.10:
+  date: "2016-08-01"
+  changes:
+    - "Fix typo in index.js (expandTile instead of expandTilde)"
+v0.6.9:
+  date: "2016-08-01"
+  changes:
+    - "Fix path-fetching issues on Windows (deployment.toLocal)"
+v0.6.8:
+  date: "2016-07-26"
+  changes:
+    - "First attempt to improve the documentation"
+v0.6.7:
+  date: "2016-07-26"
+  changes:
+    - "Fix missing time-stamp dependency (#30)"
+    - "Clarify cli-message in case no package.json nor .sense-go.yml file is available"
+v0.6.5:
+  date: "2016-07-15"
+  changes:
+    - "Fix error messages in case there is no package.json file"
+    - "Fix tests on Windows"
+    - "Add CI on travis"
+    - "Add CI in appveyor"
+    - "Updated to sense-loc v0.4.0"
+    - "Added several tests"
+    - "Improved documentation"
+v0.6.4:
+  date: "2016-07-14"
+  changes:
+    - "Load task chains dynamically from config file"
+v0.6.3:
+  date: "2016-07-14"
+  changes:
+    - "Fix wbfolder:tmp test"
+v0.6.1:
+  date: "2016-07-14"
+  changes:
+    - "Consolidate the console output of all tasks"
+v0.6.0:
+  date: "2016-07-10"
+  changes:
+    - "Added documentation for the most important and common tasks"
+    - "Added test coverage for the most important tasks"
+    - "Recognizing a .sense-go.yml file in each project"
+    - "Enabled cli usage of sense-go"
+  fixes:
+    - "toSsh task now properly ends and doesn block gulp task-chain."
+v0.5.3:
+  date: "2015-08-12"
+  new:
+    - "Added stripping of comments to the uglify tasks"
+v0.5.2:
+  date: "2015-08-11"
+  new:
+    - "Uglify"
+    - "Zip"
+    - "Release task chain"
+  enhancements:
+    - "Clean unused dependencies"
+v0.5.1:
+  date: "2015-08-09"
+  new:
+    - "Less tasks (solves #3)"
+    - "Task less:each"
+    - "Task less:reduce"
+  enhancements:
+    - "Exclude *.less files from copy tasks"
+v0.5.0:
+  date: "2015-08-02"
+  enhancements:
+    - "Added task wbfolder"
+```
+
+
+\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
