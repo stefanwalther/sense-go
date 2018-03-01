@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.14.10](https://github.com/stefanwalther/sense-go/tree/v0.14.10) (2018-03-01)
+[Full Changelog](https://github.com/stefanwalther/sense-go/compare/v0.14.9...v0.14.10)
+
 ## [v0.14.9](https://github.com/stefanwalther/sense-go/tree/v0.14.9) (2018-03-01)
 [Full Changelog](https://github.com/stefanwalther/sense-go/compare/v0.14.7...v0.14.9)
 
