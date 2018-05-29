@@ -4,7 +4,6 @@
 [Rr]esources/
 [Tt]ests/
 web.*.config
-/**/node_modules/
 /**/bower_components/
 /test/tmp/
 build/
@@ -15,6 +14,12 @@ dev-scribble.md
 coverage
 
 
+# =========================
+# npm
+# =========================
+/node_modules
+/npm-debug.log
+/package-lock.json
 
 # =========================
 # Webstorm
