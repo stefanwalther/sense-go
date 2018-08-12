@@ -44,6 +44,8 @@
     "lint:test": "eslint test",
     "lint:test:fix": "eslint test --fix",
     "test": "mocha --require ./test/mocha.conf.js test/*.spec.js",
+    "test:integration": "nyc mocha --require ./test/mocha.conf.js test/**/*.spec.js",
+    "test:integration:coverage": "nyc report --reporter=text-lcov > coverage.lcov",
     "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov",
     "changelog": "docker run --rm -v ${PWD}:/app stefanwalther/github-changelog-generator stefanwalther/sense-go -t ${GITHUB_CHANGELOG_GENERATOR_TOKEN} -u stefanwalther --since-tag v0.14.7 --base docs/archive/old-changelog.yml"
   },
@@ -113,7 +115,8 @@
     "eslint-config-space-single": "0.3.5",
     "istanbul": "0.4.5",
     "mocha": "*",
-    "mocha-lcov-reporter": "1.3.0"
+    "mocha-lcov-reporter": "1.3.0",
+    "nyc": "^12.0.2"
   },
   "engines": {
     "node": ">=8"
