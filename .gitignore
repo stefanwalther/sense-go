@@ -9,6 +9,7 @@ src/
 dev-scribble.md
 coverage
 coverage.lcov
+.nyc-output
 
 
 # =========================
