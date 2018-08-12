@@ -16,7 +16,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const Liftoff = require('liftoff');
 const v8flags = require('v8flags');
 const _ = require('lodash');
-const chalk = require('chalk');
+const colors = require('ansi-colors');
 
 let log = require('./log');
 const SenseGo = require('./../lib/index');
@@ -63,8 +63,8 @@ if (!shouldLog) {
 }
 
 cli.on('respawn', function (flags, child) {
-  const nodeFlags = chalk.magenta(flags.join(', '));
-  const pid = chalk.magenta(child.pid);
+  const nodeFlags = colors.magenta(flags.join(', '));
+  const pid = colors.magenta(child.pid);
   log('Node flags detected:', nodeFlags);
   log('Respawned to PID:', pid);
 });
@@ -78,22 +78,22 @@ cli.launch({
 function run(env) {
 
   console.log(''); // empty line
-  log(chalk.cyan('.: STARTING SENSE-GO :.'));
+  log(colors.cyan('.: STARTING SENSE-GO :.'));
 
   process.on('senseGo_onInit', function () {
     //
   });
   process.on('senseGo_onEnd', function () {
-    log(chalk.cyan('.: SENSE-GO FINISHED :.'));
+    log(colors.cyan('.: SENSE-GO FINISHED :.'));
     console.log('');
   });
 
   senseGo.gulp.on('error', function (error) {
     if (debugFlag) {
-      log(error.name + ' ' + chalk.red('An error occurred. Here are the details:'));
+      log(error.name + ' ' + colors.red('An error occurred. Here are the details:'));
       console.log('error', error);
     } else {
-      log(error.name + ' ' + chalk.red('An error occurred. Use -d to show details'));
+      log(error.name + ' ' + colors.red('An error occurred. Use -d to show details'));
     }
   });
 
