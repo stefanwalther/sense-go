@@ -7,6 +7,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/sense-go.svg?style=flat)](https://www.npmjs.com/package/sense-go)
 [![David](https://img.shields.io/david/stefanwalther/sense-go.svg)](https://github.com/stefanwalther/sense-go)
+[![Codecov](https://img.shields.io/codecov/c/github/stefanwalther/sense-go.svg?logo=codecov)](https://codecov.io/gh/stefanwalther/sense-go)
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/sense-go.svg?logo=circleci)](https://circleci.com/gh/stefanwalther/sense-go/tree/master)
 [![Travis (.org) branch](https://img.shields.io/travis/stefanwalther/sense-go/master.svg?logo=travis)](https://travis-ci.org/stefanwalther/sense-go.svg?branch=master)
 [![AppVeyor tests](https://img.shields.io/appveyor/ci/stefanwalther/sense-go.svg?logo=appveyor)](https://ci.appveyor.com/project/stefanwalther/sense-go/branch/master)
