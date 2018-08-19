@@ -29,6 +29,3 @@ jobs:
     - run:
         name: CodeCov
         command: bash <(curl -s https://codecov.io/bash)
-#    - run:
-#        name: Codacy Coverage
-#        command: ./node_modules/.bin/codacy-coverage -e $CODACY_PROJECT_TOKEN:16006
