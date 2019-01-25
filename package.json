@@ -50,7 +50,7 @@
     "changelog": "docker run --rm -v ${PWD}:/app stefanwalther/github-changelog-generator stefanwalther/sense-go -t ${GITHUB_CHANGELOG_GENERATOR_TOKEN} -u stefanwalther --since-tag v0.14.7 --base docs/archive/old-changelog.yml"
   },
   "dependencies": {
-    "ansi-colors": "^2.0.5",
+    "ansi-colors": "^3.0.0",
     "archy": "^1.0.0",
     "async": "^2.6.0",
     "deep-extend": "^0.6.0",
