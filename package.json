@@ -65,7 +65,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-bump": "^3.0.0",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
     "gulp-filter": "^5.1.0",
