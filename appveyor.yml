@@ -6,7 +6,6 @@ environment:
 # Configure matrix failures
 matrix:
   fast_finish: true
-  allow_failures:
 
 # Install scripts. (runs after repo cloning)
 install:
