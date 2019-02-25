@@ -91,7 +91,7 @@
     "gulp-watch": "^5.0.0",
     "gulp-zip": "^4.1.0",
     "js-yaml": "^3.10.0",
-    "liftoff": "^2.5.0",
+    "liftoff": "^3.0.0",
     "lodash": "^4.17.5",
     "minimatch": "^3.0.4",
     "minimist": "^1.2.0",
